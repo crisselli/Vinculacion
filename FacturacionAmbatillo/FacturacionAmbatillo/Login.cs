@@ -26,7 +26,15 @@ namespace FacturacionAmbatillo
                          "clave = '" + txtClave.Text + "'";
             MySqlConnection conn = new MySqlConnection(conexion.MyConString);
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlCommand cmd = new MySqlCommand("SpLoginUsuarios",conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("ced");
+            cmd.Parameters.Add("pass");
+
+            MySqlDataReader red = cmd.ExecuteReader();
+            
+            cmd.ExecuteNonQuery();
+
             conn.Open();
 
             MySqlDataReader myreader = cmd.ExecuteReader();
@@ -46,10 +54,51 @@ namespace FacturacionAmbatillo
 
             conn.Close();
         }
+        private string validarUser(string ced,string pass)
+        {
+            string user=null;
+            try
+            {
+                MySqlConnection cnn = new MySqlConnection(conexion.MyConString);
+                cnn.Open();
+                MySqlCommand cmd = new MySqlCommand("SpLoginUsuarios", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("ced",ced.Trim());
+                cmd.Parameters.AddWithValue("pass",pass.Trim());
+                MySqlDataReader red = cmd.ExecuteReader();
+                red.Read();
+                if (red.HasRows)
+                {
+                    this.Hide();
+                    Principal pr = new Principal();
+                    pr.ShowDialog();
+                    this.Close();
+                
+                    while (red.NextResult())
+                    {
+                        user = red["nombre"].ToString();
+                    }
+
+                }
+                else
+                {
+                    lblErrorPass.Visible = true;
+                }
+                red.Close();
+                cnn.Close();
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            return user;
+        }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            ingreso();
+            validarUser(txtUsuario.Text,txtClave.Text);
         }
 
         private void txtUsuario_KeyUp(object sender, KeyEventArgs e)
