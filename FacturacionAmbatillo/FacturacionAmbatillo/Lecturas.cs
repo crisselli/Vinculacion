@@ -78,6 +78,7 @@ namespace FacturacionAmbatillo
                     " LINES TERMINATED BY '\r\n' " +
                     " IGNORE 1 LINES " +
                     "(codigo_medidor,lectura,observacion,codigo_categoria) ";
+
                 //en el caso de Fields termined by puede ser por (, o ;) depede de la version del excel
                 // entre parentesis van el nombre de las columnas que se van a introducir en la tabla
                 cmd.CommandText = sql;
