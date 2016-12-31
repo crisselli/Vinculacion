@@ -34,6 +34,8 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbAcometida = new System.Windows.Forms.RadioButton();
+            this.rdbMedidor = new System.Windows.Forms.RadioButton();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -50,8 +52,6 @@
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.rdbMedidor = new System.Windows.Forms.RadioButton();
-            this.rdbAcometida = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +89,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // groupBox1
             // 
@@ -109,6 +110,28 @@
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de medidor";
+            // 
+            // rdbAcometida
+            // 
+            this.rdbAcometida.AutoSize = true;
+            this.rdbAcometida.Location = new System.Drawing.Point(196, 35);
+            this.rdbAcometida.Name = "rdbAcometida";
+            this.rdbAcometida.Size = new System.Drawing.Size(92, 21);
+            this.rdbAcometida.TabIndex = 19;
+            this.rdbAcometida.Text = "Acometida";
+            this.rdbAcometida.UseVisualStyleBackColor = true;
+            // 
+            // rdbMedidor
+            // 
+            this.rdbMedidor.AutoSize = true;
+            this.rdbMedidor.Checked = true;
+            this.rdbMedidor.Location = new System.Drawing.Point(112, 35);
+            this.rdbMedidor.Name = "rdbMedidor";
+            this.rdbMedidor.Size = new System.Drawing.Size(77, 21);
+            this.rdbMedidor.TabIndex = 18;
+            this.rdbMedidor.TabStop = true;
+            this.rdbMedidor.Text = "Medidor";
+            this.rdbMedidor.UseVisualStyleBackColor = true;
             // 
             // btnEliminar
             // 
@@ -277,28 +300,6 @@
             this.label5.Size = new System.Drawing.Size(109, 17);
             this.label5.TabIndex = 27;
             this.label5.Text = "Tipo de Usuario";
-            // 
-            // rdbMedidor
-            // 
-            this.rdbMedidor.AutoSize = true;
-            this.rdbMedidor.Checked = true;
-            this.rdbMedidor.Location = new System.Drawing.Point(112, 35);
-            this.rdbMedidor.Name = "rdbMedidor";
-            this.rdbMedidor.Size = new System.Drawing.Size(77, 21);
-            this.rdbMedidor.TabIndex = 18;
-            this.rdbMedidor.TabStop = true;
-            this.rdbMedidor.Text = "Medidor";
-            this.rdbMedidor.UseVisualStyleBackColor = true;
-            // 
-            // rdbAcometida
-            // 
-            this.rdbAcometida.AutoSize = true;
-            this.rdbAcometida.Location = new System.Drawing.Point(196, 35);
-            this.rdbAcometida.Name = "rdbAcometida";
-            this.rdbAcometida.Size = new System.Drawing.Size(92, 21);
-            this.rdbAcometida.TabIndex = 19;
-            this.rdbAcometida.Text = "Acometida";
-            this.rdbAcometida.UseVisualStyleBackColor = true;
             // 
             // AdministracionClientes
             // 

@@ -19,73 +19,35 @@ namespace FacturacionAmbatillo
         }
 
         Conexion conexion = new Conexion();
+        
 
-        private void ingreso() {
-            string sql = "select nombre from configuraciones " +
-                         "where usuario = '" + txtUsuario.Text + "' and " +
-                         "clave = '" + txtClave.Text + "'";
-            MySqlConnection conn = new MySqlConnection(conexion.MyConString);
-
-            MySqlCommand cmd = new MySqlCommand("SpLoginUsuarios",conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("ced");
-            cmd.Parameters.Add("pass");
-
-            MySqlDataReader red = cmd.ExecuteReader();
-            
-            cmd.ExecuteNonQuery();
-
-            conn.Open();
-
-            MySqlDataReader myreader = cmd.ExecuteReader();
-            myreader.Read();
-
-            if (myreader.HasRows)
-            {
-                this.Hide();
-                Principal pr = new Principal();
-                pr.ShowDialog();
-                this.Close();
-            }
-            else
-            {
-                lblErrorPass.Visible = true;
-            }
-
-            conn.Close();
-        }
         private string validarUser(string ced,string pass)
         {
-            string user=null;
+            string user = null;
             try
             {
                 MySqlConnection cnn = new MySqlConnection(conexion.MyConString);
-                cnn.Open();
                 MySqlCommand cmd = new MySqlCommand("SpLoginUsuarios", cnn);
+                cnn.Open();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("ced",ced.Trim());
-                cmd.Parameters.AddWithValue("pass",pass.Trim());
-                MySqlDataReader red = cmd.ExecuteReader();
-                red.Read();
-                if (red.HasRows)
+                cmd.Parameters.AddWithValue("ced", ced.Trim());
+                cmd.Parameters.AddWithValue("pass", pass.Trim());
+                
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                myreader.Read();
+
+                if (myreader.HasRows)
                 {
+                    user = myreader["nombres"].ToString();
                     this.Hide();
-                    Principal pr = new Principal();
+                    Principal pr = new Principal(txtUsuario.Text.Trim());
                     pr.ShowDialog();
                     this.Close();
-                
-                    while (red.NextResult())
-                    {
-                        user = red["nombre"].ToString();
-                    }
-
                 }
                 else
                 {
                     lblErrorPass.Visible = true;
                 }
-                red.Close();
-                cnn.Close();
             }
             catch (MySqlException ex)
             {
@@ -105,7 +67,7 @@ namespace FacturacionAmbatillo
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ingreso();
+                validarUser(txtUsuario.Text, txtClave.Text);
             }
         }
 
@@ -113,7 +75,7 @@ namespace FacturacionAmbatillo
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ingreso();
+                validarUser(txtUsuario.Text, txtClave.Text);
             }
         }
 

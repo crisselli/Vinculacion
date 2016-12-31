@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="FacturacionAmbatillo.exe.manifest" size="5140">
+    <dependentAssembly dependencyType="install" codebase="FacturacionAmbatillo.exe.manifest" size="7839">
       <assemblyIdentity name="FacturacionAmbatillo.exe" version="1.0.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rjsXTdhX8Y9a6LaKBMW8nasdHVO6XMMs8qKjcYNItLY=</dsig:DigestValue>
+        <dsig:DigestValue>Xzrb0AfbiSzZSqYkvVCt4pW9OG/jUjA658kCPI/08Dg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

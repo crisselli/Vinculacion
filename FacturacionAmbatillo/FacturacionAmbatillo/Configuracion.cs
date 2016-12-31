@@ -13,41 +13,54 @@ namespace FacturacionAmbatillo
 {
     public partial class Configuracion : Form
     {
-        public Configuracion()
+        public Configuracion(string user)
         {
             InitializeComponent();
-            cargarConfiguraciones();
+            cargarUsuario(user);
+            cargarRangos();
             cargarRubros();
             cargarBarrios();
         }
 
         Conexion conexion = new Conexion();
+        MetodosGenerales metodo = new MetodosGenerales();
 
         private void cargarRubros()
         {
-            string sql = "select codigo, nombre, valor, observacion from Rubros;";
-            llenarGrid(dgvRubros, sql);
+            metodo.llenarGrid(dgvRubros, "SpSelectRubros");
         }
 
         private void cargarBarrios()
         {
-            string sql = "select codigo, nombre from Barrios;";
-            llenarGrid(dgvBarrios, sql);
+            metodo.llenarGrid(dgvBarrios, "SpSelectBarrios");
         }
 
-        private void cargarConfiguraciones(){
+        string sql;
 
-            string sql = "select usuario, nombre, clave, fact_desde, fact_hasta, recib_desde, recib_hasta, interes_mora from Configuraciones;";
-            DataTable dataTable = new DataTable();
-            consultarDatos(sql, dataTable);
+        private void cargarRangos(){
+            try
+            {
+                sql = "select fact_desde, fact_hasta, recib_desde, recib_hasta from configuraciones;";
+                DataTable dataTable = metodo.consultarDatos(sql);
+                lblErroreses.Text = dataTable.Rows[0][0].ToString() ;
+                txtFaDesde.Text = dataTable.Rows[0][0].ToString();
+                txtFaHasta.Text = dataTable.Rows[0][1].ToString();
+                txtReDesde.Text = dataTable.Rows[0][2].ToString();
+                txtReHasta.Text = dataTable.Rows[0][3].ToString();
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            };
+        }
+ 
+        private void cargarUsuario(string user)
+        {
+            sql = "select nombres, tel_cel from usuarios where ced = '"+ user +" ';";
+            DataTable dataTable = metodo.consultarDatos(sql);
 
-            txtNombreCompleto.Text = dataTable.Rows[0][1].ToString();
-            txtUsuario.Text = dataTable.Rows[0][0].ToString();
-            txtPass.Text = dataTable.Rows[0][2].ToString();
-            txtFaDesde.Text = dataTable.Rows[0][3].ToString();
-            txtFaHasta.Text = dataTable.Rows[0][4].ToString();
-            txtReDesde.Text = dataTable.Rows[0][5].ToString();
-            txtReHasta.Text = dataTable.Rows[0][6].ToString();
+            txtNombres.Text = dataTable.Rows[0][0].ToString();
+            //txtApellidos.Text = dataTable.Rows[0][1].ToString();
+            txtPass.Text = "passw";
         }
 
         private void btnCancelarPass_Click(object sender, EventArgs e)
@@ -56,7 +69,7 @@ namespace FacturacionAmbatillo
             btnEditarPass.ImageIndex = 2;
             lblErrorPass.Visible = false;
             opcionesUsuario(false);
-            cargarConfiguraciones();
+            cargarRangos();
             btnEditarPass.Enabled = true;
         }
 
@@ -69,12 +82,12 @@ namespace FacturacionAmbatillo
             if (btnEditarPass.Text.Equals("Editar")) //Opción Editar Usuario
             {
                 //Cargar los datos de usuario en una variable temporal para comprobar
-                auxDatosUsuario = new string[]{txtNombreCompleto.Text, txtUsuario.Text, txtPass.Text};
+                auxDatosUsuario = new string[]{txtNombres.Text, txtApellidos.Text, txtPass.Text};
                 //Limpiar campos de contraseña
                 txtPass.Text = "";
                 txtNuevaPass.Text = "";
                 txtRepetirNuevaPass.Text = "";
-                //Cambiar apariencia ddel boton editar
+                //Cambiar apariencia del boton editar
                 btnEditarPass.Text = "Guardar";
                 btnEditarPass.Enabled = false;
                 btnEditarPass.ImageIndex = 0;
@@ -88,16 +101,16 @@ namespace FacturacionAmbatillo
                 if (auxDatosUsuario[2].Equals(txtPass.Text)) 
                 {
                     //MessageBox.Show("txtPass = " + txtPass.Text + "\nauxDatosUsuario[2] = " + auxDatosUsuario[2]);
-                    string sql = "update Configuraciones set " +
-                    "nombre = '" + txtNombreCompleto.Text + "', " +
-                    "usuario = '" + txtUsuario.Text + "'";
+                    sql = "update configuraciones set " +
+                    "nombres = '" + txtNombres.Text + "', " +
+                    "apellidos = '" + txtApellidos.Text + "'";
 
                     if(txtNuevaPass.Text.Trim().Length>0)
                         if (txtNuevaPass.Text.Trim() == txtRepetirNuevaPass.Text.Trim())
                         {
-                            sql += ", clave = '" + txtNuevaPass.Text + "';";
+                            sql += ", paswd = '" + txtNuevaPass.Text + "';";
                             actualizarDatos(sql);
-                            cargarConfiguraciones();
+                            cargarRangos();
                             btnEditarPass.Text = "Editar";
                             btnEditarPass.ImageIndex = 2;
                             opcionesUsuario(false);
@@ -111,7 +124,7 @@ namespace FacturacionAmbatillo
                     else
                     {
                         actualizarDatos(sql);
-                        cargarConfiguraciones();
+                        cargarRangos();
                         btnEditarPass.Text = "Editar";
                         btnEditarPass.ImageIndex = 2;
                         opcionesUsuario(false);
@@ -133,8 +146,8 @@ namespace FacturacionAmbatillo
         private void opcionesUsuario(bool op) {
             label21.Visible = op;
             label22.Visible = op;
-            txtNombreCompleto.Enabled = op;
-            txtUsuario.Enabled = op;
+            txtNombres.Enabled = op;
+            txtApellidos.Enabled = op;
             txtPass.Enabled = op;
             txtNuevaPass.Enabled = op;
             txtNuevaPass.Visible = op;
@@ -151,46 +164,6 @@ namespace FacturacionAmbatillo
             txtReDesde.Enabled = op;
             txtReHasta.Enabled = op;
             btnCancelarValores.Visible = op;
-        }
-
-       
-        private void llenarGrid(DataGridView gv, String select)
-        {
-            try
-            {
-                MySqlConnection conn = new MySqlConnection(conexion.MyConString);
-                MySqlCommand cmd = new MySqlCommand(select, conn);
-                conn.Open();
-                DataTable dataTable = new DataTable();
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-
-                da.Fill(dataTable);
-
-
-                gv.DataSource = dataTable;
-                gv.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-                conn.Close();
-            }
-            catch (MySqlException ex) {
-                MessageBox.Show(ex.Message);
-            };
-        }
-
-        private void consultarDatos(string sql, DataTable dt) {
-            try
-            {
-                MySqlConnection conn = new MySqlConnection(conexion.MyConString);
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                da.Fill(dt);
-                conn.Close();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            };
         }
 
         private void actualizarDatos (string sql)
@@ -237,14 +210,14 @@ namespace FacturacionAmbatillo
                     auxDatosRangos[0] < auxDatosRangos[1] && auxDatosRangos[2] < auxDatosRangos[3])
                 {
                     
-                    string sql = "update Configuraciones set " +
+                    sql = "update Configuraciones set " +
                     "Fact_desde = '" + txtFaDesde.Text + "', " +
                     "Fact_hasta = '" + txtFaHasta.Text + "', " +
                     "Recib_desde = '" + txtReDesde.Text + "', " +
                     "Recib_hasta = '" + txtReHasta.Text + "'";
                     
                     actualizarDatos(sql);
-                    cargarConfiguraciones();
+                    cargarRangos();
                     btnEditarValores.Text = "Editar";
                     btnEditarValores.ImageIndex = 2;
                     lblErrorValores.Visible = false;
@@ -266,7 +239,7 @@ namespace FacturacionAmbatillo
             btnEditarValores.ImageIndex = 2;
             opcionesValores(false);
             btnEditarValores.Enabled = true;
-            cargarConfiguraciones();
+            cargarRangos();
         }
 
         private void txtNombreCompleto_KeyUp(object sender, KeyEventArgs e)
@@ -297,8 +270,8 @@ namespace FacturacionAmbatillo
 
         //Metodo para habilitar o deshabilitar el boton guardar Usuario
         private void comprobarDatosUsuario(){
-            if (auxDatosUsuario[0].Equals(txtNombreCompleto.Text) &&
-                auxDatosUsuario[1].Equals(txtUsuario.Text) &&
+            if (auxDatosUsuario[0].Equals(txtNombres.Text) &&
+                auxDatosUsuario[1].Equals(txtApellidos.Text) &&
                 txtPass.Text.Trim().Equals("") &&
                 txtNuevaPass.Text.Trim().Equals("") &&
                 txtRepetirNuevaPass.Text.Trim().Equals(""))

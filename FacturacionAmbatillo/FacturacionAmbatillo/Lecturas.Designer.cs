@@ -34,19 +34,14 @@
             this.label34 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMedidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLectAnterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLectActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObservacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEditar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.dgvLecturas = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLecturas)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -59,6 +54,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.White;
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.lblPath);
             this.splitContainer1.Panel1.Controls.Add(this.btnseleccionar);
             this.splitContainer1.Panel1.Controls.Add(this.label34);
@@ -68,8 +64,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.White;
-            this.splitContainer1.Panel2.Controls.Add(this.button9);
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView5);
+            this.splitContainer1.Panel2.Controls.Add(this.btnImprimir);
+            this.splitContainer1.Panel2.Controls.Add(this.dgvLecturas);
             this.splitContainer1.Size = new System.Drawing.Size(804, 506);
             this.splitContainer1.SplitterDistance = 98;
             this.splitContainer1.TabIndex = 0;
@@ -98,7 +94,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(693, 24);
+            this.label34.Location = new System.Drawing.Point(423, 57);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(99, 20);
             this.label34.TabIndex = 17;
@@ -130,71 +126,39 @@
             this.label31.TabIndex = 15;
             this.label31.Text = "BARRIOS";
             // 
-            // button9
+            // btnImprimir
             // 
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.ImageIndex = 4;
-            this.button9.Location = new System.Drawing.Point(14, 355);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(98, 36);
-            this.button9.TabIndex = 43;
-            this.button9.Text = "Imprimir";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.ImageIndex = 4;
+            this.btnImprimir.Location = new System.Drawing.Point(14, 355);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(98, 36);
+            this.btnImprimir.TabIndex = 43;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.button9_Click);
             // 
-            // dataGridView5
+            // dgvLecturas
             // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colNombre,
-            this.colMedidor,
-            this.colLectAnterior,
-            this.colLectActual,
-            this.colObservacion,
-            this.colEditar});
-            this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView5.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.RowHeadersVisible = false;
-            this.dataGridView5.Size = new System.Drawing.Size(804, 342);
-            this.dataGridView5.TabIndex = 2;
+            this.dgvLecturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLecturas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvLecturas.Location = new System.Drawing.Point(0, 0);
+            this.dgvLecturas.Name = "dgvLecturas";
+            this.dgvLecturas.RowHeadersVisible = false;
+            this.dgvLecturas.Size = new System.Drawing.Size(804, 342);
+            this.dgvLecturas.TabIndex = 2;
             // 
-            // colNombre
+            // button1
             // 
-            this.colNombre.HeaderText = "Nombre y Apellido";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.Width = 250;
-            // 
-            // colMedidor
-            // 
-            this.colMedidor.HeaderText = "Medidor";
-            this.colMedidor.Name = "colMedidor";
-            this.colMedidor.Width = 70;
-            // 
-            // colLectAnterior
-            // 
-            this.colLectAnterior.HeaderText = "Lectura Anterior";
-            this.colLectAnterior.Name = "colLectAnterior";
-            this.colLectAnterior.Width = 115;
-            // 
-            // colLectActual
-            // 
-            this.colLectActual.HeaderText = "Lectura Actual";
-            this.colLectActual.Name = "colLectActual";
-            this.colLectActual.Width = 115;
-            // 
-            // colObservacion
-            // 
-            this.colObservacion.HeaderText = "Observación";
-            this.colObservacion.Name = "colObservacion";
-            this.colObservacion.Width = 200;
-            // 
-            // colEditar
-            // 
-            this.colEditar.HeaderText = "Editar";
-            this.colEditar.Name = "colEditar";
-            this.colEditar.Width = 50;
+            this.button1.Location = new System.Drawing.Point(317, 57);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Lecturas
             // 
@@ -209,7 +173,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLecturas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -219,16 +183,11 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.DataGridView dgvLecturas;
         private System.Windows.Forms.Label lblPath;
         private System.Windows.Forms.Button btnseleccionar;
         private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMedidor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLectAnterior;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLectActual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colObservacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEditar;
+        private System.Windows.Forms.Button button1;
     }
 }

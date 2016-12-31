@@ -17,32 +17,36 @@ namespace FacturacionAmbatillo
         {
             InitializeComponent();
             cbBarrios.SelectedIndex = 0;
-            sql = "select codigo,nombre from barrios";
-            llenarCombo(cbBarrios, sql, "nombre", "codigo");
+            llenarCombo(cbBarrios, "SpSelectBarrios", "nombre", "id");
             cbTipoDeUsuario.SelectedIndex = 0;
         }
 
         private string sql;
         Conexion conexion = new Conexion();
 
-        private void llenarCombo(ComboBox cb, String select, String mostrar, String valor)
+        private void llenarCombo(ComboBox cb, string selectProcedure, string mostrar, string valor)
         {
+            try
+            {
+                MySqlConnection conn = new MySqlConnection(conexion.MyConString);
+                MySqlCommand cmd = new MySqlCommand(selectProcedure, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+                DataTable dataTable = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
-            MySqlConnection conn = new MySqlConnection(conexion.MyConString);
-            MySqlCommand cmd = new MySqlCommand(select, conn);
-            conn.Open();
-            DataTable dataTable = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dataTable);
 
-            da.Fill(dataTable);
+                cb.DataSource = dataTable;
+                cb.ValueMember = valor;
+                cb.DisplayMember = mostrar;
 
-
-            cb.DataSource = dataTable;
-            cb.ValueMember = valor;
-            cb.DisplayMember = mostrar;
-
-            conn.Close();
-            
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            };
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,12 +60,12 @@ namespace FacturacionAmbatillo
             try
             {
                 string barrio = cbBarrios.SelectedValue.ToString();
-                string sql = "SELECT codigo FROM agua.medidores " +
-                             "where codigo_barrio = '" + barrio + "'" +
-                             "ORDER BY codigo DESC LIMIT 1;";
+                //string sql = "SELECT codigo FROM agua.medidores " +
+                //             "where codigo_barrio = '" + barrio + "'" +
+                //             "ORDER BY codigo DESC LIMIT 1;";
                 MySqlConnection conn = new MySqlConnection(conexion.MyConString);
 
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlCommand cmd = new MySqlCommand("SpSelectBarrios", conn);
                 conn.Open();
 
                 MySqlDataReader myreader = cmd.ExecuteReader();
@@ -108,6 +112,11 @@ namespace FacturacionAmbatillo
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

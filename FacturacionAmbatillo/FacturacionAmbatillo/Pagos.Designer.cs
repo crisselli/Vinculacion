@@ -45,6 +45,10 @@
             this.btnDetalles = new System.Windows.Forms.Button();
             this.btnAnularPago = new System.Windows.Forms.Button();
             this.dgvPagos = new System.Windows.Forms.DataGridView();
+            this.txtMedidor = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCedula = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -77,6 +81,10 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.txtCedula);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.txtMedidor);
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.clbTipoDePago);
             this.groupBox2.Controls.Add(this.label11);
@@ -99,7 +107,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(537, 22);
+            this.label9.Location = new System.Drawing.Point(437, 19);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(110, 17);
             this.label9.TabIndex = 58;
@@ -114,7 +122,7 @@
             "Facturas",
             "Recibos",
             "Abonos"});
-            this.clbTipoDePago.Location = new System.Drawing.Point(540, 47);
+            this.clbTipoDePago.Location = new System.Drawing.Point(440, 44);
             this.clbTipoDePago.Name = "clbTipoDePago";
             this.clbTipoDePago.Size = new System.Drawing.Size(107, 58);
             this.clbTipoDePago.TabIndex = 57;
@@ -125,7 +133,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(32, 80);
+            this.label11.Location = new System.Drawing.Point(43, 80);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 17);
             this.label11.TabIndex = 54;
@@ -135,7 +143,7 @@
             // 
             this.dtpHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(288, 80);
+            this.dtpHasta.Location = new System.Drawing.Point(299, 80);
             this.dtpHasta.MaxDate = new System.DateTime(2200, 12, 31, 0, 0, 0, 0);
             this.dtpHasta.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpHasta.Name = "dtpHasta";
@@ -149,7 +157,7 @@
             this.dtpDesde.Checked = false;
             this.dtpDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDesde.Location = new System.Drawing.Point(83, 80);
+            this.dtpDesde.Location = new System.Drawing.Point(94, 80);
             this.dtpDesde.MaxDate = new System.DateTime(2200, 12, 31, 0, 0, 0, 0);
             this.dtpDesde.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpDesde.Name = "dtpDesde";
@@ -162,7 +170,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(238, 81);
+            this.label32.Location = new System.Drawing.Point(249, 81);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(45, 17);
             this.label32.TabIndex = 48;
@@ -171,7 +179,7 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(83, 44);
+            this.txtNombre.Location = new System.Drawing.Point(94, 51);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(331, 22);
             this.txtNombre.TabIndex = 43;
@@ -181,7 +189,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(23, 47);
+            this.label13.Location = new System.Drawing.Point(34, 54);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(58, 17);
             this.label13.TabIndex = 44;
@@ -193,7 +201,7 @@
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLimpiar.ImageIndex = 0;
             this.btnLimpiar.ImageList = this.imageList1;
-            this.btnLimpiar.Location = new System.Drawing.Point(440, 39);
+            this.btnLimpiar.Location = new System.Drawing.Point(664, 40);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(84, 31);
             this.btnLimpiar.TabIndex = 22;
@@ -261,6 +269,42 @@
             this.dgvPagos.TabIndex = 19;
             this.dgvPagos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvPagos_MouseClick);
             // 
+            // txtMedidor
+            // 
+            this.txtMedidor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMedidor.Location = new System.Drawing.Point(94, 24);
+            this.txtMedidor.Name = "txtMedidor";
+            this.txtMedidor.Size = new System.Drawing.Size(124, 21);
+            this.txtMedidor.TabIndex = 59;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(9, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 17);
+            this.label4.TabIndex = 60;
+            this.label4.Text = "N° Medidor";
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedula.Location = new System.Drawing.Point(301, 24);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(124, 21);
+            this.txtCedula.TabIndex = 61;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(247, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 17);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "Cédula";
+            // 
             // Pagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,5 +341,9 @@
         private System.Windows.Forms.Button btnAnularPago;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button btnDetalles;
+        private System.Windows.Forms.TextBox txtMedidor;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtCedula;
+        private System.Windows.Forms.Label label1;
     }
 }

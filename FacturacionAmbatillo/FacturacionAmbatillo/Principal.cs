@@ -12,20 +12,39 @@ namespace FacturacionAmbatillo
 {
     public partial class Principal : Form
     {
-        public Principal()
+        private Form panel = new Form();
+        //private string usuario;
+        Clientes cl =new Clientes();
+        Pagos pg=new Pagos();
+        Lecturas lc=new Lecturas();
+        Reportes re = new Reportes();
+        Configuracion co;// = new Configuracion(usuario);
+
+        public Principal(string user)
         {
             InitializeComponent();
-            cambiarFormulario(0);
-            splitContainer1.FixedPanel = FixedPanel.Panel1;
-            splitContainer2.FixedPanel = FixedPanel.Panel1;
-            lblClientes.Image = Properties.Resources.clientes2;
-            lblClientes.ForeColor = Color.FromArgb(224, 224, 224);
-            lblClientes.BackColor = Color.FromArgb(38, 38, 38);
-            int x = (this.Width - lblTitulo.Width) / 2;
-            lblTitulo.Location = new Point(x, lblTitulo.Location.Y);
+            //Cargar la pagina clientes como vista principal
+            lblClientes_Click(new object(), new EventArgs());
+            //Ajustar posición de textos de encabezado
+            Principal_Resize(new object(), new EventArgs());
+            //Cargar nombre de usuario
+            cargarUsuario(user);
+            co = new Configuracion(user);
 
         }
 
+        MetodosGenerales metodo = new MetodosGenerales();
+        DataTable dtt;
+
+        private void cargarUsuario(string user) {
+            string sql = "SELECT substring_index(" +
+                            "(SELECT nombres FROM usuarios " +
+                            "where ced = '" + user + "'),' ',1);";
+            dtt = metodo.consultarDatos(sql);
+            lblUsuario.Text = dtt.Rows[0][0].ToString();
+        }
+
+        //Agregar Form en panel
         private void AddFormInPanel(Form fh){        
             fh.TopLevel = false;
             fh.MdiParent = this;
@@ -36,169 +55,36 @@ namespace FacturacionAmbatillo
             fh.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (this.splitContainer1.Panel2.Controls.Count > 0)
-                this.splitContainer1.Panel2.Controls.RemoveAt(0);
-        }
-
-        private void tsmiClientes_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["Clientes"] != null) {
-                MessageBox.Show("Clientes ya está abierta");
-            } else {
-                cambiarFormulario(0);
-                //tsmiClientes.Image = Properties.Resources.clientes3;
-                //tsmiClientes.ForeColor = Color.FromArgb(224,224,224);
-                //tsmiClientes.BackColor = Color.FromArgb(38,38,38);
-               
-            }
-        }
-
-        private void tsmiPagos_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["Pagos"] != null)
-            {
-                MessageBox.Show("Pagos ya está abierta");
-            }
-            else
-            {
-                cambiarFormulario(1);
-            }
-        }
-
-        private void tsmiLecturas_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["Lecturas"] != null)
-            {
-                MessageBox.Show("Lecturas ya está abierta");
-            }
-            else
-            {
-                cambiarFormulario(2);
-            }
-        }
-
-        private void tsmiReportes_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private Form panel = new Form();
-
+        
+        //Cambiar entre formularios ya abiertos
         private void cambiarFormulario(int b) {
-            
             if(panel!=null)
-                panel.Close();
+                panel.Visible=false;
 
             switch (b)
             {
                 case 0: 
-                    this.panel = new Clientes();
+                    this.panel = cl;    //Clientes
                     break;
                 case 1: 
-                    this.panel = new Pagos();
+                    this.panel =  pg;   //Pagos
                     break;
                 case 2:
-                    this.panel = new Lecturas();
+                    this.panel = lc;    //Lecturas
                     break;
                 case 3:
-                    this.panel = new Reportes();
+                    this.panel = re;    //Reportes
                     break;
                 case 4:
-                    this.panel = new Configuracion();
+                    this.panel = co;    //Configuración
                     break;
             }
+            panel.Visible = true;
             AddFormInPanel(panel);
 
         }
 
-        private void splitContainer2_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-            
-        }
-
-        private void Principal_Resize(object sender, EventArgs e)
-        {
-            int x = (this.Width - lblTitulo.Width)/2;
-            pbConfiguracion.Location = new Point(this.Width - 60, pbConfiguracion.Location.Y);
-            lblTitulo.Location = new Point(x, lblTitulo.Location.Y);
-        }
-
-        private void tsmiClientes_MouseEnter(object sender, EventArgs e)
-        {
-            ToolStripItem tsi = (ToolStripItem)sender;
-
-            // Create semi-transparent picture.
-            Bitmap bm = new Bitmap(tsi.Width, tsi.Height);
-            for (int y = 0; y < tsi.Height; y++)
-            {
-                for (int x = 0; x < tsi.Width; x++)
-                    bm.SetPixel(x, y, Color.FromArgb(150, Color.Red));
-            }
-
-            // Set background.
-            tsi.BackgroundImage = bm;
-        }
-
-        private void tsmiClientes_MouseLeave(object sender, EventArgs e)
-        {
-            (sender as ToolStripItem).BackgroundImage = null;
-        }
-
-
-        private void lblClientes_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["Clientes"] == null)
-            {
-                cambiarFormulario(0);
-                limpiaLabels();
-                lblClientes.Image = Properties.Resources.clientes2;
-                lblClientes.ForeColor = Color.FromArgb(224, 224, 224);
-                lblClientes.BackColor = Color.FromArgb(38, 38, 38);
-                lblTitulo.Text = "CLIENTES";
-            }
-        }
-
-        private void lblPagos_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["Pagos"] == null)
-            {
-                cambiarFormulario(1);
-                limpiaLabels();
-                lblPagos.Image = Properties.Resources.factura2;
-                lblPagos.ForeColor = Color.FromArgb(224, 224, 224);
-                lblPagos.BackColor = Color.FromArgb(38, 38, 38);
-                lblTitulo.Text = "PAGOS";
-            }
-        }
-
-        private void lblLecturas_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["Lecturas"] == null)
-            {
-                cambiarFormulario(2);
-                limpiaLabels();
-                lblLecturas.Image = Properties.Resources.lecturas2;
-                lblLecturas.ForeColor = Color.FromArgb(224, 224, 224);
-                lblLecturas.BackColor = Color.FromArgb(38, 38, 38);
-                lblTitulo.Text = "LECTURAS";
-            }
-        }
-
-        private void lblReportes_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["Reportes"] == null)
-            {
-                cambiarFormulario(3);
-                limpiaLabels();
-                lblReportes.Image = Properties.Resources.reportes2;
-                lblReportes.ForeColor = Color.FromArgb(224, 224, 224);
-                lblReportes.BackColor = Color.FromArgb(38, 38, 38);
-                lblTitulo.Text = "REPORTES";
-            }
-        }
-
+        //Cambiar apariencia de los botones, todos en blanco
         private void limpiaLabels()
         {
             lblClientes.Image = Properties.Resources.clientes1;
@@ -218,6 +104,56 @@ namespace FacturacionAmbatillo
             lblReportes.BackColor = Color.FromArgb(224, 224, 224);
         }
 
+        private void Principal_Resize(object sender, EventArgs e)
+        {
+            int x = (this.Width - lblTitulo.Width)/2;
+            pbConfiguracion.Location = new Point(this.Width - 60, pbConfiguracion.Location.Y);
+            lblUsuario.Location = new Point(this.Width - lblUsuario.Width - 62, lblUsuario.Location.Y);
+            lblTitulo.Location = new Point(x, lblTitulo.Location.Y);
+        }
+        
+        #region Click cambio de panel
+
+        private void lblClientes_Click(object sender, EventArgs e)
+        {
+                cambiarFormulario(0);
+                limpiaLabels();
+                lblClientes.Image = Properties.Resources.clientes2;
+                lblClientes.ForeColor = Color.FromArgb(224, 224, 224);
+                lblClientes.BackColor = Color.FromArgb(38, 38, 38);
+                lblTitulo.Text = "CLIENTES";
+        }
+
+        private void lblPagos_Click(object sender, EventArgs e)
+        {
+                cambiarFormulario(1);
+                limpiaLabels();
+                lblPagos.Image = Properties.Resources.factura2;
+                lblPagos.ForeColor = Color.FromArgb(224, 224, 224);
+                lblPagos.BackColor = Color.FromArgb(38, 38, 38);
+                lblTitulo.Text = "PAGOS";
+        }
+
+        private void lblLecturas_Click(object sender, EventArgs e)
+        {
+                cambiarFormulario(2);
+                limpiaLabels();
+                lblLecturas.Image = Properties.Resources.lecturas2;
+                lblLecturas.ForeColor = Color.FromArgb(224, 224, 224);
+                lblLecturas.BackColor = Color.FromArgb(38, 38, 38);
+                lblTitulo.Text = "LECTURAS";
+        }
+
+        private void lblReportes_Click(object sender, EventArgs e)
+        {
+                cambiarFormulario(3);
+                limpiaLabels();
+                lblReportes.Image = Properties.Resources.reportes2;
+                lblReportes.ForeColor = Color.FromArgb(224, 224, 224);
+                lblReportes.BackColor = Color.FromArgb(38, 38, 38);
+                lblTitulo.Text = "REPORTES";
+        }
+
         private void pbConfiguracion_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["Configuracion"] == null)
@@ -227,5 +163,8 @@ namespace FacturacionAmbatillo
                 lblTitulo.Text = "CONFIGURACIÓN";
             }
         }
+
+        #endregion
+        
     }
 }

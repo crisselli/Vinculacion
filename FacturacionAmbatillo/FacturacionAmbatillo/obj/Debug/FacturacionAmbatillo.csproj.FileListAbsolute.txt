@@ -1,30 +1,12 @@
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe.config
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.pdb
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Properties.Resources.resources
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.csproj.GenerateResource.Cache
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.pdb
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Principal.resources
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Clientes.resources
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Pagos.resources
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Configuracion.resources
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Lecturas.resources
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Reportes.resources
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.AdministracionClientes.resources
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.HistorialMedidor.resources
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe.manifest
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.application
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe.manifest
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.application
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.csprojResolveAssemblyReference.cache
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Login.resources
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\MySql.Data.dll
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\MySql.Data.xml
-E:\Universidad\Octavo\Desarrollo de Software IV\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Detalles.resources
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe.config
-C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe
-C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.pdb
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe.manifest
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.application
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.pdb
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\MySql.Data.dll
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\MySql.Data.xml
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.csprojResolveAssemblyReference.cache
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.AdministracionClientes.resources
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Detalles.resources
@@ -38,50 +20,10 @@ C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbat
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Properties.Resources.resources
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Reportes.resources
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.csproj.GenerateResource.Cache
-C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe.manifest
-C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.application
-C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe
-C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.pdb
-C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\MySql.Data.dll
-C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\MySql.Data.xml
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe.manifest
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.application
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe.config
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.pdb
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.csprojResolveAssemblyReference.cache
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.AdministracionClientes.resources
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Detalles.resources
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Clientes.resources
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Configuracion.resources
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.HistorialMedidor.resources
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Lecturas.resources
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Login.resources
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Pagos.resources
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Principal.resources
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Properties.Resources.resources
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Reportes.resources
-C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.csproj.GenerateResource.Cache
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.pdb
 C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe.config
 C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe
 C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.pdb
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe.manifest
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.application
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.pdb
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\MySql.Data.xml
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.csprojResolveAssemblyReference.cache
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.AdministracionClientes.resources
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Detalles.resources
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Clientes.resources
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Configuracion.resources
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.HistorialMedidor.resources
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Lecturas.resources
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Login.resources
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Pagos.resources
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Principal.resources
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Properties.Resources.resources
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Reportes.resources
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.csproj.GenerateResource.Cache
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe.manifest
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.application

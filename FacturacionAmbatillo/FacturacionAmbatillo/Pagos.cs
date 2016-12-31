@@ -44,33 +44,41 @@ namespace FacturacionAmbatillo
 
                 // Ver facturas
                 if (clbTipoDePago.GetItemCheckState(0) == CheckState.Checked)  
-                    sql = sql = "SELECT p.Numero, date_format(p.fecha,'%d-%m-%Y') Fecha, c.Nombre, p.Total, p.Descripcion " +
+                    sql = sql = "SELECT p.id_pag, date_format(p.fecha,'%d-%m-%Y') Fecha, c.Nombre, p.Total " +
                         "FROM pagos p, detalles d, lecturas l, medidores m, clientes c " +
                         "WHERE p.estado = 1 " +
-                        "AND d.codigo_pago = p.codigo " +
-                        "AND d.codigo_lectura = l.codigo " +
-                        "AND l.codigo_medidor =  m.codigo " +
-                        "AND m.codigo_cliente = c.codigo " +
-                        "GROUP BY p.codigo " +
-                        "ORDER BY p.fecha desc, p.numero desc;";
+                        "AND d.cod_pag = p.id_pag " +
+                        "AND d.cod_lect = l.id_lect " +
+                        "AND l.id_med_p =  m.id_med " +
+                        "AND m.cod_cli = c.codigo " +
+                        "GROUP BY p.id_pag " +
+                        "ORDER BY p.fecha desc;";
 
                 // Ver Recibos
                 if (clbTipoDePago.GetItemCheckState(1) == CheckState.Checked)
 
                     sql = "SELECT a.Numero, date_format(a.fecha,'%d-%m-%Y') Fecha, c.Nombre, a.Valor " +
                         "FROM abonos a, pagos p, detalles d, lecturas l, medidores m, clientes c   " +
-                        "WHERE a.codigo_pago = p.codigo " +
-                        "AND p.codigo =  d.codigo_pago " +
-                        "AND d.codigo_lectura = l.codigo " +
-                        "AND l.codigo_medidor =  m.codigo " +
-                        "AND m.codigo_cliente = c.codigo " +
-                        "GROUP BY a.codigo " +
-                        "ORDER BY a.numero desc;";
+                        "WHERE a.cod_pag = p.id_pag " +
+                        "AND p.id_pag =  d.cod_pag " +
+                        "AND d.cod_lect = l.id_lect " +
+                        "AND l.id_med_p =  m.id_med " +
+                        "AND m.cod_cli = c.codigo " +
+                        "GROUP BY a.id_abon desc;";
 
                 // Ver pagos incompletos
                 if (clbTipoDePago.GetItemCheckState(2) == CheckState.Checked)
 
-                    sql = "SELECT date_format(p.fecha,'%d-%m-%Y') Fecha, c.Nombre, p.Total, a.Abono, p.total - a.abono Saldo, p.Descripcion " +
+                    sql = "SELECT a.Numero, date_format(a.fecha,'%d-%m-%Y') Fecha, c.Nombre, a.Valor " +
+                        "FROM abonos a, pagos p, detalles d, lecturas l, medidores m, clientes c   " +
+                        "WHERE a.cod_pag = p.id_pag " +
+                        "AND p.id_pag =  d.cod_pag " +
+                        "AND d.cod_lect = l.id_lect " +
+                        "AND l.id_med_p =  m.id_med " +
+                        "AND m.cod_cli = c.codigo " +
+                        "GROUP BY a.id_abon desc;";
+                /*
+                sql = "SELECT date_format(p.fecha,'%d-%m-%Y') Fecha, c.Nombre, p.Total, a.Abono, p.total - a.abono Saldo, p.Descripcion " +
                         "FROM(SELECT codigo_pago, sum(valor) abono " +
                              "FROM abonos GROUP BY codigo_pago) a, pagos p, " +
                              "detalles d, lecturas l, medidores m, clientes c " +
@@ -81,7 +89,7 @@ namespace FacturacionAmbatillo
                         "l.codigo_medidor = m.codigo AND " +
                         "m.codigo_cliente = c.codigo " +
                         "GROUP BY p.codigo desc; "; 
-
+                    */
                 llenarGrid(dgvPagos, sql);
             }catch (Exception e){
                 MessageBox.Show(e.Message);
@@ -103,7 +111,7 @@ namespace FacturacionAmbatillo
 
 
             gv.DataSource = dataTable;
-            gv.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //gv.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             conn.Close();
 

@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracion));
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tpUsuario = new System.Windows.Forms.TabPage();
+            this.lblErroreses = new System.Windows.Forms.Label();
             this.lblErrorPass = new System.Windows.Forms.Label();
             this.txtRepetirNuevaPass = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -39,9 +40,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtApellidos = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.txtNombreCompleto = new System.Windows.Forms.TextBox();
+            this.txtNombres = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.btnEditarPass = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -59,6 +60,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.dgvBarrios = new System.Windows.Forms.DataGridView();
             this.tpConfPagos = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblErrorValores = new System.Windows.Forms.Label();
             this.lblRecibosRestantes = new System.Windows.Forms.Label();
             this.lblSiguienteRecibo = new System.Windows.Forms.Label();
@@ -78,8 +81,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btnCancelarValores = new System.Windows.Forms.Button();
             this.btnEditarValores = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabControl2.SuspendLayout();
             this.tpUsuario.SuspendLayout();
             this.tpRubros.SuspendLayout();
@@ -109,6 +110,7 @@
             // tpUsuario
             // 
             this.tpUsuario.BackColor = System.Drawing.Color.White;
+            this.tpUsuario.Controls.Add(this.lblErroreses);
             this.tpUsuario.Controls.Add(this.lblErrorPass);
             this.tpUsuario.Controls.Add(this.txtRepetirNuevaPass);
             this.tpUsuario.Controls.Add(this.label22);
@@ -116,9 +118,9 @@
             this.tpUsuario.Controls.Add(this.label21);
             this.tpUsuario.Controls.Add(this.txtPass);
             this.tpUsuario.Controls.Add(this.label20);
-            this.tpUsuario.Controls.Add(this.txtUsuario);
+            this.tpUsuario.Controls.Add(this.txtApellidos);
             this.tpUsuario.Controls.Add(this.label19);
-            this.tpUsuario.Controls.Add(this.txtNombreCompleto);
+            this.tpUsuario.Controls.Add(this.txtNombres);
             this.tpUsuario.Controls.Add(this.label18);
             this.tpUsuario.Controls.Add(this.btnEditarPass);
             this.tpUsuario.Controls.Add(this.btnCancelarPass);
@@ -130,11 +132,19 @@
             this.tpUsuario.TabIndex = 0;
             this.tpUsuario.Text = "Usuario";
             // 
+            // lblErroreses
+            // 
+            this.lblErroreses.AutoSize = true;
+            this.lblErroreses.Location = new System.Drawing.Point(89, 307);
+            this.lblErroreses.Name = "lblErroreses";
+            this.lblErroreses.Size = new System.Drawing.Size(0, 18);
+            this.lblErroreses.TabIndex = 24;
+            // 
             // lblErrorPass
             // 
             this.lblErrorPass.AutoSize = true;
             this.lblErrorPass.ForeColor = System.Drawing.Color.IndianRed;
-            this.lblErrorPass.Location = new System.Drawing.Point(400, 103);
+            this.lblErrorPass.Location = new System.Drawing.Point(400, 70);
             this.lblErrorPass.Name = "lblErrorPass";
             this.lblErrorPass.Size = new System.Drawing.Size(200, 18);
             this.lblErrorPass.TabIndex = 23;
@@ -144,7 +154,7 @@
             // txtRepetirNuevaPass
             // 
             this.txtRepetirNuevaPass.Enabled = false;
-            this.txtRepetirNuevaPass.Location = new System.Drawing.Point(205, 175);
+            this.txtRepetirNuevaPass.Location = new System.Drawing.Point(205, 142);
             this.txtRepetirNuevaPass.Name = "txtRepetirNuevaPass";
             this.txtRepetirNuevaPass.Size = new System.Drawing.Size(183, 24);
             this.txtRepetirNuevaPass.TabIndex = 22;
@@ -155,7 +165,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(12, 178);
+            this.label22.Location = new System.Drawing.Point(12, 145);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(182, 18);
             this.label22.TabIndex = 21;
@@ -165,7 +175,7 @@
             // txtNuevaPass
             // 
             this.txtNuevaPass.Enabled = false;
-            this.txtNuevaPass.Location = new System.Drawing.Point(205, 138);
+            this.txtNuevaPass.Location = new System.Drawing.Point(205, 105);
             this.txtNuevaPass.Name = "txtNuevaPass";
             this.txtNuevaPass.Size = new System.Drawing.Size(183, 24);
             this.txtNuevaPass.TabIndex = 20;
@@ -176,7 +186,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(63, 141);
+            this.label21.Location = new System.Drawing.Point(63, 108);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(131, 18);
             this.label21.TabIndex = 19;
@@ -186,7 +196,7 @@
             // txtPass
             // 
             this.txtPass.Enabled = false;
-            this.txtPass.Location = new System.Drawing.Point(205, 101);
+            this.txtPass.Location = new System.Drawing.Point(205, 68);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(183, 24);
             this.txtPass.TabIndex = 5;
@@ -196,43 +206,45 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(65, 104);
+            this.label20.Location = new System.Drawing.Point(65, 71);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(129, 18);
             this.label20.TabIndex = 4;
             this.label20.Text = "Contraseña Actual";
             // 
-            // txtUsuario
+            // txtApellidos
             // 
-            this.txtUsuario.Enabled = false;
-            this.txtUsuario.Location = new System.Drawing.Point(205, 63);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(183, 24);
-            this.txtUsuario.TabIndex = 3;
-            this.txtUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyUp);
+            this.txtApellidos.Enabled = false;
+            this.txtApellidos.Location = new System.Drawing.Point(189, 290);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(399, 24);
+            this.txtApellidos.TabIndex = 3;
+            this.txtApellidos.Visible = false;
+            this.txtApellidos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyUp);
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(134, 66);
+            this.label19.Location = new System.Drawing.Point(118, 293);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(60, 18);
+            this.label19.Size = new System.Drawing.Size(67, 18);
             this.label19.TabIndex = 2;
-            this.label19.Text = "Usuario";
+            this.label19.Text = "Apellidos";
+            this.label19.Visible = false;
             // 
-            // txtNombreCompleto
+            // txtNombres
             // 
-            this.txtNombreCompleto.Enabled = false;
-            this.txtNombreCompleto.Location = new System.Drawing.Point(205, 26);
-            this.txtNombreCompleto.Name = "txtNombreCompleto";
-            this.txtNombreCompleto.Size = new System.Drawing.Size(399, 24);
-            this.txtNombreCompleto.TabIndex = 1;
-            this.txtNombreCompleto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNombreCompleto_KeyUp);
+            this.txtNombres.Enabled = false;
+            this.txtNombres.Location = new System.Drawing.Point(205, 30);
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(399, 24);
+            this.txtNombres.TabIndex = 1;
+            this.txtNombres.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNombreCompleto_KeyUp);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(132, 29);
+            this.label18.Location = new System.Drawing.Point(132, 33);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(62, 18);
             this.label18.TabIndex = 0;
@@ -244,7 +256,7 @@
             this.btnEditarPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditarPass.ImageIndex = 2;
             this.btnEditarPass.ImageList = this.imageList1;
-            this.btnEditarPass.Location = new System.Drawing.Point(92, 221);
+            this.btnEditarPass.Location = new System.Drawing.Point(92, 188);
             this.btnEditarPass.Name = "btnEditarPass";
             this.btnEditarPass.Size = new System.Drawing.Size(91, 33);
             this.btnEditarPass.TabIndex = 18;
@@ -269,7 +281,7 @@
             this.btnCancelarPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelarPass.ImageIndex = 4;
             this.btnCancelarPass.ImageList = this.imageList1;
-            this.btnCancelarPass.Location = new System.Drawing.Point(189, 221);
+            this.btnCancelarPass.Location = new System.Drawing.Point(189, 188);
             this.btnCancelarPass.Name = "btnCancelarPass";
             this.btnCancelarPass.Size = new System.Drawing.Size(90, 33);
             this.btnCancelarPass.TabIndex = 17;
@@ -471,6 +483,26 @@
             this.tpConfPagos.Size = new System.Drawing.Size(796, 455);
             this.tpConfPagos.TabIndex = 3;
             this.tpConfPagos.Text = "Pagos";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(38, 321);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 18);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Siguiente Recibo:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(36, 125);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 18);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Siguiente Factura:";
             // 
             // lblErrorValores
             // 
@@ -676,26 +708,6 @@
             this.btnEditarValores.UseVisualStyleBackColor = true;
             this.btnEditarValores.Click += new System.EventHandler(this.btnEditarValores_Click_1);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 125);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 18);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "Siguiente Factura:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(38, 321);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 18);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Siguiente Recibo:";
-            // 
             // Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -729,9 +741,9 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txtNombreCompleto;
+        private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnEditarPass;
         private System.Windows.Forms.Button btnCancelarPass;
@@ -771,5 +783,6 @@
         private System.Windows.Forms.Label lblErrorValores;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblErroreses;
     }
 }
