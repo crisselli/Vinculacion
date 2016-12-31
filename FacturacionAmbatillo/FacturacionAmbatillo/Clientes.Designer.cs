@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clientes));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtMedidor = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.cbBarrios = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -86,11 +86,11 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.txtMedidor);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnLimpiar);
             this.groupBox1.Controls.Add(this.txtCedula);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.cbBarrios);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -105,13 +105,31 @@
             this.groupBox1.Text = "BÚSQUEDA";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // txtMedidor
+            // 
+            this.txtMedidor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMedidor.Location = new System.Drawing.Point(94, 31);
+            this.txtMedidor.Name = "txtMedidor";
+            this.txtMedidor.Size = new System.Drawing.Size(124, 21);
+            this.txtMedidor.TabIndex = 23;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(9, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 17);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "N° Medidor";
+            // 
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLimpiar.ImageIndex = 0;
             this.btnLimpiar.ImageList = this.imageList1;
-            this.btnLimpiar.Location = new System.Drawing.Point(708, 23);
+            this.btnLimpiar.Location = new System.Drawing.Point(619, 58);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(84, 31);
             this.btnLimpiar.TabIndex = 22;
@@ -135,56 +153,26 @@
             // txtCedula
             // 
             this.txtCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedula.Location = new System.Drawing.Point(70, 33);
+            this.txtCedula.Location = new System.Drawing.Point(480, 31);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(124, 21);
             this.txtCedula.TabIndex = 3;
             this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(431, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Barrio";
-            // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(70, 63);
+            this.txtNombre.Location = new System.Drawing.Point(94, 63);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(257, 21);
             this.txtNombre.TabIndex = 2;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
-            // cbBarrios
-            // 
-            this.cbBarrios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBarrios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbBarrios.FormattingEnabled = true;
-            this.cbBarrios.Items.AddRange(new object[] {
-            "Centro",
-            "Esperanza",
-            "Floresta",
-            "Pasochoa",
-            "Palama",
-            "Providencia",
-            "Rosario",
-            "La Y"});
-            this.cbBarrios.Location = new System.Drawing.Point(483, 27);
-            this.cbBarrios.Name = "cbBarrios";
-            this.cbBarrios.Size = new System.Drawing.Size(121, 23);
-            this.cbBarrios.TabIndex = 8;
-            this.cbBarrios.SelectedIndexChanged += new System.EventHandler(this.cbBarrios_SelectedIndexChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 35);
+            this.label1.Location = new System.Drawing.Point(426, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 4;
@@ -194,7 +182,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(368, 63);
+            this.label3.Location = new System.Drawing.Point(368, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 17);
             this.label3.TabIndex = 7;
@@ -204,7 +192,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 67);
+            this.label2.Location = new System.Drawing.Point(30, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 5;
@@ -218,7 +206,7 @@
             this.cbTipoDeUsuario.Items.AddRange(new object[] {
             "persona",
             "entidad"});
-            this.cbTipoDeUsuario.Location = new System.Drawing.Point(483, 60);
+            this.cbTipoDeUsuario.Location = new System.Drawing.Point(483, 63);
             this.cbTipoDeUsuario.Name = "cbTipoDeUsuario";
             this.cbTipoDeUsuario.Size = new System.Drawing.Size(121, 23);
             this.cbTipoDeUsuario.TabIndex = 6;
@@ -299,16 +287,16 @@
             // 
             // btnMedidas
             // 
-            this.btnMedidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMedidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMedidas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMedidas.ImageIndex = 5;
             this.btnMedidas.ImageList = this.imageList1;
-            this.btnMedidas.Location = new System.Drawing.Point(3, 135);
+            this.btnMedidas.Location = new System.Drawing.Point(2, 293);
             this.btnMedidas.Name = "btnMedidas";
-            this.btnMedidas.Size = new System.Drawing.Size(90, 31);
+            this.btnMedidas.Size = new System.Drawing.Size(133, 31);
             this.btnMedidas.TabIndex = 23;
             this.btnMedidas.Tag = "";
-            this.btnMedidas.Text = "Medidas";
+            this.btnMedidas.Text = "Medidas      ";
             this.btnMedidas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMedidas.UseVisualStyleBackColor = true;
             this.btnMedidas.Click += new System.EventHandler(this.btnMedidas_Click);
@@ -362,9 +350,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.ComboBox cbBarrios;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -377,5 +363,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.TextBox txtMedidor;
+        private System.Windows.Forms.Label label4;
     }
 }

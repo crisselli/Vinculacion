@@ -24,6 +24,3 @@ C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbat
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.application
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.pdb
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe.config
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe
-C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.pdb
