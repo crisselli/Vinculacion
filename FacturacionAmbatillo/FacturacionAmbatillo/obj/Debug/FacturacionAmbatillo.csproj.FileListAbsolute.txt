@@ -62,3 +62,26 @@ C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmba
 C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Properties.Resources.resources
 C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Reportes.resources
 C:\Users\Alexander\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.csproj.GenerateResource.Cache
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe.config
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.pdb
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe.manifest
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.application
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.pdb
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\MySql.Data.xml
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.csprojResolveAssemblyReference.cache
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.AdministracionClientes.resources
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Detalles.resources
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Clientes.resources
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Configuracion.resources
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.HistorialMedidor.resources
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Lecturas.resources
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Login.resources
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Pagos.resources
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Principal.resources
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Properties.Resources.resources
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Reportes.resources
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.csproj.GenerateResource.Cache
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe.manifest
+C:\Users\Pame Mendez\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.application
