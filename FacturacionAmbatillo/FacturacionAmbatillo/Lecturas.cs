@@ -154,7 +154,8 @@ namespace FacturacionAmbatillo
             bool correcto = true;
             MySqlConnection conn = null;
             try
-            {   conn = new MySqlConnection(conexion.MyConString);
+            {
+                conn = new MySqlConnection(conexion.MyConString);
                 conn.Open();
 
                 MySqlCommand cmd = new MySqlCommand();

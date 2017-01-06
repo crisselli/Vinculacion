@@ -20,7 +20,7 @@ namespace FacturacionAmbatillo
             // datosMedidor();
             txtNombre.Text = nombre;
             txtMedidor.Text = medidor;
-            llenarTabla();
+            llenarTabla(medidor);
         }
 
         Conexion conexion = new Conexion();
@@ -34,49 +34,34 @@ namespace FacturacionAmbatillo
             dgvMedidas.Rows.Insert(4, "31/03/2016", "17", "2.15", "Sin pagar");
         }
 
+        MetodosGenerales metodo = new MetodosGenerales();
+        DataTable dtt;
 
-        private void llenarTabla()
+        
+
+        private void llenarTabla(string medidor)
         {
             try
             {
                 // Historial de medidor
-                string sql = "Select p.codigo CodigoDePago, date_format(l.fecha,'%d-%m-%Y') Fecha, l.Lectura,  " +
-                "(IF(l.codigo_categoria = 1 , c.valor , l.lectura * c.valor ) ) AS Valor, " +
-                "(IF(p.codigo is not null, IF(p.estado = 0, " +
-                "IF(p.numero is not null,'Pendiente','Abonado'),'Cancelado') ,'Pendiente') ) AS Estado " +
-                "from categorias c, medidores m, lecturas l left join detalles d " +
-                "on l.codigo=d.codigo_lectura " +
-                "left join pagos p on d.codigo_pago = p.codigo " +
-                "WHERE l.codigo_categoria = c.codigo  " +
-                "AND l.codigo_medidor = '" + txtMedidor.Text + "' " +
-                "group by l.codigo; ";
-
-                llenarGrid(dgvMedidas, sql);
-                dgvMedidas.Columns[0].Visible = false;
+                string sql = "SELECT DATE_FORMAT(l.fecha,'%d/%m/%Y') Fecha, 'Consumo' Detalle, " +
+                             "(c.valor * l.cant_total) Valor, l.estado Estado " +
+                             "FROM lecturas l, categorias c " +
+                             "WHERE c.codigo = l.cod_cat AND " +
+                             "id_med_p = '" + medidor + "'";
+                
+                metodo.llenarGrid(dgvMedidas, sql);
+                dgvMedidas.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvMedidas.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvMedidas.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
         }
-        private void llenarGrid(DataGridView gv, String select)
-        {
-
-            MySqlConnection conn = new MySqlConnection(conexion.MyConString);
-            MySqlCommand cmd = new MySqlCommand(select, conn);
-            conn.Open();
-            DataTable dataTable = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-
-            da.Fill(dataTable);
-
-
-            gv.DataSource = dataTable;
-            gv.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            conn.Close();
-        }
-
+       
         private void btnPagar_Click(object sender, EventArgs e)
         {
             panelPagos.Visible = true;
@@ -142,7 +127,7 @@ namespace FacturacionAmbatillo
             lblTotal.Visible = true;
             panelSaldo.Visible = false;
             panelTotal.Visible = false;
-            datosMedidor();
+            //datosMedidor();
         }
 
         private void tsmiFactura_Click(object sender, EventArgs e)

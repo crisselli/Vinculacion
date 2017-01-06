@@ -51,7 +51,7 @@ namespace FacturacionAmbatillo
          * gv - Nombre de la variable dataGridView a llenar
          * selectedProcedure - Nombre del procedimiento
          */
-        public void llenarGrid(DataGridView gv, string selectProcedure)
+        public void llenarGridSP(DataGridView gv, string selectProcedure)
         {
             try
             {
@@ -63,9 +63,7 @@ namespace FacturacionAmbatillo
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
                 da.Fill(dataTable);
-                
                 gv.DataSource = dataTable;
-                
                 conn.Close();
             }
             catch (MySqlException e)
@@ -73,6 +71,22 @@ namespace FacturacionAmbatillo
                 MessageBox.Show(e.Message);
             }
 
+        }
+
+        /*
+         *Método para llenar dataGridView mediante consulta sin Stored Procedures  
+         */
+        public void llenarGrid(DataGridView gv, string select)
+        {
+            MySqlConnection conn = new MySqlConnection(conexion.MyConString);
+            MySqlCommand cmd = new MySqlCommand(select, conn);
+            conn.Open();
+            DataTable dataTable = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+            da.Fill(dataTable);     
+            gv.DataSource = dataTable;
+            conn.Close();
         }
 
         /* 

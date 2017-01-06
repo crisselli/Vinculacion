@@ -27,12 +27,12 @@ namespace FacturacionAmbatillo
 
         private void cargarRubros()
         {
-            metodo.llenarGrid(dgvRubros, "SpSelectRubros");
+            metodo.llenarGridSP(dgvRubros, "SpSelectRubros");
         }
 
         private void cargarBarrios()
         {
-            metodo.llenarGrid(dgvBarrios, "SpSelectBarrios");
+            metodo.llenarGridSP(dgvBarrios, "SpSelectBarrios");
         }
 
         string sql;

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pbConfiguracion = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -38,7 +39,6 @@
             this.lblLecturas = new System.Windows.Forms.Label();
             this.lblPagos = new System.Windows.Forms.Label();
             this.lblClientes = new System.Windows.Forms.Label();
-            this.lblUsuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -75,6 +75,17 @@
             this.splitContainer1.SplitterDistance = 43;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblUsuario.Location = new System.Drawing.Point(689, 12);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(259, 20);
+            this.lblUsuario.TabIndex = 4;
+            this.lblUsuario.Text = "Usuario";
+            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTitulo
             // 
@@ -142,7 +153,6 @@
             this.lblReportes.TabIndex = 3;
             this.lblReportes.Text = "            Reportes";
             this.lblReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblReportes.Visible = false;
             this.lblReportes.Click += new System.EventHandler(this.lblReportes_Click);
             // 
             // lblLecturas
@@ -193,17 +203,6 @@
             this.lblClientes.Text = "            Clientes";
             this.lblClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblClientes.Click += new System.EventHandler(this.lblClientes_Click);
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblUsuario.Location = new System.Drawing.Point(689, 12);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(259, 20);
-            this.lblUsuario.TabIndex = 4;
-            this.lblUsuario.Text = "Usuario";
-            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Principal
             // 

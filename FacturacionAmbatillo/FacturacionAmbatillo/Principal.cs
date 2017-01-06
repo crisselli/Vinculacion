@@ -13,12 +13,12 @@ namespace FacturacionAmbatillo
     public partial class Principal : Form
     {
         private Form panel = new Form();
-        //private string usuario;
-        Clientes cl =new Clientes();
+        Clientes cl = new Clientes();
         Pagos pg=new Pagos();
         Lecturas lc=new Lecturas();
         Reportes re = new Reportes();
-        Configuracion co;// = new Configuracion(usuario);
+        Configuracion co;
+        HistorialMedidor hm = new HistorialMedidor("", "");
 
         public Principal(string user)
         {
@@ -30,7 +30,6 @@ namespace FacturacionAmbatillo
             //Cargar nombre de usuario
             cargarUsuario(user);
             co = new Configuracion(user);
-
         }
 
         MetodosGenerales metodo = new MetodosGenerales();
@@ -45,19 +44,18 @@ namespace FacturacionAmbatillo
         }
 
         //Agregar Form en panel
-        private void AddFormInPanel(Form fh){        
+        public void AddFormInPanel(Form fh){        
             fh.TopLevel = false;
             fh.MdiParent = this;
             fh.FormBorderStyle = FormBorderStyle.None;
             fh.Dock = DockStyle.Fill;
-            this.splitContainer2.Panel2.Controls.Add(fh);
-            this.splitContainer2.Panel2.Tag = fh;
+            splitContainer2.Panel2.Controls.Add(fh);
+            splitContainer2.Panel2.Tag = fh;
             fh.Show();
         }
-
         
         //Cambiar entre formularios ya abiertos
-        private void cambiarFormulario(int b) {
+        public void cambiarFormulario(int b) {
             if(panel!=null)
                 panel.Visible=false;
 
@@ -78,12 +76,24 @@ namespace FacturacionAmbatillo
                 case 4:
                     this.panel = co;    //Configuración
                     break;
+                case 5:
+                    this.panel = hm;    //Historial de Medidor
+                    break;
             }
             panel.Visible = true;
             AddFormInPanel(panel);
 
         }
 
+        
+
+
+        private void procesoFacuracion(string nom, string med)
+        {
+            this.panel = new HistorialMedidor(nom, med);
+            AddFormInPanel(panel);
+
+        }
         //Cambiar apariencia de los botones, todos en blanco
         private void limpiaLabels()
         {
@@ -146,12 +156,12 @@ namespace FacturacionAmbatillo
 
         private void lblReportes_Click(object sender, EventArgs e)
         {
-                cambiarFormulario(3);
+                cambiarFormulario(5);
                 limpiaLabels();
                 lblReportes.Image = Properties.Resources.reportes2;
                 lblReportes.ForeColor = Color.FromArgb(224, 224, 224);
                 lblReportes.BackColor = Color.FromArgb(38, 38, 38);
-                lblTitulo.Text = "REPORTES";
+                lblTitulo.Text = "HISTORIAL MEDIDOR";
         }
 
         private void pbConfiguracion_Click(object sender, EventArgs e)
