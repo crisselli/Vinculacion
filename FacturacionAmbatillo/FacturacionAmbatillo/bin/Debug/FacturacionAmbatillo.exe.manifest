@@ -63,14 +63,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FacturacionAmbatillo.exe" size="216000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FacturacionAmbatillo.exe" size="216512">
       <assemblyIdentity name="FacturacionAmbatillo" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>iMZFsjRssbeFUFxaleSrIy1aPrQHshwi4gCbcezq01s=</dsig:DigestValue>
+        <dsig:DigestValue>vOQEvTaBVF/V9eNzNVo0UoeWXDwmE+xjahZCO/AtMWY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

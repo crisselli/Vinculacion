@@ -108,12 +108,6 @@
     <Compile Include="Configuracion.Designer.cs">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="HistorialMedidor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HistorialMedidor.Designer.cs">
-      <DependentUpon>HistorialMedidor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Lecturas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,9 +152,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HistorialMedidor.resx">
-      <DependentUpon>HistorialMedidor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lecturas.resx">
       <DependentUpon>Lecturas.cs</DependentUpon>

@@ -12,7 +12,6 @@ C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbat
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Detalles.resources
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Clientes.resources
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Configuracion.resources
-C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.HistorialMedidor.resources
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Lecturas.resources
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Login.resources
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Pagos.resources

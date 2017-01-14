@@ -18,7 +18,6 @@ namespace FacturacionAmbatillo
         Lecturas lc=new Lecturas();
         Reportes re = new Reportes();
         Configuracion co;
-        HistorialMedidor hm = new HistorialMedidor("", "");
 
         public Principal(string user)
         {
@@ -76,22 +75,16 @@ namespace FacturacionAmbatillo
                 case 4:
                     this.panel = co;    //Configuración
                     break;
-                case 5:
-                    this.panel = hm;    //Historial de Medidor
-                    break;
             }
             panel.Visible = true;
             AddFormInPanel(panel);
 
         }
 
-        
-
-
         private void procesoFacuracion(string nom, string med)
         {
-            this.panel = new HistorialMedidor(nom, med);
-            AddFormInPanel(panel);
+            //this.panel = new HistorialMedidor(nom, med);
+            //AddFormInPanel(panel);
 
         }
         //Cambiar apariencia de los botones, todos en blanco
@@ -156,12 +149,12 @@ namespace FacturacionAmbatillo
 
         private void lblReportes_Click(object sender, EventArgs e)
         {
-                cambiarFormulario(5);
+                cambiarFormulario(3);
                 limpiaLabels();
                 lblReportes.Image = Properties.Resources.reportes2;
                 lblReportes.ForeColor = Color.FromArgb(224, 224, 224);
                 lblReportes.BackColor = Color.FromArgb(38, 38, 38);
-                lblTitulo.Text = "HISTORIAL MEDIDOR";
+                lblTitulo.Text = "REPORTES";
         }
 
         private void pbConfiguracion_Click(object sender, EventArgs e)

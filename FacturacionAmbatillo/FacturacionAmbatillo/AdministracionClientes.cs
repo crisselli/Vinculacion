@@ -13,91 +13,110 @@ namespace FacturacionAmbatillo
 {
     public partial class AdministracionClientes : Form
     {
+        MetodosGenerales metodo = new MetodosGenerales();
+
         public AdministracionClientes()
         {
             InitializeComponent();
-            cbBarrios.SelectedIndex = 0;
-            llenarCombo(cbBarrios, "SpSelectBarrios", "nombre", "id");
-            cbTipoDeUsuario.SelectedIndex = 0;
+            metodo.llenarCombo(cbBarrios, "SpSelectBarrios", "nombre", "id");
+            //cbBarrios.SelectedIndex = 0;
+            
         }
 
-        private string sql;
         Conexion conexion = new Conexion();
 
-        private void llenarCombo(ComboBox cb, string selectProcedure, string mostrar, string valor)
+        private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                MySqlConnection conn = new MySqlConnection(conexion.MyConString);
-                MySqlCommand cmd = new MySqlCommand(selectProcedure, conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                conn.Open();
-                DataTable dataTable = new DataTable();
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-
-                da.Fill(dataTable);
-
-                cb.DataSource = dataTable;
-                cb.ValueMember = valor;
-                cb.DisplayMember = mostrar;
-
-                conn.Close();
+            try { 
+                lbxMedidores.Items.RemoveAt(lbxMedidores.SelectedIndex);
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             };
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            lbxMedidores.Items.RemoveAt(lbxMedidores.SelectedIndex);
-            
+        private int codigoCliente;
+        private void ingresarCliente() {
+            try {
+                MySqlConnection cnn = new MySqlConnection(conexion.MyConString);
+                MySqlCommand cmd = new MySqlCommand("SpInsertClientes", cnn);
+                cnn.Open();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("ced", txtCedula.Text.Trim());
+                cmd.Parameters.AddWithValue("nombre", txtNombre.Text.Trim());
+                cmd.Parameters.AddWithValue("direccion", txtDireccion.Text.Trim());
+                cmd.Parameters.AddWithValue("tipo", rbPersona.Text);
+
+                int result = cmd.ExecuteNonQuery();
+
+                if (result > -1)
+                {
+                    string sql = "SELECT codigo FROM clientes " +
+                                "where ced = '" + txtCedula.Text.Trim() + "'";
+
+                    DataTable dtt = metodo.consultarDatos(sql);
+                    codigoCliente = Convert.ToInt32(dtt.Rows[0][0].ToString());
+                    cnn.Close();
+
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            };
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
+
                 string barrio = cbBarrios.SelectedValue.ToString();
-                //string sql = "SELECT codigo FROM agua.medidores " +
-                //             "where codigo_barrio = '" + barrio + "'" +
-                //             "ORDER BY codigo DESC LIMIT 1;";
-                MySqlConnection conn = new MySqlConnection(conexion.MyConString);
+                string sql = "SELECT substr(id_med,5) FROM medidores " +
+                             "where barrio_id = '" + barrio + "' " +
+                             "ORDER BY id_med DESC LIMIT 1";
 
-                MySqlCommand cmd = new MySqlCommand("SpSelectBarrios", conn);
-                conn.Open();
-
-                MySqlDataReader myreader = cmd.ExecuteReader();
-                myreader.Read();
+                DataTable dtt = metodo.consultarDatos(sql);
+                int siguienteMedidor;
                 string codMedidor;
-                if (myreader.HasRows)
+                if (dtt.Rows.Count > 0)
                 {
-                    codMedidor = myreader["codigo"].ToString();
-                    int medidor = Convert.ToInt32(codMedidor.Substring(4))+1;
-                    codMedidor = barrio + "-";
-                    if (medidor < 100)
+                    codMedidor = dtt.Rows[0][0].ToString();
+                    siguienteMedidor = Convert.ToInt32(dtt.Rows[0][0].ToString()) + 1;
+                    if (rbMedidor.Checked)
+                    {
+                        codMedidor = barrio + "-";
+                    }
+                    else {
+                        codMedidor = barrio + "A";
+                    }
+                    if (siguienteMedidor < 100)
                         codMedidor += 0;
-                    if (medidor < 10)
-                        codMedidor += 0; 
-                    codMedidor += medidor;
-
-                    lbxMedidores.Items.Add(codMedidor);
+                    if (siguienteMedidor < 10)
+                        codMedidor += 0;
+                    codMedidor += siguienteMedidor;
                 }
                 else
                 {
-                    codMedidor = barrio + "-001";
-                    lbxMedidores.Items.Add(codMedidor);
+                    if (rbMedidor.Checked)
+                    {
+                        codMedidor = barrio + "-";
+                    }
+                    else
+                    {
+                        codMedidor = barrio + "A";
+                    }
+                    codMedidor += "001";
                 }
-                conn.Close();
-            }catch(Exception ex)
+                lbxMedidores.Items.Add(codMedidor);
+
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
         
-
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -116,7 +135,52 @@ namespace FacturacionAmbatillo
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ingresarCliente();
+                string tipo;
+                string barrio;
+                string mensaje = "Se ingresaron: ";
+                int result;
 
+                MySqlConnection cnn = new MySqlConnection(conexion.MyConString);
+                MySqlCommand cmd = new MySqlCommand("SpInsertMedidores", cnn);
+                cnn.Open();
+                cmd.CommandType = CommandType.StoredProcedure;
+                
+                for (int i = 0; i< lbxMedidores.Items.Count; i++)
+                {
+                    barrio = lbxMedidores.Items[i].ToString().Substring(0, 3);
+
+                    if (lbxMedidores.Items[i].ToString().Substring(3,1) == "-")
+                        tipo = "MD";
+                    else
+                        tipo = "AC";
+                    
+                    cmd.Parameters.AddWithValue("cod_cli", codigoCliente);
+                    cmd.Parameters.AddWithValue("barrio_id", barrio);
+                    cmd.Parameters.AddWithValue("tipo", tipo);
+                    
+                    result = cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+                    if (result > -1)
+                    {
+                        mensaje += lbxMedidores.Items[i].ToString() + " ";
+                    }
+                }
+
+                MessageBox.Show("Nuevo cliente ingresado exitosamente.");
+                txtCedula.Text = "";
+                txtNombre.Text = "";
+                txtDireccion.Text = "";
+                cbBarrios.SelectedIndex = -1;
+                lbxMedidores.Items.Clear();
+
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

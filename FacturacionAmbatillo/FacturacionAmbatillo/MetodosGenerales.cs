@@ -114,5 +114,32 @@ namespace FacturacionAmbatillo
             return dt;
         }
 
+        /* 
+         * Metodo para enviar una consulta mediante stored procedures
+         * selectedProcedure - Nombre del procedimiento
+         */
+
+        public DataTable consultarDatosSP(string selectProcedure)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                MySqlConnection conn = new MySqlConnection(conexion.MyConString);
+                MySqlCommand cmd = new MySqlCommand(selectProcedure, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+                conn.Close();
+                return dt;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            };
+
+            return dt;
+        }
+
     }
 }
