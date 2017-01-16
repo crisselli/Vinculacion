@@ -54,15 +54,16 @@
             this.tpHistorial = new System.Windows.Forms.TabPage();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.txtSubTotal = new System.Windows.Forms.TextBox();
-            this.btnAtras = new System.Windows.Forms.Button();
-            this.btnContinuar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtMedidorHist = new System.Windows.Forms.TextBox();
             this.txtClienteHist = new System.Windows.Forms.TextBox();
             this.dgvMedidas = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnAtras = new System.Windows.Forms.Button();
+            this.btnContinuar = new System.Windows.Forms.Button();
             this.tpFactura = new System.Windows.Forms.TabPage();
+            this.lblValores = new System.Windows.Forms.Label();
             this.dgvSaldos = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,7 +90,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnAtrasFact = new System.Windows.Forms.Button();
-            this.lblValores = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -403,14 +403,14 @@
             this.tpHistorial.BackColor = System.Drawing.Color.White;
             this.tpHistorial.Controls.Add(this.lblMensaje);
             this.tpHistorial.Controls.Add(this.txtSubTotal);
-            this.tpHistorial.Controls.Add(this.btnAtras);
-            this.tpHistorial.Controls.Add(this.btnContinuar);
             this.tpHistorial.Controls.Add(this.label8);
             this.tpHistorial.Controls.Add(this.txtMedidorHist);
             this.tpHistorial.Controls.Add(this.txtClienteHist);
             this.tpHistorial.Controls.Add(this.dgvMedidas);
             this.tpHistorial.Controls.Add(this.label6);
             this.tpHistorial.Controls.Add(this.label7);
+            this.tpHistorial.Controls.Add(this.btnAtras);
+            this.tpHistorial.Controls.Add(this.btnContinuar);
             this.tpHistorial.Location = new System.Drawing.Point(4, 22);
             this.tpHistorial.Name = "tpHistorial";
             this.tpHistorial.Padding = new System.Windows.Forms.Padding(3);
@@ -427,6 +427,7 @@
             this.lblMensaje.Size = new System.Drawing.Size(47, 13);
             this.lblMensaje.TabIndex = 49;
             this.lblMensaje.Text = "Cálculos";
+            this.lblMensaje.Visible = false;
             // 
             // txtSubTotal
             // 
@@ -437,34 +438,6 @@
             this.txtSubTotal.Size = new System.Drawing.Size(95, 23);
             this.txtSubTotal.TabIndex = 48;
             this.txtSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtras.ImageIndex = 8;
-            this.btnAtras.ImageList = this.imageList1;
-            this.btnAtras.Location = new System.Drawing.Point(288, 399);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(79, 36);
-            this.btnAtras.TabIndex = 43;
-            this.btnAtras.Text = "        Atrás";
-            this.btnAtras.UseVisualStyleBackColor = true;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
-            // 
-            // btnContinuar
-            // 
-            this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContinuar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContinuar.ImageIndex = 9;
-            this.btnContinuar.ImageList = this.imageList1;
-            this.btnContinuar.Location = new System.Drawing.Point(373, 399);
-            this.btnContinuar.Name = "btnContinuar";
-            this.btnContinuar.Size = new System.Drawing.Size(95, 36);
-            this.btnContinuar.TabIndex = 47;
-            this.btnContinuar.Text = "        Continuar";
-            this.btnContinuar.UseVisualStyleBackColor = true;
-            this.btnContinuar.Click += new System.EventHandler(this.btnContinuar_Click);
             // 
             // label8
             // 
@@ -538,6 +511,34 @@
             this.label7.Text = "Cliente:";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
+            // btnAtras
+            // 
+            this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAtras.ImageIndex = 8;
+            this.btnAtras.ImageList = this.imageList1;
+            this.btnAtras.Location = new System.Drawing.Point(288, 399);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(79, 36);
+            this.btnAtras.TabIndex = 43;
+            this.btnAtras.Text = "        Atrás";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
+            // btnContinuar
+            // 
+            this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContinuar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContinuar.ImageIndex = 9;
+            this.btnContinuar.ImageList = this.imageList1;
+            this.btnContinuar.Location = new System.Drawing.Point(373, 399);
+            this.btnContinuar.Name = "btnContinuar";
+            this.btnContinuar.Size = new System.Drawing.Size(95, 36);
+            this.btnContinuar.TabIndex = 47;
+            this.btnContinuar.Text = "        Continuar";
+            this.btnContinuar.UseVisualStyleBackColor = true;
+            this.btnContinuar.Click += new System.EventHandler(this.btnContinuar_Click);
+            // 
             // tpFactura
             // 
             this.tpFactura.BackColor = System.Drawing.Color.White;
@@ -562,6 +563,16 @@
             this.tpFactura.TabIndex = 2;
             this.tpFactura.Text = "Factura";
             this.tpFactura.Click += new System.EventHandler(this.tpFactura_Click);
+            // 
+            // lblValores
+            // 
+            this.lblValores.AutoSize = true;
+            this.lblValores.Location = new System.Drawing.Point(25, 73);
+            this.lblValores.Name = "lblValores";
+            this.lblValores.Size = new System.Drawing.Size(48, 13);
+            this.lblValores.TabIndex = 71;
+            this.lblValores.Text = "Valores: ";
+            this.lblValores.Visible = false;
             // 
             // dgvSaldos
             // 
@@ -844,15 +855,6 @@
             this.btnAtrasFact.Text = "        Atrás";
             this.btnAtrasFact.UseVisualStyleBackColor = true;
             this.btnAtrasFact.Click += new System.EventHandler(this.btnAtrasFact_Click);
-            // 
-            // lblValores
-            // 
-            this.lblValores.AutoSize = true;
-            this.lblValores.Location = new System.Drawing.Point(25, 73);
-            this.lblValores.Name = "lblValores";
-            this.lblValores.Size = new System.Drawing.Size(48, 13);
-            this.lblValores.TabIndex = 71;
-            this.lblValores.Text = "Valores: ";
             // 
             // Clientes
             // 

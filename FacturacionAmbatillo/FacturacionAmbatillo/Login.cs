@@ -61,6 +61,7 @@ namespace FacturacionAmbatillo
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             validarUser(txtUsuario.Text,txtClave.Text);
+            Principal principal = new Principal(txtUsuario.Text.Trim());
         }
 
         private void txtUsuario_KeyUp(object sender, KeyEventArgs e)
@@ -68,6 +69,7 @@ namespace FacturacionAmbatillo
             if (e.KeyCode == Keys.Enter)
             {
                 validarUser(txtUsuario.Text, txtClave.Text);
+                
             }
         }
 

@@ -19,6 +19,7 @@ namespace FacturacionAmbatillo
         Reportes re = new Reportes();
         Configuracion co;
 
+        string usuario;
         public Principal(string user)
         {
             InitializeComponent();
@@ -28,6 +29,8 @@ namespace FacturacionAmbatillo
             Principal_Resize(new object(), new EventArgs());
             //Cargar nombre de usuario
             cargarUsuario(user);
+            //usuario=user;
+            //cl = new Clientes(user);
             co = new Configuracion(user);
         }
 
@@ -76,6 +79,7 @@ namespace FacturacionAmbatillo
                     this.panel = co;    //Configuración
                     break;
             }
+
             panel.Visible = true;
             AddFormInPanel(panel);
 

@@ -10,15 +10,19 @@ using System.Windows.Forms;
 
 using MySql.Data.MySqlClient;
 using System.Globalization;
+using System.Drawing.Printing;
 
 namespace FacturacionAmbatillo
 {
     public partial class Clientes : Form
     {
-        public Clientes()
+        public string usuario;
+        private string codigoCliente;
+        private string cedulaCliente;
+        public Clientes()//string user)
         {
             InitializeComponent();
-
+            //usuario = user;
             //Ocultar pestañas
             tabControl1.Appearance = TabAppearance.FlatButtons;
             tabControl1.ItemSize = new Size(0, 1);
@@ -93,13 +97,17 @@ namespace FacturacionAmbatillo
         }
 
         private Form panel = new Form();
-
+        string direccionCliente;
+        string medidor;
 
         private void btnMedidas_Click(object sender, EventArgs e)
         {
             try { 
                 string nombre = dgvClientes[2, dgvClientes.CurrentRow.Index].Value.ToString();
-                string medidor = lbxMedidores.SelectedValue.ToString();
+                cedulaCliente = dgvClientes[1, dgvClientes.CurrentRow.Index].Value.ToString();
+                codigoCliente = dgvClientes[0, dgvClientes.CurrentRow.Index].Value.ToString();
+                medidor = lbxMedidores.SelectedValue.ToString();
+                direccionCliente = "Santa Rosa - " + dgvClientes[3, dgvClientes.CurrentRow.Index].Value.ToString();
                 if (nombre != null && medidor != null)
                 {
                     tabControl1.SelectedTab = tabControl1.TabPages["tpHistorial"];
@@ -510,11 +518,6 @@ namespace FacturacionAmbatillo
             }
         }
 
-        private void btnPagar_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void tpFactura_Click(object sender, EventArgs e)
         {
 
@@ -571,6 +574,116 @@ namespace FacturacionAmbatillo
             dgvSaldos.Rows.Add("Saldo Anterior", myreader["saldo"].ToString());
             dgvSaldos.Rows.Add("Abono Actual", "");
             dgvSaldos.Rows.Add("Saldo Actual", "");
+        }
+
+        #region Imprimir
+
+        private Image facturaModelo;
+
+        private bool imprimirFactura(Image facturaActual) {
+            try
+            {
+                PrintDocument pd = new PrintDocument();
+                pd.PrintPage += (sender, e) => e.Graphics.DrawImage(facturaActual, 0, 0);
+                pd.Print();
+                return true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al imprimir la factura. Compruebe que la impresora esté conectada y encendida", "Advertencia");
+                return false;
+            }
+        }
+
+        private void dibujarFactura() {
+            int[] x = { 50, 135, 215, 295, 665, 760 };
+            int firstY = 265;
+            int y = 20;
+            Image facturaActual = facturaModelo;
+            Graphics g = Graphics.FromImage(facturaActual);
+            StringFormat formatter = new StringFormat();
+            //formatter.LineAlignment = StringAlignment.Center;
+            //formatter.Alignment = StringAlignment.Center;
+            Font font = new Font("Arial Unicode MS", 14, FontStyle.Regular);
+            SolidBrush brush = new SolidBrush(Color.Black);
+
+            //Puntos de dibujo
+
+            g.DrawString(txtClienteFact.Text, font, brush, new Point(90, 102), formatter);
+            g.DrawString(direccionCliente, font, brush, new Point(105, 125), formatter);
+            g.DrawString("Tungurahua", font, brush, new Point(330, 155), formatter);
+            g.DrawString(txtMedidorFact.Text, font, brush, new Point(120, 195), formatter);
+            g.DrawString(cedulaCliente, font, brush, new Point(315, 195), formatter);
+            g.DrawString(DateTime.Now.Day.ToString(), font, brush, new Point(465, 155), formatter);
+            g.DrawString(DateTime.Now.Month.ToString(), font, brush, new Point(530, 155), formatter);
+            g.DrawString(DateTime.Now.Year.ToString(), font, brush, new Point(590, 155), formatter);
+
+            foreach (DataGridViewRow row in dgvPagar.Rows) {
+                g.DrawString(row.Cells["anterior"].Value.ToString(), font, brush, new Point(x[0], firstY), formatter);
+                g.DrawString(row.Cells["actual"].Value.ToString(), font, brush, new Point(x[1], firstY), formatter);
+                g.DrawString(row.Cells["cantidad"].Value.ToString(), font, brush, new Point(x[2], firstY), formatter);
+                g.DrawString(row.Cells["detalle"].Value.ToString(), font, brush, new Point(x[3], firstY), formatter);
+                g.DrawString(row.Cells["VUnitario"].Value.ToString(), font, brush, new Point(x[4], firstY), formatter);
+                g.DrawString(row.Cells["VTotal"].Value.ToString(), font, brush, new Point(x[5], firstY), formatter);
+                firstY += y;
+            }
+            
+            
+            //Mostrar el dibujo
+
+            Form f2 = new Form();
+            f2.Show();
+            f2.Validate();
+            PictureBox pbox = new PictureBox();
+            pbox.Image = facturaActual;
+            pbox.SizeMode = PictureBoxSizeMode.AutoSize;
+            f2.Width = pbox.Width + 17;
+            f2.Height = pbox.Height + 37;
+            f2.Controls.Add(pbox);
+            imprimirFactura(facturaActual);
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            facturaModelo = FacturacionAmbatillo.Properties.Resources.Fact;
+            dibujarFactura();
+            //guardarPago();
+
+        }
+
+        #endregion
+
+        private void guardarPago()
+        {
+            try
+            {
+                MySqlConnection cnn = new MySqlConnection(conexion.MyConString);
+                MySqlCommand cmd = new MySqlCommand("SpInsertPagos", cnn);
+                cnn.Open();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("cod_cli", codigoCliente);
+                cmd.Parameters.AddWithValue("id_med_p", medidor);
+                cmd.Parameters.AddWithValue("id_user", usuario.Trim());
+                cmd.Parameters.AddWithValue("num_cuotas", 1);
+                cmd.Parameters.AddWithValue("observ", " ");
+                MySqlDataReader myreader = cmd.ExecuteReader();
+                myreader.Read();
+
+                if (myreader.HasRows)
+                {
+                    MessageBox.Show("Factura ingresada");
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido ingresar la factura");
+                }
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

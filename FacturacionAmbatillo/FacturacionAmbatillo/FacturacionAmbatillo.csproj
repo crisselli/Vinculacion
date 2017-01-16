@@ -207,9 +207,7 @@
   <ItemGroup>
     <None Include="Images\Logos.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Images\configurar.png" />
   </ItemGroup>
@@ -243,6 +241,9 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Logos.ico" />
+    <None Include="Resources\Fact.bmp" />
+    <None Include="Resources\Factura.png" />
+    <None Include="Resources\factura.bmp" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
