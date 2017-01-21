@@ -46,6 +46,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.lblPrueba = new System.Windows.Forms.Label();
             this.btnMedidas = new System.Windows.Forms.Button();
             this.lbxMedidores = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -90,6 +91,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnAtrasFact = new System.Windows.Forms.Button();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -157,16 +159,17 @@
             // txtMedidor
             // 
             this.txtMedidor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMedidor.Location = new System.Drawing.Point(94, 36);
+            this.txtMedidor.Location = new System.Drawing.Point(333, 29);
             this.txtMedidor.Name = "txtMedidor";
             this.txtMedidor.Size = new System.Drawing.Size(124, 21);
             this.txtMedidor.TabIndex = 23;
+            this.txtMedidor.TextChanged += new System.EventHandler(this.txtMedidor_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 38);
+            this.label4.Location = new System.Drawing.Point(248, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 17);
             this.label4.TabIndex = 24;
@@ -178,7 +181,7 @@
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLimpiar.ImageIndex = 0;
             this.btnLimpiar.ImageList = this.imageList1;
-            this.btnLimpiar.Location = new System.Drawing.Point(686, 19);
+            this.btnLimpiar.Location = new System.Drawing.Point(701, 17);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(84, 31);
             this.btnLimpiar.TabIndex = 22;
@@ -206,7 +209,7 @@
             // txtCedula
             // 
             this.txtCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedula.Location = new System.Drawing.Point(297, 38);
+            this.txtCedula.Location = new System.Drawing.Point(120, 29);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(124, 21);
             this.txtCedula.TabIndex = 3;
@@ -215,9 +218,9 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(94, 63);
+            this.txtNombre.Location = new System.Drawing.Point(120, 57);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(327, 21);
+            this.txtNombre.Size = new System.Drawing.Size(337, 21);
             this.txtNombre.TabIndex = 2;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
@@ -225,17 +228,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(243, 40);
+            this.label1.Location = new System.Drawing.Point(6, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 17);
+            this.label1.Size = new System.Drawing.Size(108, 17);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Cédula";
+            this.label1.Text = "N° Cliente / Ced";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(534, 63);
+            this.label3.Location = new System.Drawing.Point(549, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 17);
             this.label3.TabIndex = 7;
@@ -245,7 +248,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 66);
+            this.label2.Location = new System.Drawing.Point(56, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 5;
@@ -259,7 +262,7 @@
             this.cbTipoDeUsuario.Items.AddRange(new object[] {
             "persona",
             "entidad"});
-            this.cbTipoDeUsuario.Location = new System.Drawing.Point(649, 63);
+            this.cbTipoDeUsuario.Location = new System.Drawing.Point(664, 54);
             this.cbTipoDeUsuario.Name = "cbTipoDeUsuario";
             this.cbTipoDeUsuario.Size = new System.Drawing.Size(121, 23);
             this.cbTipoDeUsuario.TabIndex = 6;
@@ -310,6 +313,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.Color.White;
+            this.splitContainer2.Panel2.Controls.Add(this.lblPrueba);
             this.splitContainer2.Panel2.Controls.Add(this.btnMedidas);
             this.splitContainer2.Panel2.Controls.Add(this.lbxMedidores);
             this.splitContainer2.Panel2.Controls.Add(this.label5);
@@ -338,6 +342,15 @@
             this.dgvClientes.TabStop = false;
             this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
             // 
+            // lblPrueba
+            // 
+            this.lblPrueba.AutoSize = true;
+            this.lblPrueba.Location = new System.Drawing.Point(3, 160);
+            this.lblPrueba.Name = "lblPrueba";
+            this.lblPrueba.Size = new System.Drawing.Size(41, 13);
+            this.lblPrueba.TabIndex = 24;
+            this.lblPrueba.Text = "label11";
+            // 
             // btnMedidas
             // 
             this.btnMedidas.Dock = System.Windows.Forms.DockStyle.Top;
@@ -362,6 +375,7 @@
             this.lbxMedidores.Name = "lbxMedidores";
             this.lbxMedidores.Size = new System.Drawing.Size(160, 108);
             this.lbxMedidores.TabIndex = 1;
+            this.lbxMedidores.SelectedIndexChanged += new System.EventHandler(this.lbxMedidores_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -427,7 +441,6 @@
             this.lblMensaje.Size = new System.Drawing.Size(47, 13);
             this.lblMensaje.TabIndex = 49;
             this.lblMensaje.Text = "Cálculos";
-            this.lblMensaje.Visible = false;
             // 
             // txtSubTotal
             // 
@@ -856,6 +869,16 @@
             this.btnAtrasFact.UseVisualStyleBackColor = true;
             this.btnAtrasFact.Click += new System.EventHandler(this.btnAtrasFact_Click);
             // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -955,5 +978,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Label lblValores;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Label lblPrueba;
     }
 }

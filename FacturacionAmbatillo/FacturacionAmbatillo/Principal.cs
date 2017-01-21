@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,37 +14,39 @@ namespace FacturacionAmbatillo
     public partial class Principal : Form
     {
         private Form panel = new Form();
-        Clientes cl = new Clientes();
+        Clientes cl;// = new Clientes();
         Pagos pg=new Pagos();
         Lecturas lc=new Lecturas();
         Reportes re = new Reportes();
         Configuracion co;
-
-        string usuario;
-        public Principal(string user)
+        
+        public Principal(string userID, string userName)
         {
             InitializeComponent();
+
+            cl = new Clientes(userID);
+            co = new Configuracion(userID);
+
             //Cargar la pagina clientes como vista principal
             lblClientes_Click(new object(), new EventArgs());
             //Ajustar posición de textos de encabezado
             Principal_Resize(new object(), new EventArgs());
             //Cargar nombre de usuario
-            cargarUsuario(user);
-            //usuario=user;
-            //cl = new Clientes(user);
-            co = new Configuracion(user);
+            //cargarUsuario(userID);
+            lblUsuario.Text = userName.Substring(0, userName.IndexOf(" "));
         }
 
         MetodosGenerales metodo = new MetodosGenerales();
         DataTable dtt;
+        Conexion conexion = new Conexion();
 
-        private void cargarUsuario(string user) {
-            string sql = "SELECT substring_index(" +
-                            "(SELECT nombres FROM usuarios " +
-                            "where ced = '" + user + "'),' ',1);";
-            dtt = metodo.consultarDatos(sql);
-            lblUsuario.Text = dtt.Rows[0][0].ToString();
-        }
+        //private void cargarUsuario(string user) {
+        //    string sql = "SELECT substring_index(" +
+        //                    "(SELECT nombres FROM usuarios " +
+        //                    "where ced = '" + user + "'),' ',1);";
+        //    dtt = metodo.consultarDatos(sql);
+        //    lblUsuario.Text = dtt.Rows[0][0].ToString();
+        //}
 
         //Agregar Form en panel
         public void AddFormInPanel(Form fh){        
@@ -84,13 +87,7 @@ namespace FacturacionAmbatillo
             AddFormInPanel(panel);
 
         }
-
-        private void procesoFacuracion(string nom, string med)
-        {
-            //this.panel = new HistorialMedidor(nom, med);
-            //AddFormInPanel(panel);
-
-        }
+        
         //Cambiar apariencia de los botones, todos en blanco
         private void limpiaLabels()
         {
@@ -163,12 +160,9 @@ namespace FacturacionAmbatillo
 
         private void pbConfiguracion_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms["Configuracion"] == null)
-            {
-                cambiarFormulario(4);
-                limpiaLabels();
-                lblTitulo.Text = "CONFIGURACIÓN";
-            }
+            cambiarFormulario(4);
+            limpiaLabels();
+            lblTitulo.Text = "CONFIGURACIÓN";
         }
 
         #endregion

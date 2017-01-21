@@ -20,10 +20,9 @@ namespace FacturacionAmbatillo
 
         Conexion conexion = new Conexion();
         
-
-        private string validarUser(string ced,string pass)
+        private void validarUser(string ced,string pass)
         {
-            string user = null;
+            //string user = null;
             try
             {
                 MySqlConnection cnn = new MySqlConnection(conexion.MyConString);
@@ -38,9 +37,9 @@ namespace FacturacionAmbatillo
 
                 if (myreader.HasRows)
                 {
-                    user = myreader["nombres"].ToString();
                     this.Hide();
-                    Principal pr = new Principal(txtUsuario.Text.Trim());
+                    Principal pr = new Principal(txtUsuario.Text.Trim(), myreader["nombres"].ToString());
+                    //Principal pr = new Principal();
                     pr.ShowDialog();
                     this.Close();
                 }
@@ -54,14 +53,14 @@ namespace FacturacionAmbatillo
 
                 MessageBox.Show(ex.Message);
             }
+            
 
-            return user;
+            //return user;
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             validarUser(txtUsuario.Text,txtClave.Text);
-            Principal principal = new Principal(txtUsuario.Text.Trim());
         }
 
         private void txtUsuario_KeyUp(object sender, KeyEventArgs e)

@@ -13,6 +13,7 @@ namespace FacturacionAmbatillo
 {
     public partial class Configuracion : Form
     {
+       
         public Configuracion(string user)
         {
             InitializeComponent();

@@ -16,13 +16,19 @@ namespace FacturacionAmbatillo
 {
     public partial class Clientes : Form
     {
-        public string usuario;
-        private string codigoCliente;
-        private string cedulaCliente;
-        public Clientes()//string user)
+        private string usuarioID;
+        private string usuarioNom;
+        private string clienteID;
+        private string clienteCed;
+        private string clienteNom;
+        private string medidorID;
+        private string medidorDir;
+
+        public Clientes(string user)
         {
             InitializeComponent();
-            //usuario = user;
+            usuarioID = user;
+        
             //Ocultar pestañas
             tabControl1.Appearance = TabAppearance.FlatButtons;
             tabControl1.ItemSize = new Size(0, 1);
@@ -30,6 +36,8 @@ namespace FacturacionAmbatillo
 
             // Tab Clientes
             metodo.llenarGridSP(dgvClientes, "SpSelectClientes");
+            dgvClientes.Columns[0].HeaderText = "N°";
+            dgvClientes.Columns[1].HeaderText = "Cédula";
             dgvClientes.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvClientes.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvClientes.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -41,7 +49,7 @@ namespace FacturacionAmbatillo
         }
 
         MetodosGenerales metodo = new MetodosGenerales();
-        DataTable dtt;
+        DataTable dtt, dttMed;
         MySqlDataReader myreader;
 
         //Método para llenar listView Medidores mediante stored procedures
@@ -58,10 +66,10 @@ namespace FacturacionAmbatillo
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
                 da.Fill(dataTable);
-
+                dttMed = dataTable;
                 lbxMedidores.DataSource = dataTable;
                 lbxMedidores.ValueMember = "id_med";
-                lbxMedidores.DisplayMember = "id_med"; //"nombre"
+                lbxMedidores.DisplayMember = "medidor";
 
                 conn.Close();
             } catch (MySqlException ex) {
@@ -77,8 +85,8 @@ namespace FacturacionAmbatillo
         {
             txtNombre.Text = "";
             txtCedula.Text = "";
+            txtMedidor.Text = "";
             cbTipoDeUsuario.SelectedIndex = -1;
-            metodo.llenarGridSP(dgvClientes, "SpSelectClientes");
 
         }
 
@@ -97,25 +105,25 @@ namespace FacturacionAmbatillo
         }
 
         private Form panel = new Form();
-        string direccionCliente;
-        string medidor;
 
         private void btnMedidas_Click(object sender, EventArgs e)
         {
             try { 
-                string nombre = dgvClientes[2, dgvClientes.CurrentRow.Index].Value.ToString();
-                cedulaCliente = dgvClientes[1, dgvClientes.CurrentRow.Index].Value.ToString();
-                codigoCliente = dgvClientes[0, dgvClientes.CurrentRow.Index].Value.ToString();
-                medidor = lbxMedidores.SelectedValue.ToString();
-                direccionCliente = "Santa Rosa - " + dgvClientes[3, dgvClientes.CurrentRow.Index].Value.ToString();
-                if (nombre != null && medidor != null)
+                //clienteNom = dgvClientes[2, dgvClientes.CurrentRow.Index].Value.ToString();
+                clienteCed = dgvClientes[1, dgvClientes.CurrentRow.Index].Value.ToString();
+                //clienteID = dgvClientes[0, dgvClientes.CurrentRow.Index].Value.ToString();
+                medidorID = lbxMedidores.SelectedValue.ToString();
+                medidorDir = "Santa Rosa - " + dttMed.Rows[lbxMedidores.SelectedIndex]["nombre"].ToString();
+                //medidorDir = "Santa Rosa - " + dgvClientes[3, dgvClientes.CurrentRow.Index].Value.ToString();
+                lblMensaje.Text = medidorDir;
+                if (nombre != null && medidorID != null)
                 {
                     tabControl1.SelectedTab = tabControl1.TabPages["tpHistorial"];
-                    txtClienteHist.Text = nombre;
-                    txtMedidorHist.Text = medidor;
-                    txtClienteFact.Text = nombre;
-                    txtMedidorFact.Text = medidor;
-                    cargarHistorial(medidor);
+                    txtClienteHist.Text = clienteNom;
+                    txtMedidorHist.Text = medidorID;
+                    txtClienteFact.Text = clienteNom;
+                    txtMedidorFact.Text = medidorID;
+                    cargarHistorial(medidorID);
                     dgvMedidas.Columns["Fecha"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                     dgvMedidas.Columns["ValorCI"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                     dgvMedidas.Columns["Estado"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -130,6 +138,7 @@ namespace FacturacionAmbatillo
         }
 
         DataTable dataTable;
+        double interes;
 
         private void cargarHistorial(string codMedidor){
             try
@@ -157,6 +166,7 @@ namespace FacturacionAmbatillo
 
                 dgvMedidas.Columns["ValorCI"].HeaderText = "Valor";
                 
+                //Marcar como predeterminado el siguiente pago
                 if (result>0)
                 {
                     dgvMedidas.Rows[0].Selected = false;
@@ -164,11 +174,13 @@ namespace FacturacionAmbatillo
                     bool abonado = false;
                     bool pendiente = false;
                     foreach (DataGridViewRow row in dgvMedidas.Rows) {
+                        //Seleccionar todos con estado 'abonado'
                         if (row.Cells["Estado"].Value.Equals("abonado"))
                         {
                             row.Selected = true;
                             abonado = true;
                         }
+                        //Seleccionar solo el siguiente pago pendiente
                         else if (abonado == false) {
                             if (row.Cells["Estado"].Value.Equals("pendiente") && pendiente == false)
                             {
@@ -181,10 +193,16 @@ namespace FacturacionAmbatillo
 
                 // Calcular el interés por mora
 
-                string sql = "SELECT valor FROM rubros where nombre = 'Interés por mora'; ";
+                string sql = "SELECT valor FROM rubros where id_rub = 4; ";
                 dataTable = metodo.consultarDatos(sql);
-                double interes = 1 + (Convert.ToDouble(dataTable.Rows[0][0].ToString()) / 100);
 
+                //Cálculo del interés porcentual
+                    //double interes = 1 + (Convert.ToDouble(dataTable.Rows[0][0].ToString()) / 100);
+
+                //Interés de valor fijo
+                interes = Convert.ToDouble(dataTable.Rows[0][0].ToString());
+
+                //Calcular si es consumo normal o con interés
                 foreach (DataGridViewRow row in dgvMedidas.Rows)
                 {
                     int intervalo = Convert.ToInt32(row.Cells["Intervalo"].Value);
@@ -192,17 +210,19 @@ namespace FacturacionAmbatillo
                     //lblMensaje.Text += " intervalo:" + intervalo.ToString();
                     //blMensaje.Text += " Valor:" + valor.ToString();
 
+                    //Mínimo un mes de retraso
                     if (intervalo > 0)
                         for (int j = 1; j <= intervalo; j++)
                         {
-                            valor *= interes;
+                            //valor *= interes;
+                            valor += interes;
                         }
-                    row.Cells["ValorCI"].Value = String.Format("{0:F}", valor);
-                    
-                    //lblMensaje.Text += " con interes:" + row.Cells["ValorCI"].Value;
+                        row.Cells["ValorCI"].Value = String.Format("{0:F}", valor);
+
+                        //lblMensaje.Text += valor.ToString("N", CultureInfo.InvariantCulture);
 
 
-                    if (row.Cells["Estado"].Value.ToString() == "cancelado")
+                        if (row.Cells["Estado"].Value.ToString() == "cancelado")
                     {
                         row.DefaultCellStyle.ForeColor = Color.DarkGray; //BackColor = Color.LightBlue;
                     }
@@ -265,10 +285,10 @@ namespace FacturacionAmbatillo
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string codigo = dgvClientes[0, dgvClientes.CurrentRow.Index].Value.ToString();
+            clienteID = dgvClientes[0, dgvClientes.CurrentRow.Index].Value.ToString();
+            clienteNom = dgvClientes[2, dgvClientes.CurrentRow.Index].Value.ToString();
 
-            //MessageBox.Show(dgvClientes[0, dgvClientes.CurrentRow.Index].Value.ToString());
-            consultarMedidores(codigo);
+            consultarMedidores(clienteID);
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -283,10 +303,8 @@ namespace FacturacionAmbatillo
 
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-            //Pasar al tab Factura
-            tabControl1.SelectedTab = tabControl1.TabPages["tpFactura"];
-            DataTable dt = new DataTable();
-            DataGridViewRow row = new DataGridViewRow();
+            //DataTable dt = new DataTable();
+            //DataGridViewRow row = new DataGridViewRow();
             int i = 0, codLect = 0;
             bool abonado = false;
 
@@ -296,18 +314,18 @@ namespace FacturacionAmbatillo
                 foreach (DataGridViewRow rowPrincipal in dgvMedidas.SelectedRows)
                 {
                     int intervalo = Convert.ToInt32(rowPrincipal.Cells["intervalo"].Value);
-                    double interes = Convert.ToDouble(rowPrincipal.Cells["Valor"].Value); 
+                    //double interes = Convert.ToDouble(rowPrincipal.Cells["Valor"].Value); 
                     if (intervalo > 0)
                     {
-                        double valCI = Convert.ToDouble(rowPrincipal.Cells["ValorCI"].Value);
-                        double valSI = Convert.ToDouble(rowPrincipal.Cells["Valor"].Value);
-                        interes = valCI - valSI;
+                        //double valCI = Convert.ToDouble(rowPrincipal.Cells["ValorCI"].Value);
+                        //double valSI = Convert.ToDouble(rowPrincipal.Cells["Valor"].Value);
+                        //interes = valCI - valSI;
                     
                         dgvPagar.Rows.Add(i, "", "", "", 
                                    intervalo,
                                    "Interés",
                                    interes,
-                                   interes);
+                                   interes*intervalo);
                         i++;
                     }
 
@@ -316,9 +334,11 @@ namespace FacturacionAmbatillo
                                    rowPrincipal.Cells["anterior"].Value,
                                    rowPrincipal.Cells["actual"].Value,
                                    rowPrincipal.Cells["cantidad"].Value,
-                                   "Consumo - " + rowPrincipal.Cells["Fecha"].Value,
+                                   "Consumo - (" + rowPrincipal.Cells["Fecha"].Value + ")",
                                    rowPrincipal.Cells["ValorUnitario"].Value,
                                    rowPrincipal.Cells["Valor"].Value);
+                                   //rowPrincipal.Cells["ValorUnitario"].Value.ToString("C",CultureInfo.InvariantCulture),
+                                   //String.Format("{0:C}", rowPrincipal.Cells["Valor"].Value));
                     i++;
 
                     if (rowPrincipal.Cells["Estado"].Value.Equals("abonado"))
@@ -368,21 +388,24 @@ namespace FacturacionAmbatillo
                     subtotal += Convert.ToDouble(dgvPagar.Rows[j].Cells["VTotal"].Value);
                 }
                 dgvTotal.Rows.Add("Subtotal", subtotal);
-                dgvTotal.Rows.Add("Descuento", "");
+                dgvTotal.Rows.Add("Descuento", "0.00");
                 dgvTotal.Rows.Add("IVA 0%", subtotal);
-                dgvTotal.Rows.Add("IVA 12%", "");
+                dgvTotal.Rows.Add("IVA 12%", "0.00");
                 dgvTotal.Rows.Add("TOTAL", subtotal);
 
                 dgvTotal.Rows[0].Selected = false;
                 dgvPagar.Rows[0].Selected = false;
                 dgvSaldos.Rows[0].Selected = false;
                 dgvPagar.ClearSelection();
+
             }
 
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
-            
+
+            //Pasar al tab Factura
+            tabControl1.SelectedTab = tabControl1.TabPages["tpFactura"];
 
         }
 
@@ -610,10 +633,10 @@ namespace FacturacionAmbatillo
             //Puntos de dibujo
 
             g.DrawString(txtClienteFact.Text, font, brush, new Point(90, 102), formatter);
-            g.DrawString(direccionCliente, font, brush, new Point(105, 125), formatter);
+            g.DrawString(medidorDir, font, brush, new Point(105, 125), formatter);
             g.DrawString("Tungurahua", font, brush, new Point(330, 155), formatter);
             g.DrawString(txtMedidorFact.Text, font, brush, new Point(120, 195), formatter);
-            g.DrawString(cedulaCliente, font, brush, new Point(315, 195), formatter);
+            g.DrawString(clienteCed, font, brush, new Point(315, 195), formatter);
             g.DrawString(DateTime.Now.Day.ToString(), font, brush, new Point(465, 155), formatter);
             g.DrawString(DateTime.Now.Month.ToString(), font, brush, new Point(530, 155), formatter);
             g.DrawString(DateTime.Now.Year.ToString(), font, brush, new Point(590, 155), formatter);
@@ -627,10 +650,17 @@ namespace FacturacionAmbatillo
                 g.DrawString(row.Cells["VTotal"].Value.ToString(), font, brush, new Point(x[5], firstY), formatter);
                 firstY += y;
             }
-            
-            
+
+            firstY = 530;
+            foreach (DataGridViewRow row in dgvTotal.Rows)
+            {
+                g.DrawString(row.Cells["total"].Value.ToString(), font, brush, new Point(x[5], firstY), formatter);
+                firstY += y;
+            }
+
             //Mostrar el dibujo
 
+            
             Form f2 = new Form();
             f2.Show();
             f2.Validate();
@@ -640,18 +670,138 @@ namespace FacturacionAmbatillo
             f2.Width = pbox.Width + 17;
             f2.Height = pbox.Height + 37;
             f2.Controls.Add(pbox);
-            imprimirFactura(facturaActual);
+            
+
+            //imprimirFactura(facturaActual);
         }
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
             facturaModelo = FacturacionAmbatillo.Properties.Resources.Fact;
-            dibujarFactura();
+            //dibujarFactura();
             //guardarPago();
+
+            Imprimir_Solicitud();
+
+            //CaptureScreen();
+            //printPreviewDialog1.Show();
 
         }
 
         #endregion
+
+        // ////////////////////////////////////
+
+        private Font fuente = new Font("Arial", 12);
+
+        private void datosFactura(object obj, PrintPageEventArgs ev)
+        {
+            int[] x = { 50, 135, 215, 295, 665, 760 };
+            int firstY = 265;
+            int y = 20;
+            StringFormat formatter = new StringFormat();
+            //formatter.LineAlignment = StringAlignment.Center;
+            //formatter.Alignment = StringAlignment.Center;
+            Font font = new Font("Arial Unicode MS", 10, FontStyle.Regular);
+            SolidBrush brush = new SolidBrush(Color.Black);
+
+            //Puntos de dibujo
+
+            //ev.Graphics.DrawString(txtClienteFact.Text, font, brush, new Point(90, 102), formatter);
+            //ev.Graphics.DrawString(direccionCliente, font, brush, new Point(105, 125), formatter);
+            //ev.Graphics.DrawString("Tungurahua", font, brush, new Point(330, 155), formatter);
+            //ev.Graphics.DrawString(txtMedidorFact.Text, font, brush, new Point(120, 195), formatter);
+            //ev.Graphics.DrawString(cedulaCliente, font, brush, new Point(315, 195), formatter);
+            //ev.Graphics.DrawString(DateTime.Now.Day.ToString(), font, brush, new Point(465, 155), formatter);
+            //ev.Graphics.DrawString(DateTime.Now.Month.ToString(), font, brush, new Point(530, 155), formatter);
+            //ev.Graphics.DrawString(DateTime.Now.Year.ToString(), font, brush, new Point(590, 155), formatter);
+
+            foreach (DataGridViewRow row in dgvPagar.Rows)
+            {
+                ev.Graphics.DrawString(row.Cells["anterior"].Value.ToString(), font, brush, new Point(x[0], firstY), formatter);
+                ev.Graphics.DrawString(row.Cells["actual"].Value.ToString(), font, brush, new Point(x[1], firstY), formatter);
+                ev.Graphics.DrawString(row.Cells["cantidad"].Value.ToString(), font, brush, new Point(x[2], firstY), formatter);
+                ev.Graphics.DrawString(row.Cells["detalle"].Value.ToString(), font, brush, new Point(x[3], firstY), formatter);
+                ev.Graphics.DrawString(row.Cells["VUnitario"].Value.ToString(), font, brush, new Point(x[4], firstY), formatter);
+                ev.Graphics.DrawString(row.Cells["VTotal"].Value.ToString(), font, brush, new Point(x[5], firstY), formatter);
+                firstY += y;
+            }
+
+            firstY = 530;
+            foreach (DataGridViewRow row in dgvTotal.Rows)
+            {
+                ev.Graphics.DrawString(row.Cells["total"].Value.ToString(), font, brush, new Point(x[5], firstY), formatter);
+                firstY += y;
+            }
+
+        }
+
+        private void datosFactura2(object obj, PrintPageEventArgs ev)
+        {
+            int[] x = { 50, 135, 215, 295, 665, 760 };
+            int firstY = 225;
+            int y = 20;
+            StringFormat formatter = new StringFormat();
+            //formatter.LineAlignment = StringAlignment.Center;
+            formatter.Alignment = StringAlignment.Far;
+            Font font = new Font("Arial Unicode MS", 10, FontStyle.Regular);
+            SolidBrush brush = new SolidBrush(Color.Gray);
+
+            //Puntos de dibujo
+
+            ev.Graphics.DrawString(txtClienteFact.Text, font, brush, new Point(90, 62));//, formatter);
+            ev.Graphics.DrawString(medidorDir, font, brush, new Point(105, 85));//, formatter);
+            ev.Graphics.DrawString("Tungurahua", font, brush, new Point(330, 115));//, formatter);
+            ev.Graphics.DrawString(txtMedidorFact.Text, font, brush, new Point(120, 155));//, formatter);
+            ev.Graphics.DrawString(clienteCed, font, brush, new Point(315, 155));//, formatter);
+            ev.Graphics.DrawString(DateTime.Now.Day.ToString(), font, brush, new Point(465, 115));//, formatter);
+            ev.Graphics.DrawString(DateTime.Now.Month.ToString(), font, brush, new Point(530, 115));//, formatter);
+            ev.Graphics.DrawString(DateTime.Now.Year.ToString(), font, brush, new Point(590, 115));//, formatter);
+
+            foreach (DataGridViewRow row in dgvPagar.Rows)
+            {
+                ev.Graphics.DrawString(row.Cells["anterior"].Value.ToString(), font, brush, new Point(x[0], firstY));//, formatter);
+                ev.Graphics.DrawString(row.Cells["actual"].Value.ToString(), font, brush, new Point(x[1], firstY));//, formatter);
+                ev.Graphics.DrawString(row.Cells["cantidad"].Value.ToString(), font, brush, new Point(x[2], firstY));//, formatter);
+                ev.Graphics.DrawString(row.Cells["detalle"].Value.ToString(), font, brush, new Point(x[3], firstY));//, formatter);
+                ev.Graphics.DrawString(row.Cells["VUnitario"].Value.ToString(), font, brush, new Point(x[4], firstY), formatter);
+                ev.Graphics.DrawString(row.Cells["VTotal"].Value.ToString(), font, brush, new Point(x[5], firstY), formatter);
+                firstY += y;
+            }
+
+            firstY = 490;
+            foreach (DataGridViewRow row in dgvTotal.Rows)
+            {
+                ev.Graphics.DrawString(row.Cells["total"].Value.ToString(), font, brush, new Point(x[5], firstY), formatter);
+                firstY += y;
+            }
+
+        }
+
+
+        public void Imprimir_Solicitud()
+        {
+
+            //Este método contiene dos componentes muy importantes los cuales son:
+
+            //PrintDocument y printDialog estos métodos definen las propiedades de impresión
+
+            //como son: numero de copias, numero de paginas y seleccionar tipo de impresora
+            PrintDocument formulario = new PrintDocument();
+            formulario.PrintPage += new PrintPageEventHandler(datosFactura2);// Datos_Cliente);
+            PrintDialog printDialog1 = new PrintDialog();
+            //printDialog1.Document = formulario;
+            printPreviewDialog1.Document = formulario;
+            //DialogResult result = printDialog1.ShowDialog();
+            DialogResult result = printPreviewDialog1.ShowDialog();
+            //if (result == DialogResult.OK)
+            //{
+            //    formulario.Print();
+            //}
+        }
+        
+        // ////////////////////////////////////
+
 
         private void guardarPago()
         {
@@ -661,9 +811,9 @@ namespace FacturacionAmbatillo
                 MySqlCommand cmd = new MySqlCommand("SpInsertPagos", cnn);
                 cnn.Open();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("cod_cli", codigoCliente);
-                cmd.Parameters.AddWithValue("id_med_p", medidor);
-                cmd.Parameters.AddWithValue("id_user", usuario.Trim());
+                cmd.Parameters.AddWithValue("cod_cli", clienteID);
+                cmd.Parameters.AddWithValue("id_med_p", medidorDir);
+                cmd.Parameters.AddWithValue("id_user", usuarioID);
                 cmd.Parameters.AddWithValue("num_cuotas", 1);
                 cmd.Parameters.AddWithValue("observ", " ");
                 MySqlDataReader myreader = cmd.ExecuteReader();
@@ -685,5 +835,23 @@ namespace FacturacionAmbatillo
             }
             
         }
+
+        private void txtMedidor_TextChanged(object sender, EventArgs e)
+        {
+            string sql = "select distinct c.codigo, c.ced, c.Nombre, c.Direccion, c.Tipo " +
+                            " from clientes c, medidores m " +
+                            " where m.cod_cli = c.codigo " +
+                            " and m.id_med like '%" + txtMedidor.Text + "%'";
+            if (txtMedidor.Text.Trim().Length > 0)
+                metodo.llenarGrid(dgvClientes, sql);
+            else
+                filtrarClientes(dtt);
+        }
+
+        private void lbxMedidores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblPrueba.Text = dttMed.Rows[lbxMedidores.SelectedIndex]["nombre"].ToString();
+        }
+
     }
 }
