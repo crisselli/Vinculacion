@@ -64,13 +64,16 @@
             this.btnAtras = new System.Windows.Forms.Button();
             this.btnContinuar = new System.Windows.Forms.Button();
             this.tpFactura = new System.Windows.Forms.TabPage();
+            this.lblObservacion = new System.Windows.Forms.Label();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
+            this.btnEliminarRubro = new System.Windows.Forms.Button();
+            this.btnAgregarRubro = new System.Windows.Forms.Button();
             this.lblValores = new System.Windows.Forms.Label();
             this.dgvSaldos = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblNumeroPago = new System.Windows.Forms.Label();
             this.lblTipoDePago = new System.Windows.Forms.Label();
-            this.rbCredito = new System.Windows.Forms.RadioButton();
             this.rbAbono = new System.Windows.Forms.RadioButton();
             this.rbFactura = new System.Windows.Forms.RadioButton();
             this.btnPagar = new System.Windows.Forms.Button();
@@ -81,7 +84,8 @@
             this.txtClienteFact = new System.Windows.Forms.TextBox();
             this.dgvPagar = new System.Windows.Forms.DataGridView();
             this.i = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idRubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idLect = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.anterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -436,7 +440,7 @@
             // lblMensaje
             // 
             this.lblMensaje.AutoSize = true;
-            this.lblMensaje.Location = new System.Drawing.Point(500, 79);
+            this.lblMensaje.Location = new System.Drawing.Point(23, 381);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(47, 13);
             this.lblMensaje.TabIndex = 49;
@@ -540,6 +544,7 @@
             // 
             // btnContinuar
             // 
+            this.btnContinuar.Enabled = false;
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContinuar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnContinuar.ImageIndex = 9;
@@ -555,11 +560,14 @@
             // tpFactura
             // 
             this.tpFactura.BackColor = System.Drawing.Color.White;
+            this.tpFactura.Controls.Add(this.lblObservacion);
+            this.tpFactura.Controls.Add(this.txtObservacion);
+            this.tpFactura.Controls.Add(this.btnEliminarRubro);
+            this.tpFactura.Controls.Add(this.btnAgregarRubro);
             this.tpFactura.Controls.Add(this.lblValores);
             this.tpFactura.Controls.Add(this.dgvSaldos);
             this.tpFactura.Controls.Add(this.lblNumeroPago);
             this.tpFactura.Controls.Add(this.lblTipoDePago);
-            this.tpFactura.Controls.Add(this.rbCredito);
             this.tpFactura.Controls.Add(this.rbAbono);
             this.tpFactura.Controls.Add(this.rbFactura);
             this.tpFactura.Controls.Add(this.btnPagar);
@@ -577,6 +585,53 @@
             this.tpFactura.Text = "Factura";
             this.tpFactura.Click += new System.EventHandler(this.tpFactura_Click);
             // 
+            // lblObservacion
+            // 
+            this.lblObservacion.AutoSize = true;
+            this.lblObservacion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObservacion.Location = new System.Drawing.Point(28, 428);
+            this.lblObservacion.Name = "lblObservacion";
+            this.lblObservacion.Size = new System.Drawing.Size(144, 12);
+            this.lblObservacion.TabIndex = 75;
+            this.lblObservacion.Text = "Observación - (Opcional)";
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(26, 351);
+            this.txtObservacion.MaxLength = 200;
+            this.txtObservacion.Multiline = true;
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(253, 70);
+            this.txtObservacion.TabIndex = 74;
+            // 
+            // btnEliminarRubro
+            // 
+            this.btnEliminarRubro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarRubro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarRubro.ImageIndex = 5;
+            this.btnEliminarRubro.ImageList = this.imageList1;
+            this.btnEliminarRubro.Location = new System.Drawing.Point(685, 152);
+            this.btnEliminarRubro.Name = "btnEliminarRubro";
+            this.btnEliminarRubro.Size = new System.Drawing.Size(88, 36);
+            this.btnEliminarRubro.TabIndex = 73;
+            this.btnEliminarRubro.Text = "        Eliminar";
+            this.btnEliminarRubro.UseVisualStyleBackColor = true;
+            this.btnEliminarRubro.Click += new System.EventHandler(this.btnEliminarRubro_Click);
+            // 
+            // btnAgregarRubro
+            // 
+            this.btnAgregarRubro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarRubro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarRubro.ImageIndex = 1;
+            this.btnAgregarRubro.ImageList = this.imageList1;
+            this.btnAgregarRubro.Location = new System.Drawing.Point(685, 110);
+            this.btnAgregarRubro.Name = "btnAgregarRubro";
+            this.btnAgregarRubro.Size = new System.Drawing.Size(88, 36);
+            this.btnAgregarRubro.TabIndex = 72;
+            this.btnAgregarRubro.Text = "        Agregar";
+            this.btnAgregarRubro.UseVisualStyleBackColor = true;
+            this.btnAgregarRubro.Click += new System.EventHandler(this.btnAgregarRubro_Click);
+            // 
             // lblValores
             // 
             this.lblValores.AutoSize = true;
@@ -585,7 +640,6 @@
             this.lblValores.Size = new System.Drawing.Size(48, 13);
             this.lblValores.TabIndex = 71;
             this.lblValores.Text = "Valores: ";
-            this.lblValores.Visible = false;
             // 
             // dgvSaldos
             // 
@@ -600,14 +654,18 @@
             this.dgvSaldos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            this.dgvSaldos.Location = new System.Drawing.Point(311, 352);
+            this.dgvSaldos.Location = new System.Drawing.Point(285, 352);
             this.dgvSaldos.Name = "dgvSaldos";
-            this.dgvSaldos.ReadOnly = true;
             this.dgvSaldos.RowHeadersVisible = false;
             this.dgvSaldos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvSaldos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSaldos.Size = new System.Drawing.Size(181, 69);
+            this.dgvSaldos.Size = new System.Drawing.Size(207, 69);
             this.dgvSaldos.TabIndex = 70;
+            this.dgvSaldos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSaldos_CellClick);
+            this.dgvSaldos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSaldos_CellContentClick);
+            this.dgvSaldos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSaldos_CellDoubleClick);
+            this.dgvSaldos.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvSaldos_CellValidating);
+            this.dgvSaldos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvSaldos_KeyPress);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -621,7 +679,6 @@
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn2.HeaderText = "total";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // lblNumeroPago
             // 
@@ -632,7 +689,7 @@
             this.lblNumeroPago.Name = "lblNumeroPago";
             this.lblNumeroPago.Size = new System.Drawing.Size(96, 25);
             this.lblNumeroPago.TabIndex = 69;
-            this.lblNumeroPago.Text = "0000456";
+            this.lblNumeroPago.Text = "0000000";
             // 
             // lblTipoDePago
             // 
@@ -644,17 +701,6 @@
             this.lblTipoDePago.Size = new System.Drawing.Size(115, 20);
             this.lblTipoDePago.TabIndex = 68;
             this.lblTipoDePago.Text = "FACTURA N°";
-            // 
-            // rbCredito
-            // 
-            this.rbCredito.AutoSize = true;
-            this.rbCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCredito.Location = new System.Drawing.Point(328, 20);
-            this.rbCredito.Name = "rbCredito";
-            this.rbCredito.Size = new System.Drawing.Size(64, 19);
-            this.rbCredito.TabIndex = 67;
-            this.rbCredito.Text = "Crédito";
-            this.rbCredito.UseVisualStyleBackColor = true;
             // 
             // rbAbono
             // 
@@ -686,11 +732,11 @@
             this.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPagar.ImageIndex = 7;
             this.btnPagar.ImageList = this.imageList1;
-            this.btnPagar.Location = new System.Drawing.Point(600, 470);
+            this.btnPagar.Location = new System.Drawing.Point(498, 470);
             this.btnPagar.Name = "btnPagar";
-            this.btnPagar.Size = new System.Drawing.Size(79, 36);
+            this.btnPagar.Size = new System.Drawing.Size(181, 36);
             this.btnPagar.TabIndex = 63;
-            this.btnPagar.Text = "        Pagar";
+            this.btnPagar.Text = "        Guardar Pago";
             this.btnPagar.UseVisualStyleBackColor = true;
             this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
@@ -757,7 +803,8 @@
             this.dgvPagar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPagar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.i,
-            this.id,
+            this.idRubro,
+            this.idLect,
             this.anterior,
             this.actual,
             this.cantidad,
@@ -766,35 +813,42 @@
             this.VTotal});
             this.dgvPagar.Location = new System.Drawing.Point(26, 89);
             this.dgvPagar.Name = "dgvPagar";
-            this.dgvPagar.ReadOnly = true;
             this.dgvPagar.RowHeadersVisible = false;
             this.dgvPagar.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvPagar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPagar.Size = new System.Drawing.Size(653, 257);
             this.dgvPagar.TabIndex = 57;
+            this.dgvPagar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagar_CellDoubleClick);
+            this.dgvPagar.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagar_CellEnter);
+            this.dgvPagar.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvPagar_CellValidating);
+            this.dgvPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvPagar_KeyPress);
+            this.dgvPagar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvPagar_KeyUp);
             // 
             // i
             // 
             this.i.HeaderText = "i";
             this.i.Name = "i";
-            this.i.ReadOnly = true;
             this.i.Visible = false;
             // 
-            // id
+            // idRubro
             // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Visible = false;
+            this.idRubro.HeaderText = "id Rubro";
+            this.idRubro.Name = "idRubro";
+            this.idRubro.Visible = false;
+            // 
+            // idLect
+            // 
+            this.idLect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idLect.HeaderText = "id Lect";
+            this.idLect.Name = "idLect";
+            this.idLect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idLect.Visible = false;
             // 
             // anterior
             // 
             this.anterior.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.anterior.HeaderText = "L. Anterior";
             this.anterior.Name = "anterior";
-            this.anterior.ReadOnly = true;
             this.anterior.Width = 80;
             // 
             // actual
@@ -802,7 +856,6 @@
             this.actual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.actual.HeaderText = "L. Actual";
             this.actual.Name = "actual";
-            this.actual.ReadOnly = true;
             this.actual.Width = 74;
             // 
             // cantidad
@@ -810,21 +863,18 @@
             this.cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.cantidad.HeaderText = "Cantidad";
             this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
             this.cantidad.Width = 74;
             // 
             // Detalle
             // 
             this.Detalle.HeaderText = "Detalle";
             this.Detalle.Name = "Detalle";
-            this.Detalle.ReadOnly = true;
             // 
             // VUnitario
             // 
             this.VUnitario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.VUnitario.HeaderText = "V. Unitario";
             this.VUnitario.Name = "VUnitario";
-            this.VUnitario.ReadOnly = true;
             this.VUnitario.Width = 81;
             // 
             // VTotal
@@ -832,7 +882,6 @@
             this.VTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.VTotal.HeaderText = "V. Total";
             this.VTotal.Name = "VTotal";
-            this.VTotal.ReadOnly = true;
             this.VTotal.Width = 69;
             // 
             // label9
@@ -859,13 +908,13 @@
             // 
             this.btnAtrasFact.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtrasFact.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtrasFact.ImageIndex = 8;
+            this.btnAtrasFact.ImageIndex = 5;
             this.btnAtrasFact.ImageList = this.imageList1;
-            this.btnAtrasFact.Location = new System.Drawing.Point(26, 461);
+            this.btnAtrasFact.Location = new System.Drawing.Point(28, 470);
             this.btnAtrasFact.Name = "btnAtrasFact";
-            this.btnAtrasFact.Size = new System.Drawing.Size(80, 36);
+            this.btnAtrasFact.Size = new System.Drawing.Size(88, 36);
             this.btnAtrasFact.TabIndex = 51;
-            this.btnAtrasFact.Text = "        Atrás";
+            this.btnAtrasFact.Text = "        Cancelar";
             this.btnAtrasFact.UseVisualStyleBackColor = true;
             this.btnAtrasFact.Click += new System.EventHandler(this.btnAtrasFact_Click);
             // 
@@ -873,11 +922,14 @@
             // 
             this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
             this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
             this.printPreviewDialog1.Enabled = true;
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
+            this.printPreviewDialog1.Click += new System.EventHandler(this.printPreviewDialog1_Click);
             // 
             // Clientes
             // 
@@ -957,28 +1009,32 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtSubTotal;
         private System.Windows.Forms.Label lblMensaje;
+        private System.Windows.Forms.DataGridView dgvTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.Button btnPagar;
+        private System.Windows.Forms.RadioButton rbAbono;
+        private System.Windows.Forms.RadioButton rbFactura;
+        private System.Windows.Forms.Label lblNumeroPago;
+        private System.Windows.Forms.Label lblTipoDePago;
+        private System.Windows.Forms.DataGridView dgvSaldos;
+        private System.Windows.Forms.Label lblValores;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Label lblPrueba;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Button btnEliminarRubro;
+        private System.Windows.Forms.Button btnAgregarRubro;
+        private System.Windows.Forms.TextBox txtObservacion;
+        private System.Windows.Forms.Label lblObservacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn i;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idRubro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idLect;
         private System.Windows.Forms.DataGridViewTextBoxColumn anterior;
         private System.Windows.Forms.DataGridViewTextBoxColumn actual;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Detalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn VUnitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn VTotal;
-        private System.Windows.Forms.DataGridView dgvTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        private System.Windows.Forms.Button btnPagar;
-        private System.Windows.Forms.RadioButton rbCredito;
-        private System.Windows.Forms.RadioButton rbAbono;
-        private System.Windows.Forms.RadioButton rbFactura;
-        private System.Windows.Forms.Label lblNumeroPago;
-        private System.Windows.Forms.Label lblTipoDePago;
-        private System.Windows.Forms.DataGridView dgvSaldos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.Label lblValores;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.Label lblPrueba;
     }
 }

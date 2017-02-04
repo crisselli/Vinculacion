@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="tesisfid_aguaDataSetDiario" targetNamespace="http://tempuri.org/tesisfid_aguaDataSetDiario.xsd" xmlns:mstns="http://tempuri.org/tesisfid_aguaDataSetDiario.xsd" xmlns="http://tempuri.org/tesisfid_aguaDataSetDiario.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="tesisfid_aguaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="tesisfid_aguaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FacturacionAmbatillo.Properties.Settings.GlobalReference.Default.tesisfid_aguaConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="tesisfid_aguaConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select distinct barrios.nombre as barrio,(pagos.total -  (select sum(abonos.valor) from abonos
+									where abonos.cod_pag = pagos.id_pag )) as suma, pagos.fecha
+ as fecha
+
+from pagos, abonos, barrios, medidores
+
+
+where pagos.estado = 'cancelado'
+
+
+and pagos.id_pag in (select abonos.cod_pag from abonos)
+
+
+and pagos.fecha = now()
+
+
+and pagos.id_med_p = medidores.id_med
+
+
+and medidores.barrio_id = barrios.id
+
+
+group by pagos.id_pag
+
+
+UNION
+
+
+select distinct bar.nombre as barrio,pagos.total as suma, pagos.fecha
+ as fecha
+
+from pagos, barrios bar, medidores med
+
+
+where pagos.estado = 'cancelado'
+
+
+and pagos.id_pag not in (select abonos.cod_pag from abonos)
+
+
+and pagos.fecha = now()
+
+
+and pagos.id_med_p = med.id_med
+
+
+and med.barrio_id = bar.id
+
+
+group by pagos.id_pag
+
+
+UNION
+
+
+select distinct ba.nombre as barrio,sum(abonos.valor) as suma, abonos.fecha
+ as fecha
+
+from abonos, pagos, barrios ba, medidores me
+
+
+where abonos.cod_pag = pagos.id_pag
+
+
+and pagos.id_med_p = me.id_med
+
+
+and me.barrio_id = ba.id
+
+
+and pagos.estado = 'pendiente'
+
+
+and abonos.fecha = now()
+
+
+group by abonos.cod_pag</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="barrio" DataSetColumn="barrio" />
+              <Mapping SourceColumn="suma" DataSetColumn="suma" />
+              <Mapping SourceColumn="fecha" DataSetColumn="fecha" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SpReporteTableAdapter" GeneratorDataComponentClassName="SpReporteTableAdapter" Name="SpReporte" UserDataComponentName="SpReporteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="tesisfid_aguaConnectionString (Settings)" DbObjectName="`tesisfid_agua`.`SpReporte`" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>`tesisfid_agua`.`SpReporte`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="fecha1" Precision="255" ProviderType="DateTime" Scale="255" Size="2147483647" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="fecha2" Precision="255" ProviderType="DateTime" Scale="255" Size="2147483647" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="barrio" DataSetColumn="barrio" />
+              <Mapping SourceColumn="suma" DataSetColumn="suma" />
+              <Mapping SourceColumn="fecha" DataSetColumn="fecha" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="tesisfid_aguaDataSetDiario" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="tesisfid_aguaDataSetDiario" msprop:Generator_UserDSName="tesisfid_aguaDataSetDiario">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="barrio" msprop:Generator_ColumnVarNameInTable="columnbarrio" msprop:Generator_ColumnPropNameInRow="barrio" msprop:Generator_ColumnPropNameInTable="barrioColumn" msprop:Generator_UserColumnName="barrio" type="xs:string" minOccurs="0" />
+              <xs:element name="suma" msprop:Generator_ColumnVarNameInTable="columnsuma" msprop:Generator_ColumnPropNameInRow="suma" msprop:Generator_ColumnPropNameInTable="sumaColumn" msprop:Generator_UserColumnName="suma" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SpReporte" msprop:Generator_TableClassName="SpReporteDataTable" msprop:Generator_TableVarName="tableSpReporte" msprop:Generator_TablePropName="SpReporte" msprop:Generator_RowDeletingName="SpReporteRowDeleting" msprop:Generator_RowChangingName="SpReporteRowChanging" msprop:Generator_RowEvHandlerName="SpReporteRowChangeEventHandler" msprop:Generator_RowDeletedName="SpReporteRowDeleted" msprop:Generator_UserTableName="SpReporte" msprop:Generator_RowChangedName="SpReporteRowChanged" msprop:Generator_RowEvArgName="SpReporteRowChangeEvent" msprop:Generator_RowClassName="SpReporteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="barrio" msprop:Generator_ColumnVarNameInTable="columnbarrio" msprop:Generator_ColumnPropNameInRow="barrio" msprop:Generator_ColumnPropNameInTable="barrioColumn" msprop:Generator_UserColumnName="barrio">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="suma" msprop:Generator_ColumnVarNameInTable="columnsuma" msprop:Generator_ColumnPropNameInRow="suma" msprop:Generator_ColumnPropNameInTable="sumaColumn" msprop:Generator_UserColumnName="suma" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -140,6 +141,17 @@ namespace FacturacionAmbatillo
 
             return dt;
         }
+
+        /*
+         * Método para incluir texto como marca de agua en textbox
+         */
+        public void hint(TextBox textbox, String Mensaje)
+        {
+            SendMessage(textbox.Handle, 0x1501, 1, Mensaje);
+        }
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
 
     }
 }

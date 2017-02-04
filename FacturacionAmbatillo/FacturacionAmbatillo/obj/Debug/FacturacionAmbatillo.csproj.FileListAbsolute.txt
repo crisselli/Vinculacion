@@ -3,10 +3,8 @@ C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbat
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.application
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.exe
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\FacturacionAmbatillo.pdb
-C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\MySql.Data.dll
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\MySql.Data.xml
-C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.csprojResolveAssemblyReference.cache
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.AdministracionClientes.resources
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.Detalles.resources
@@ -23,3 +21,8 @@ C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbat
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.application
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.exe
 C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.pdb
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\FacturacionAmbatillo.AgregarRubros.resources
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\RdlCompile.cache
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\obj\Debug\RdlCompile.compiled
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Cristina\Source\Repos\Vinculacion\FacturacionAmbatillo\FacturacionAmbatillo\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
