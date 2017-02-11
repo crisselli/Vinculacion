@@ -168,6 +168,7 @@
             this.txtMedidor.Size = new System.Drawing.Size(124, 21);
             this.txtMedidor.TabIndex = 23;
             this.txtMedidor.TextChanged += new System.EventHandler(this.txtMedidor_TextChanged);
+            this.txtMedidor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMedidor_KeyPress);
             // 
             // label4
             // 
@@ -354,6 +355,7 @@
             this.lblPrueba.Size = new System.Drawing.Size(41, 13);
             this.lblPrueba.TabIndex = 24;
             this.lblPrueba.Text = "label11";
+            this.lblPrueba.Visible = false;
             // 
             // btnMedidas
             // 
@@ -445,6 +447,7 @@
             this.lblMensaje.Size = new System.Drawing.Size(47, 13);
             this.lblMensaje.TabIndex = 49;
             this.lblMensaje.Text = "Cálculos";
+            this.lblMensaje.Visible = false;
             // 
             // txtSubTotal
             // 
@@ -640,6 +643,7 @@
             this.lblValores.Size = new System.Drawing.Size(48, 13);
             this.lblValores.TabIndex = 71;
             this.lblValores.Text = "Valores: ";
+            this.lblValores.Visible = false;
             // 
             // dgvSaldos
             // 

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.dgvRubros = new System.Windows.Forms.DataGridView();
+            this.seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRubros)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,8 +41,9 @@
             this.dgvRubros.AllowUserToAddRows = false;
             this.dgvRubros.AllowUserToDeleteRows = false;
             this.dgvRubros.AllowUserToResizeColumns = false;
+            this.dgvRubros.AllowUserToResizeRows = false;
             this.dgvRubros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvRubros.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvRubros.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvRubros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRubros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.seleccionar});
@@ -52,6 +53,11 @@
             this.dgvRubros.RowHeadersVisible = false;
             this.dgvRubros.Size = new System.Drawing.Size(373, 205);
             this.dgvRubros.TabIndex = 0;
+            // 
+            // seleccionar
+            // 
+            this.seleccionar.HeaderText = "Seleccionar";
+            this.seleccionar.Name = "seleccionar";
             // 
             // btnAceptar
             // 
@@ -75,6 +81,7 @@
             this.button1.TabIndex = 53;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
@@ -85,11 +92,7 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 54;
             this.label1.Text = "label1";
-            // 
-            // seleccionar
-            // 
-            this.seleccionar.HeaderText = "Seleccionar";
-            this.seleccionar.Name = "seleccionar";
+            this.label1.Visible = false;
             // 
             // AgregarRubros
             // 

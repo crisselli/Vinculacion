@@ -71,7 +71,7 @@
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.White;
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(998, 581);
+            this.splitContainer1.Size = new System.Drawing.Size(998, 591);
             this.splitContainer1.SplitterDistance = 43;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 0;
@@ -135,7 +135,7 @@
             this.splitContainer2.Panel1.Controls.Add(this.lblLecturas);
             this.splitContainer2.Panel1.Controls.Add(this.lblPagos);
             this.splitContainer2.Panel1.Controls.Add(this.lblClientes);
-            this.splitContainer2.Size = new System.Drawing.Size(998, 537);
+            this.splitContainer2.Size = new System.Drawing.Size(998, 547);
             this.splitContainer2.SplitterDistance = 166;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -186,6 +186,7 @@
             this.lblPagos.TabIndex = 0;
             this.lblPagos.Text = "            Pagos";
             this.lblPagos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPagos.Visible = false;
             this.lblPagos.Click += new System.EventHandler(this.lblPagos_Click);
             // 
             // lblClientes
@@ -208,10 +209,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 581);
+            this.ClientSize = new System.Drawing.Size(998, 591);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.MinimumSize = new System.Drawing.Size(1014, 630);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";

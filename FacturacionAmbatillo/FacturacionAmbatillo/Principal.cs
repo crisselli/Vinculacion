@@ -19,7 +19,7 @@ namespace FacturacionAmbatillo
         Lecturas lc=new Lecturas();
         Reportes re = new Reportes();
         Configuracion co;
-        
+        public string pass;
         public Principal(string userID, string userName)
         {
             InitializeComponent();
@@ -34,6 +34,11 @@ namespace FacturacionAmbatillo
             //Cargar nombre de usuario
             //cargarUsuario(userID);
             lblUsuario.Text = userName.Substring(0, userName.IndexOf(" "));
+        }
+
+        public Principal()
+        {
+           
         }
 
         MetodosGenerales metodo = new MetodosGenerales();

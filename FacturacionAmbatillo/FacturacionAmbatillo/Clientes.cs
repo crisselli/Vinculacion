@@ -174,7 +174,7 @@ namespace FacturacionAmbatillo
                 dgvMedidas.Columns["ValorUnitario"].Visible = false;
 
                 dgvMedidas.Columns["ValorCI"].HeaderText = "Valor";
-
+                cnn.Close();
                 //Marcar como predeterminado el siguiente pago
                 if (result > 0)
                 {
@@ -244,6 +244,7 @@ namespace FacturacionAmbatillo
                             row.DefaultCellStyle.ForeColor = Color.DarkGray; //BackColor = Color.LightBlue;
                         }
                     }
+                    dgvMedidas.Sort(dgvMedidas.Columns[0], ListSortDirection.Ascending);
                     calcularSubtotal();
                 }
                 else
@@ -319,12 +320,9 @@ namespace FacturacionAmbatillo
         }
 
         private void nuevoPago() {
-            int i = 0, codLect = 0;
-            //bool abonado = false;
-
+            int i = 0;
             try
             {
-                
                 //Cargar valores con interés en grid Pagos
                 foreach (DataGridViewRow rowPrincipal in dgvMedidas.SelectedRows)
                 {
@@ -379,17 +377,18 @@ namespace FacturacionAmbatillo
             }
         }
 
+        int codigoDePago;
+
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-            //DataTable dt = new DataTable();
-            //DataGridViewRow row = new DataGridViewRow();
             int i = 0, codLect = 0;
-            //bool abonado = false;
 
             try
             {
                 bool ab = false;
                 estadoAbonado = false;
+
+                //comprbar si hay valores abonados
                 foreach (DataGridViewRow row in dgvMedidas.Rows)
                 {
                     if (row.Cells["estado"].Value.Equals("abonado"))
@@ -397,18 +396,19 @@ namespace FacturacionAmbatillo
                         ab = true;
                     }
                 }
-
-
-                foreach (DataGridViewRow rowPrincipal in dgvMedidas.SelectedRows)
+                
+                //comprobar si entre los seleccionados hay abonos
+                foreach (DataGridViewRow row in dgvMedidas.SelectedRows)
                 {
-                    if (rowPrincipal.Cells["Estado"].Value.Equals("abonado"))
+                    if (row.Cells["Estado"].Value.Equals("abonado"))
                     {
                         estadoAbonado = true;
-                        codLect = Convert.ToInt32(rowPrincipal.Cells["id"].Value.ToString());
+                        codLect = Convert.ToInt32(row.Cells["id"].Value.ToString());
                     }
 
                 }
 
+                //Si seleccionó las lecturas correspondientes
                 if (ab == estadoAbonado)
                 {
                     //Pasar al tab Factura
@@ -421,8 +421,42 @@ namespace FacturacionAmbatillo
                     }
                     else
                     {
+                        foreach (DataGridViewRow rowPrincipal in dgvMedidas.SelectedRows)
+                        {
+                            int intervalo = Convert.ToInt32(rowPrincipal.Cells["intervalo"].Value);
+                            //double interes = Convert.ToDouble(rowPrincipal.Cells["Valor"].Value); 
+                            if (intervalo > 0)
+                            {
+                                //double valCI = Convert.ToDouble(rowPrincipal.Cells["ValorCI"].Value);
+                                //double valSI = Convert.ToDouble(rowPrincipal.Cells["Valor"].Value);
+                                //interes = valCI - valSI;
+
+                                dgvPagar.Rows.Add(i, "2",
+                                           rowPrincipal.Cells["id"].Value,
+                                           "", "",
+                                           intervalo,
+                                           "Interés",
+                                           interes,
+                                           interes * intervalo);
+                                i++;
+                            }
+
+                            dgvPagar.Rows.Add(i, "1",
+                                           rowPrincipal.Cells["id"].Value,
+                                           rowPrincipal.Cells["anterior"].Value,
+                                           rowPrincipal.Cells["actual"].Value,
+                                           rowPrincipal.Cells["cantidad"].Value,
+                                           "Consumo - (" + rowPrincipal.Cells["Fecha"].Value + ")",
+                                           rowPrincipal.Cells["ValorUnitario"].Value,
+                                           rowPrincipal.Cells["Valor"].Value);
+                            //rowPrincipal.Cells["ValorUnitario"].Value.ToString("C",CultureInfo.InvariantCulture),
+                            //String.Format("{0:C}", rowPrincipal.Cells["Valor"].Value));
+                            i++;
+
+                        }
+
                         MessageBox.Show(codLect.ToString());
-                        int cod = 0;
+                        codigoDePago = 0;
                         MySqlConnection cnn = new MySqlConnection(conexion.MyConString);
                         MySqlCommand cmd = new MySqlCommand("SpTotalAbonos", cnn);
                         cnn.Open();
@@ -440,7 +474,7 @@ namespace FacturacionAmbatillo
                             lblValores.Text += " Total: " + myreader["total"].ToString() +
                                                " Abonos: " + myreader["abonos"].ToString() +
                                                " Saldo: " + myreader["saldo"].ToString();
-                            cod = Convert.ToInt32(myreader["codigo"].ToString());
+                            codigoDePago = Convert.ToInt32(myreader["codigo"].ToString());
                             //dgvSaldos.Rows.Add("Abono Actual", "");
                             //dgvSaldos.Rows.Add("Saldo Actual", "");
 
@@ -449,7 +483,7 @@ namespace FacturacionAmbatillo
                                             "where d.cod_rubro = r.id_rub and " +
                                             "d.cod_rubro != 1 and " +
                                             "d.cod_rubro != 2 and " +
-                                            "d.cod_pag = " + cod;
+                                            "d.cod_pag = " + codigoDePago;
                             DataTable dat = metodo.consultarDatos(sql);
                             for (int j = 0; j < dat.Rows.Count; j++)
                             {
@@ -458,6 +492,7 @@ namespace FacturacionAmbatillo
                                                        dat.Rows[j]["nombre"].ToString(),
                                                        dat.Rows[j]["valor"].ToString(),
                                                        dat.Rows[j]["vtotal"].ToString());
+                                i++;
                             }
                         }
                         else
@@ -584,6 +619,7 @@ namespace FacturacionAmbatillo
         {
             bool cancelado = false;
             bool abonado = false;
+            bool pendiente = false;
 
             //if(dgvMedidas.CurrentRow.Cells["Estado"].Value.Equals("abonado"))
             foreach (DataGridViewRow row in dgvMedidas.SelectedRows)
@@ -592,6 +628,8 @@ namespace FacturacionAmbatillo
                     abonado = true;
                 if (row.Cells["Estado"].Value.Equals("cancelado"))
                     cancelado = true;
+                if (row.Cells["Estado"].Value.Equals("pendiente"))
+                    pendiente = true;
             }
 
             if (abonado == true)
@@ -670,7 +708,7 @@ namespace FacturacionAmbatillo
             cmd.Parameters.AddWithValue("fact_hasta", dt.Rows[0][2].ToString());
             cmd.Parameters.AddWithValue("recib_hasta", dt.Rows[0][4].ToString());
             count = cmd.ExecuteReader().RecordsAffected;
-
+            cnn.Close();
             if (count > 0)
                 lblValores.Text = "Ya ta";
         }
@@ -830,8 +868,14 @@ namespace FacturacionAmbatillo
         {
             if (btnPagar.Text == "        Guardar Pago")
             {
-                guardarPago();
-                facturaModelo = FacturacionAmbatillo.Properties.Resources.Fact;
+                if (estadoAbonado == true)
+                {
+
+                }
+                else {
+                    guardarPago();
+                    facturaModelo = FacturacionAmbatillo.Properties.Resources.Fact;
+                }
                 //dibujarFactura();
                 //guardarPago();
                 Imprimir_Solicitud();
@@ -1023,7 +1067,7 @@ namespace FacturacionAmbatillo
             try
             {
                 DataTable ultimoPago = metodo.consultarDatos("SELECT id_pag FROM pagos order by fecha desc limit 1;");
-                int codigoPago = Convert.ToInt32(ultimoPago.Rows[0][0].ToString());
+                int codigoPago = codigoDePago;//Convert.ToInt32(ultimoPago.Rows[0][0].ToString());
 
                 MySqlConnection conn = new MySqlConnection(conexion.MyConString);
                 MySqlCommand cmd = new MySqlCommand("SpInsertAbonos", conn);
@@ -1037,11 +1081,11 @@ namespace FacturacionAmbatillo
                 DataTable dataTable = new DataTable();
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
-                da.Fill(dataTable);
-                dttMed = dataTable;
-                lbxMedidores.DataSource = dataTable;
-                lbxMedidores.ValueMember = "id_med";
-                lbxMedidores.DisplayMember = "medidor";
+                //da.Fill(dataTable);
+                //dttMed = dataTable;
+                //lbxMedidores.DataSource = dataTable;
+                //lbxMedidores.ValueMember = "id_med";
+                //lbxMedidores.DisplayMember = "medidor";
 
                 conn.Close();
             }
@@ -1301,6 +1345,28 @@ namespace FacturacionAmbatillo
                 e.Handled = false;
             }
             else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMedidor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else 
+            //if(e.KeyChar == '\'')
+            if (!(char.IsLetter(e.KeyChar)) || e.KeyChar == '\'')
             {
                 e.Handled = true;
             }

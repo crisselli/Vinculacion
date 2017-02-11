@@ -27,7 +27,7 @@ namespace FacturacionAmbatillo.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=root;persistsecurityinfo=True;database" +
-            "=tesisfid_agua")]
+            "=aguas")]
         public string tesisfid_aguaConnectionString {
             get {
                 return ((string)(this["tesisfid_aguaConnectionString"]));

@@ -31,7 +31,30 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracion));
             this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tpUsuario = new System.Windows.Forms.TabPage();
+            this.tpUsuarios = new System.Windows.Forms.TabPage();
+            this.panelUsuarios = new System.Windows.Forms.Panel();
+            this.cbNewRol = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtNewCedula = new System.Windows.Forms.TextBox();
+            this.txtNewTelefono = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtNewNombre = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtNewClave = new System.Windows.Forms.TextBox();
+            this.btnNuevoUsuario = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnEliminarUsuarios = new System.Windows.Forms.Button();
+            this.btnModificarUsuarios = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblUsuarioActual = new System.Windows.Forms.Label();
+            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.tpPerfil = new System.Windows.Forms.TabPage();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtCedula = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.lblErroreses = new System.Windows.Forms.Label();
             this.lblErrorPass = new System.Windows.Forms.Label();
             this.txtRepetirNuevaPass = new System.Windows.Forms.TextBox();
@@ -40,20 +63,28 @@
             this.label21 = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.txtApellidos = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.btnEditarPass = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnCancelarPass = new System.Windows.Forms.Button();
             this.tpRubros = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.panelRubros = new System.Windows.Forms.Panel();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
+            this.lblNombreRubro = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.lblValorRubro = new System.Windows.Forms.Label();
+            this.lblObservacionRubro = new System.Windows.Forms.Label();
+            this.btnNuevoRubro = new System.Windows.Forms.Button();
+            this.btnEliminarRubro = new System.Windows.Forms.Button();
+            this.btnModificarRubros = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.dgvRubros = new System.Windows.Forms.DataGridView();
             this.tpBarrios = new System.Windows.Forms.TabPage();
+            this.panelBarrios = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -82,17 +113,23 @@
             this.btnCancelarValores = new System.Windows.Forms.Button();
             this.btnEditarValores = new System.Windows.Forms.Button();
             this.tabControl2.SuspendLayout();
-            this.tpUsuario.SuspendLayout();
+            this.tpUsuarios.SuspendLayout();
+            this.panelUsuarios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            this.tpPerfil.SuspendLayout();
             this.tpRubros.SuspendLayout();
+            this.panelRubros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRubros)).BeginInit();
             this.tpBarrios.SuspendLayout();
+            this.panelBarrios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBarrios)).BeginInit();
             this.tpConfPagos.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl2
             // 
-            this.tabControl2.Controls.Add(this.tpUsuario);
+            this.tabControl2.Controls.Add(this.tpUsuarios);
+            this.tabControl2.Controls.Add(this.tpPerfil);
             this.tabControl2.Controls.Add(this.tpRubros);
             this.tabControl2.Controls.Add(this.tpBarrios);
             this.tabControl2.Controls.Add(this.tpConfPagos);
@@ -107,30 +144,278 @@
             this.tabControl2.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl2.TabIndex = 3;
             // 
-            // tpUsuario
+            // tpUsuarios
             // 
-            this.tpUsuario.BackColor = System.Drawing.Color.White;
-            this.tpUsuario.Controls.Add(this.lblErroreses);
-            this.tpUsuario.Controls.Add(this.lblErrorPass);
-            this.tpUsuario.Controls.Add(this.txtRepetirNuevaPass);
-            this.tpUsuario.Controls.Add(this.label22);
-            this.tpUsuario.Controls.Add(this.txtNuevaPass);
-            this.tpUsuario.Controls.Add(this.label21);
-            this.tpUsuario.Controls.Add(this.txtPass);
-            this.tpUsuario.Controls.Add(this.label20);
-            this.tpUsuario.Controls.Add(this.txtApellidos);
-            this.tpUsuario.Controls.Add(this.label19);
-            this.tpUsuario.Controls.Add(this.txtNombres);
-            this.tpUsuario.Controls.Add(this.label18);
-            this.tpUsuario.Controls.Add(this.btnEditarPass);
-            this.tpUsuario.Controls.Add(this.btnCancelarPass);
-            this.tpUsuario.ImageIndex = 0;
-            this.tpUsuario.Location = new System.Drawing.Point(4, 44);
-            this.tpUsuario.Name = "tpUsuario";
-            this.tpUsuario.Padding = new System.Windows.Forms.Padding(3);
-            this.tpUsuario.Size = new System.Drawing.Size(796, 455);
-            this.tpUsuario.TabIndex = 0;
-            this.tpUsuario.Text = "Usuario";
+            this.tpUsuarios.Controls.Add(this.panelUsuarios);
+            this.tpUsuarios.Controls.Add(this.btnNuevoUsuario);
+            this.tpUsuarios.Controls.Add(this.btnEliminarUsuarios);
+            this.tpUsuarios.Controls.Add(this.btnModificarUsuarios);
+            this.tpUsuarios.Controls.Add(this.label5);
+            this.tpUsuarios.Controls.Add(this.lblUsuarioActual);
+            this.tpUsuarios.Controls.Add(this.dgvUsuarios);
+            this.tpUsuarios.Location = new System.Drawing.Point(4, 44);
+            this.tpUsuarios.Name = "tpUsuarios";
+            this.tpUsuarios.Size = new System.Drawing.Size(796, 455);
+            this.tpUsuarios.TabIndex = 4;
+            this.tpUsuarios.Text = "Usuarios";
+            this.tpUsuarios.UseVisualStyleBackColor = true;
+            this.tpUsuarios.Click += new System.EventHandler(this.tpUsuarios_Click);
+            // 
+            // panelUsuarios
+            // 
+            this.panelUsuarios.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelUsuarios.Controls.Add(this.cbNewRol);
+            this.panelUsuarios.Controls.Add(this.label12);
+            this.panelUsuarios.Controls.Add(this.txtNewCedula);
+            this.panelUsuarios.Controls.Add(this.txtNewTelefono);
+            this.panelUsuarios.Controls.Add(this.label11);
+            this.panelUsuarios.Controls.Add(this.label8);
+            this.panelUsuarios.Controls.Add(this.txtNewNombre);
+            this.panelUsuarios.Controls.Add(this.label10);
+            this.panelUsuarios.Controls.Add(this.label9);
+            this.panelUsuarios.Controls.Add(this.txtNewClave);
+            this.panelUsuarios.Location = new System.Drawing.Point(19, 260);
+            this.panelUsuarios.Name = "panelUsuarios";
+            this.panelUsuarios.Size = new System.Drawing.Size(573, 178);
+            this.panelUsuarios.TabIndex = 44;
+            this.panelUsuarios.Visible = false;
+            // 
+            // cbNewRol
+            // 
+            this.cbNewRol.Items.AddRange(new object[] {
+            "Administrador",
+            "Recaudador"});
+            this.cbNewRol.Location = new System.Drawing.Point(115, 137);
+            this.cbNewRol.Name = "cbNewRol";
+            this.cbNewRol.Size = new System.Drawing.Size(121, 26);
+            this.cbNewRol.TabIndex = 45;
+            this.cbNewRol.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(78, 140);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(31, 18);
+            this.label12.TabIndex = 44;
+            this.label12.Text = "Rol";
+            // 
+            // txtNewCedula
+            // 
+            this.txtNewCedula.Location = new System.Drawing.Point(115, 13);
+            this.txtNewCedula.Name = "txtNewCedula";
+            this.txtNewCedula.Size = new System.Drawing.Size(121, 24);
+            this.txtNewCedula.TabIndex = 41;
+            // 
+            // txtNewTelefono
+            // 
+            this.txtNewTelefono.Location = new System.Drawing.Point(115, 75);
+            this.txtNewTelefono.Name = "txtNewTelefono";
+            this.txtNewTelefono.Size = new System.Drawing.Size(121, 24);
+            this.txtNewTelefono.TabIndex = 43;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(47, 47);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(62, 18);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Nombre";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(43, 78);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(66, 18);
+            this.label8.TabIndex = 42;
+            this.label8.Text = "Teléfono";
+            // 
+            // txtNewNombre
+            // 
+            this.txtNewNombre.Location = new System.Drawing.Point(115, 44);
+            this.txtNewNombre.Name = "txtNewNombre";
+            this.txtNewNombre.Size = new System.Drawing.Size(399, 24);
+            this.txtNewNombre.TabIndex = 37;
+            this.txtNewNombre.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(24, 109);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(85, 18);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "Contraseña";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(55, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 18);
+            this.label9.TabIndex = 40;
+            this.label9.Text = "Cédula";
+            // 
+            // txtNewClave
+            // 
+            this.txtNewClave.Location = new System.Drawing.Point(115, 106);
+            this.txtNewClave.Name = "txtNewClave";
+            this.txtNewClave.Size = new System.Drawing.Size(183, 24);
+            this.txtNewClave.TabIndex = 39;
+            this.txtNewClave.UseSystemPasswordChar = true;
+            // 
+            // btnNuevoUsuario
+            // 
+            this.btnNuevoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoUsuario.ImageIndex = 1;
+            this.btnNuevoUsuario.ImageList = this.imageList1;
+            this.btnNuevoUsuario.Location = new System.Drawing.Point(19, 214);
+            this.btnNuevoUsuario.Name = "btnNuevoUsuario";
+            this.btnNuevoUsuario.Size = new System.Drawing.Size(103, 36);
+            this.btnNuevoUsuario.TabIndex = 33;
+            this.btnNuevoUsuario.Text = "         Nuevo";
+            this.btnNuevoUsuario.UseVisualStyleBackColor = true;
+            this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNuevoUsuario_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "guardar.png");
+            this.imageList1.Images.SetKeyName(1, "nuevo.png");
+            this.imageList1.Images.SetKeyName(2, "editar.png");
+            this.imageList1.Images.SetKeyName(3, "eliminar.png");
+            this.imageList1.Images.SetKeyName(4, "cancelar.png");
+            // 
+            // btnEliminarUsuarios
+            // 
+            this.btnEliminarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarUsuarios.ImageIndex = 3;
+            this.btnEliminarUsuarios.ImageList = this.imageList1;
+            this.btnEliminarUsuarios.Location = new System.Drawing.Point(232, 214);
+            this.btnEliminarUsuarios.Name = "btnEliminarUsuarios";
+            this.btnEliminarUsuarios.Size = new System.Drawing.Size(98, 36);
+            this.btnEliminarUsuarios.TabIndex = 35;
+            this.btnEliminarUsuarios.Text = "Eliminar";
+            this.btnEliminarUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarUsuarios.UseVisualStyleBackColor = true;
+            this.btnEliminarUsuarios.Click += new System.EventHandler(this.btnEliminarUsuarios_Click);
+            // 
+            // btnModificarUsuarios
+            // 
+            this.btnModificarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificarUsuarios.ImageIndex = 2;
+            this.btnModificarUsuarios.ImageList = this.imageList1;
+            this.btnModificarUsuarios.Location = new System.Drawing.Point(128, 214);
+            this.btnModificarUsuarios.Name = "btnModificarUsuarios";
+            this.btnModificarUsuarios.Size = new System.Drawing.Size(98, 36);
+            this.btnModificarUsuarios.TabIndex = 34;
+            this.btnModificarUsuarios.Text = "Modificar";
+            this.btnModificarUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificarUsuarios.UseVisualStyleBackColor = true;
+            this.btnModificarUsuarios.Click += new System.EventHandler(this.btnModificarUsuarios_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(18, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 18);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Usuarios";
+            // 
+            // lblUsuarioActual
+            // 
+            this.lblUsuarioActual.AutoSize = true;
+            this.lblUsuarioActual.Location = new System.Drawing.Point(18, 32);
+            this.lblUsuarioActual.Name = "lblUsuarioActual";
+            this.lblUsuarioActual.Size = new System.Drawing.Size(70, 18);
+            this.lblUsuarioActual.TabIndex = 2;
+            this.lblUsuarioActual.Text = "Nombre: ";
+            // 
+            // dgvUsuarios
+            // 
+            this.dgvUsuarios.AllowUserToAddRows = false;
+            this.dgvUsuarios.AllowUserToResizeRows = false;
+            this.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUsuarios.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarios.Location = new System.Drawing.Point(19, 96);
+            this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
+            this.dgvUsuarios.RowHeadersVisible = false;
+            this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUsuarios.Size = new System.Drawing.Size(575, 108);
+            this.dgvUsuarios.TabIndex = 1;
+            this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
+            // 
+            // tpPerfil
+            // 
+            this.tpPerfil.BackColor = System.Drawing.Color.White;
+            this.tpPerfil.Controls.Add(this.txtTelefono);
+            this.tpPerfil.Controls.Add(this.label7);
+            this.tpPerfil.Controls.Add(this.txtCedula);
+            this.tpPerfil.Controls.Add(this.label6);
+            this.tpPerfil.Controls.Add(this.lblErroreses);
+            this.tpPerfil.Controls.Add(this.lblErrorPass);
+            this.tpPerfil.Controls.Add(this.txtRepetirNuevaPass);
+            this.tpPerfil.Controls.Add(this.label22);
+            this.tpPerfil.Controls.Add(this.txtNuevaPass);
+            this.tpPerfil.Controls.Add(this.label21);
+            this.tpPerfil.Controls.Add(this.txtPass);
+            this.tpPerfil.Controls.Add(this.label20);
+            this.tpPerfil.Controls.Add(this.txtNombres);
+            this.tpPerfil.Controls.Add(this.label18);
+            this.tpPerfil.Controls.Add(this.btnEditarPass);
+            this.tpPerfil.Controls.Add(this.btnCancelarPass);
+            this.tpPerfil.ImageIndex = 0;
+            this.tpPerfil.Location = new System.Drawing.Point(4, 44);
+            this.tpPerfil.Name = "tpPerfil";
+            this.tpPerfil.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPerfil.Size = new System.Drawing.Size(796, 455);
+            this.tpPerfil.TabIndex = 0;
+            this.tpPerfil.Text = "Perfil";
+            this.tpPerfil.Click += new System.EventHandler(this.tpPerfil_Click);
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Enabled = false;
+            this.txtTelefono.Location = new System.Drawing.Point(205, 97);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(111, 24);
+            this.txtTelefono.TabIndex = 28;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(128, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 18);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Teléfono";
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.Enabled = false;
+            this.txtCedula.Location = new System.Drawing.Point(205, 30);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(111, 24);
+            this.txtCedula.TabIndex = 26;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(140, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 18);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Cédula";
             // 
             // lblErroreses
             // 
@@ -144,7 +429,7 @@
             // 
             this.lblErrorPass.AutoSize = true;
             this.lblErrorPass.ForeColor = System.Drawing.Color.IndianRed;
-            this.lblErrorPass.Location = new System.Drawing.Point(400, 70);
+            this.lblErrorPass.Location = new System.Drawing.Point(400, 135);
             this.lblErrorPass.Name = "lblErrorPass";
             this.lblErrorPass.Size = new System.Drawing.Size(200, 18);
             this.lblErrorPass.TabIndex = 23;
@@ -154,7 +439,7 @@
             // txtRepetirNuevaPass
             // 
             this.txtRepetirNuevaPass.Enabled = false;
-            this.txtRepetirNuevaPass.Location = new System.Drawing.Point(205, 142);
+            this.txtRepetirNuevaPass.Location = new System.Drawing.Point(205, 205);
             this.txtRepetirNuevaPass.Name = "txtRepetirNuevaPass";
             this.txtRepetirNuevaPass.Size = new System.Drawing.Size(183, 24);
             this.txtRepetirNuevaPass.TabIndex = 22;
@@ -165,7 +450,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(12, 145);
+            this.label22.Location = new System.Drawing.Point(12, 208);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(182, 18);
             this.label22.TabIndex = 21;
@@ -175,7 +460,7 @@
             // txtNuevaPass
             // 
             this.txtNuevaPass.Enabled = false;
-            this.txtNuevaPass.Location = new System.Drawing.Point(205, 105);
+            this.txtNuevaPass.Location = new System.Drawing.Point(205, 168);
             this.txtNuevaPass.Name = "txtNuevaPass";
             this.txtNuevaPass.Size = new System.Drawing.Size(183, 24);
             this.txtNuevaPass.TabIndex = 20;
@@ -186,7 +471,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(63, 108);
+            this.label21.Location = new System.Drawing.Point(63, 171);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(131, 18);
             this.label21.TabIndex = 19;
@@ -196,7 +481,7 @@
             // txtPass
             // 
             this.txtPass.Enabled = false;
-            this.txtPass.Location = new System.Drawing.Point(205, 68);
+            this.txtPass.Location = new System.Drawing.Point(205, 131);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(183, 24);
             this.txtPass.TabIndex = 5;
@@ -206,45 +491,26 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(65, 71);
+            this.label20.Location = new System.Drawing.Point(65, 134);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(129, 18);
             this.label20.TabIndex = 4;
             this.label20.Text = "Contraseña Actual";
             // 
-            // txtApellidos
-            // 
-            this.txtApellidos.Enabled = false;
-            this.txtApellidos.Location = new System.Drawing.Point(189, 290);
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(399, 24);
-            this.txtApellidos.TabIndex = 3;
-            this.txtApellidos.Visible = false;
-            this.txtApellidos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyUp);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(118, 293);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(67, 18);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "Apellidos";
-            this.label19.Visible = false;
-            // 
             // txtNombres
             // 
             this.txtNombres.Enabled = false;
-            this.txtNombres.Location = new System.Drawing.Point(205, 30);
+            this.txtNombres.Location = new System.Drawing.Point(205, 64);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(399, 24);
             this.txtNombres.TabIndex = 1;
+            this.txtNombres.TextChanged += new System.EventHandler(this.txtNombres_TextChanged);
             this.txtNombres.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNombreCompleto_KeyUp);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(132, 33);
+            this.label18.Location = new System.Drawing.Point(132, 67);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(62, 18);
             this.label18.TabIndex = 0;
@@ -256,7 +522,7 @@
             this.btnEditarPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditarPass.ImageIndex = 2;
             this.btnEditarPass.ImageList = this.imageList1;
-            this.btnEditarPass.Location = new System.Drawing.Point(92, 188);
+            this.btnEditarPass.Location = new System.Drawing.Point(92, 251);
             this.btnEditarPass.Name = "btnEditarPass";
             this.btnEditarPass.Size = new System.Drawing.Size(91, 33);
             this.btnEditarPass.TabIndex = 18;
@@ -265,23 +531,13 @@
             this.btnEditarPass.UseVisualStyleBackColor = true;
             this.btnEditarPass.Click += new System.EventHandler(this.btnEditarPass_Click);
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "guardar.png");
-            this.imageList1.Images.SetKeyName(1, "nuevo.png");
-            this.imageList1.Images.SetKeyName(2, "editar.png");
-            this.imageList1.Images.SetKeyName(3, "eliminar.png");
-            this.imageList1.Images.SetKeyName(4, "cancelar.png");
-            // 
             // btnCancelarPass
             // 
             this.btnCancelarPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelarPass.ImageIndex = 4;
             this.btnCancelarPass.ImageList = this.imageList1;
-            this.btnCancelarPass.Location = new System.Drawing.Point(189, 188);
+            this.btnCancelarPass.Location = new System.Drawing.Point(189, 251);
             this.btnCancelarPass.Name = "btnCancelarPass";
             this.btnCancelarPass.Size = new System.Drawing.Size(90, 33);
             this.btnCancelarPass.TabIndex = 17;
@@ -293,9 +549,11 @@
             // 
             // tpRubros
             // 
-            this.tpRubros.Controls.Add(this.button1);
-            this.tpRubros.Controls.Add(this.button2);
-            this.tpRubros.Controls.Add(this.button3);
+            this.tpRubros.Controls.Add(this.label16);
+            this.tpRubros.Controls.Add(this.panelRubros);
+            this.tpRubros.Controls.Add(this.btnNuevoRubro);
+            this.tpRubros.Controls.Add(this.btnEliminarRubro);
+            this.tpRubros.Controls.Add(this.btnModificarRubros);
             this.tpRubros.Controls.Add(this.label23);
             this.tpRubros.Controls.Add(this.dgvRubros);
             this.tpRubros.ImageIndex = 1;
@@ -307,53 +565,132 @@
             this.tpRubros.Text = "Rubros";
             this.tpRubros.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // label16
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImageIndex = 1;
-            this.button1.ImageList = this.imageList1;
-            this.button1.Location = new System.Drawing.Point(28, 297);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 36);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Nuevo";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(108, 31);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(0, 18);
+            this.label16.TabIndex = 31;
+            this.label16.Visible = false;
             // 
-            // button2
+            // panelRubros
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.ImageIndex = 3;
-            this.button2.ImageList = this.imageList1;
-            this.button2.Location = new System.Drawing.Point(219, 297);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(98, 36);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Eliminar";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
+            this.panelRubros.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelRubros.Controls.Add(this.txtNombre);
+            this.panelRubros.Controls.Add(this.txtObservacion);
+            this.panelRubros.Controls.Add(this.lblNombreRubro);
+            this.panelRubros.Controls.Add(this.txtValor);
+            this.panelRubros.Controls.Add(this.lblValorRubro);
+            this.panelRubros.Controls.Add(this.lblObservacionRubro);
+            this.panelRubros.Location = new System.Drawing.Point(31, 315);
+            this.panelRubros.Name = "panelRubros";
+            this.panelRubros.Size = new System.Drawing.Size(404, 137);
+            this.panelRubros.TabIndex = 30;
             // 
-            // button3
+            // txtNombre
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.ImageIndex = 2;
-            this.button3.ImageList = this.imageList1;
-            this.button3.Location = new System.Drawing.Point(115, 297);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 36);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Modificar";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = true;
+            this.txtNombre.Location = new System.Drawing.Point(111, 14);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(270, 24);
+            this.txtNombre.TabIndex = 27;
+            this.txtNombre.Visible = false;
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(111, 77);
+            this.txtObservacion.Multiline = true;
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(268, 49);
+            this.txtObservacion.TabIndex = 29;
+            this.txtObservacion.Visible = false;
+            // 
+            // lblNombreRubro
+            // 
+            this.lblNombreRubro.AutoSize = true;
+            this.lblNombreRubro.Location = new System.Drawing.Point(43, 17);
+            this.lblNombreRubro.Name = "lblNombreRubro";
+            this.lblNombreRubro.Size = new System.Drawing.Size(62, 18);
+            this.lblNombreRubro.TabIndex = 24;
+            this.lblNombreRubro.Text = "Nombre";
+            this.lblNombreRubro.Visible = false;
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(111, 45);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(100, 24);
+            this.txtValor.TabIndex = 28;
+            this.txtValor.Visible = false;
+            // 
+            // lblValorRubro
+            // 
+            this.lblValorRubro.AutoSize = true;
+            this.lblValorRubro.Location = new System.Drawing.Point(63, 48);
+            this.lblValorRubro.Name = "lblValorRubro";
+            this.lblValorRubro.Size = new System.Drawing.Size(42, 18);
+            this.lblValorRubro.TabIndex = 25;
+            this.lblValorRubro.Text = "Valor";
+            this.lblValorRubro.Visible = false;
+            // 
+            // lblObservacionRubro
+            // 
+            this.lblObservacionRubro.AutoSize = true;
+            this.lblObservacionRubro.Location = new System.Drawing.Point(13, 80);
+            this.lblObservacionRubro.Name = "lblObservacionRubro";
+            this.lblObservacionRubro.Size = new System.Drawing.Size(92, 18);
+            this.lblObservacionRubro.TabIndex = 26;
+            this.lblObservacionRubro.Text = "Observación";
+            this.lblObservacionRubro.Visible = false;
+            // 
+            // btnNuevoRubro
+            // 
+            this.btnNuevoRubro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoRubro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoRubro.ImageIndex = 1;
+            this.btnNuevoRubro.ImageList = this.imageList1;
+            this.btnNuevoRubro.Location = new System.Drawing.Point(31, 267);
+            this.btnNuevoRubro.Name = "btnNuevoRubro";
+            this.btnNuevoRubro.Size = new System.Drawing.Size(103, 36);
+            this.btnNuevoRubro.TabIndex = 21;
+            this.btnNuevoRubro.Text = "         Nuevo";
+            this.btnNuevoRubro.UseVisualStyleBackColor = true;
+            this.btnNuevoRubro.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnEliminarRubro
+            // 
+            this.btnEliminarRubro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarRubro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarRubro.ImageIndex = 3;
+            this.btnEliminarRubro.ImageList = this.imageList1;
+            this.btnEliminarRubro.Location = new System.Drawing.Point(244, 267);
+            this.btnEliminarRubro.Name = "btnEliminarRubro";
+            this.btnEliminarRubro.Size = new System.Drawing.Size(98, 36);
+            this.btnEliminarRubro.TabIndex = 23;
+            this.btnEliminarRubro.Text = "Eliminar";
+            this.btnEliminarRubro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarRubro.UseVisualStyleBackColor = true;
+            this.btnEliminarRubro.Click += new System.EventHandler(this.btnEliminarRubro_Click);
+            // 
+            // btnModificarRubros
+            // 
+            this.btnModificarRubros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarRubros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificarRubros.ImageIndex = 2;
+            this.btnModificarRubros.ImageList = this.imageList1;
+            this.btnModificarRubros.Location = new System.Drawing.Point(140, 267);
+            this.btnModificarRubros.Name = "btnModificarRubros";
+            this.btnModificarRubros.Size = new System.Drawing.Size(98, 36);
+            this.btnModificarRubros.TabIndex = 22;
+            this.btnModificarRubros.Text = "Modificar";
+            this.btnModificarRubros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificarRubros.UseVisualStyleBackColor = true;
+            this.btnModificarRubros.Click += new System.EventHandler(this.button3_Click);
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(25, 43);
+            this.label23.Location = new System.Drawing.Point(28, 27);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(73, 18);
             this.label23.TabIndex = 1;
@@ -361,18 +698,25 @@
             // 
             // dgvRubros
             // 
+            this.dgvRubros.AllowUserToAddRows = false;
+            this.dgvRubros.AllowUserToDeleteRows = false;
+            this.dgvRubros.AllowUserToResizeRows = false;
             this.dgvRubros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvRubros.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvRubros.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvRubros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRubros.Location = new System.Drawing.Point(28, 75);
+            this.dgvRubros.Location = new System.Drawing.Point(31, 59);
+            this.dgvRubros.MultiSelect = false;
             this.dgvRubros.Name = "dgvRubros";
             this.dgvRubros.ReadOnly = true;
             this.dgvRubros.RowHeadersVisible = false;
+            this.dgvRubros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRubros.Size = new System.Drawing.Size(575, 199);
             this.dgvRubros.TabIndex = 0;
+            this.dgvRubros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRubros_CellClick);
             // 
             // tpBarrios
             // 
+            this.tpBarrios.Controls.Add(this.panelBarrios);
             this.tpBarrios.Controls.Add(this.button4);
             this.tpBarrios.Controls.Add(this.button5);
             this.tpBarrios.Controls.Add(this.button6);
@@ -386,13 +730,41 @@
             this.tpBarrios.Text = "Barrios";
             this.tpBarrios.UseVisualStyleBackColor = true;
             // 
+            // panelBarrios
+            // 
+            this.panelBarrios.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelBarrios.Controls.Add(this.textBox5);
+            this.panelBarrios.Controls.Add(this.label13);
+            this.panelBarrios.Location = new System.Drawing.Point(28, 322);
+            this.panelBarrios.Name = "panelBarrios";
+            this.panelBarrios.Size = new System.Drawing.Size(386, 58);
+            this.panelBarrios.TabIndex = 31;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(91, 16);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(270, 24);
+            this.textBox5.TabIndex = 27;
+            this.textBox5.Visible = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(23, 19);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(62, 18);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "Nombre";
+            this.label13.Visible = false;
+            // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.ImageIndex = 1;
             this.button4.ImageList = this.imageList1;
-            this.button4.Location = new System.Drawing.Point(28, 297);
+            this.button4.Location = new System.Drawing.Point(28, 273);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(85, 36);
             this.button4.TabIndex = 26;
@@ -407,7 +779,7 @@
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.ImageIndex = 3;
             this.button5.ImageList = this.imageList1;
-            this.button5.Location = new System.Drawing.Point(232, 297);
+            this.button5.Location = new System.Drawing.Point(232, 273);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(98, 36);
             this.button5.TabIndex = 28;
@@ -422,7 +794,7 @@
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.ImageIndex = 2;
             this.button6.ImageList = this.imageList1;
-            this.button6.Location = new System.Drawing.Point(123, 297);
+            this.button6.Location = new System.Drawing.Point(123, 273);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(98, 36);
             this.button6.TabIndex = 27;
@@ -433,7 +805,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(25, 43);
+            this.label24.Location = new System.Drawing.Point(25, 29);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(74, 18);
             this.label24.TabIndex = 25;
@@ -443,13 +815,15 @@
             // 
             this.dgvBarrios.AllowUserToAddRows = false;
             this.dgvBarrios.AllowUserToDeleteRows = false;
+            this.dgvBarrios.AllowUserToResizeRows = false;
             this.dgvBarrios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvBarrios.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvBarrios.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvBarrios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBarrios.Location = new System.Drawing.Point(28, 75);
+            this.dgvBarrios.Location = new System.Drawing.Point(28, 58);
             this.dgvBarrios.Name = "dgvBarrios";
             this.dgvBarrios.ReadOnly = true;
             this.dgvBarrios.RowHeadersVisible = false;
+            this.dgvBarrios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBarrios.Size = new System.Drawing.Size(302, 199);
             this.dgvBarrios.TabIndex = 24;
             // 
@@ -543,6 +917,7 @@
             this.txtReHasta.Size = new System.Drawing.Size(100, 24);
             this.txtReHasta.TabIndex = 32;
             this.txtReHasta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReHasta_KeyPress);
+            this.txtReHasta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtReHasta_KeyUp);
             this.txtReHasta.Leave += new System.EventHandler(this.txtReHasta_Leave);
             // 
             // txtReDesde
@@ -553,6 +928,7 @@
             this.txtReDesde.Size = new System.Drawing.Size(100, 24);
             this.txtReDesde.TabIndex = 31;
             this.txtReDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReDesde_KeyPress);
+            this.txtReDesde.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtReDesde_KeyUp);
             this.txtReDesde.Leave += new System.EventHandler(this.txtReDesde_Leave);
             // 
             // label3
@@ -625,6 +1001,7 @@
             this.txtFaHasta.Size = new System.Drawing.Size(100, 24);
             this.txtFaHasta.TabIndex = 5;
             this.txtFaHasta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFaHasta_KeyPress);
+            this.txtFaHasta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFaHasta_KeyUp);
             this.txtFaHasta.Leave += new System.EventHandler(this.txtFaHasta_Leave);
             // 
             // txtFaDesde
@@ -635,6 +1012,7 @@
             this.txtFaDesde.Size = new System.Drawing.Size(100, 24);
             this.txtFaDesde.TabIndex = 4;
             this.txtFaDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFaDesde_KeyPress);
+            this.txtFaDesde.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFaDesde_KeyUp);
             this.txtFaDesde.Leave += new System.EventHandler(this.txtFaDesde_Leave);
             // 
             // label28
@@ -717,13 +1095,22 @@
             this.Name = "Configuracion";
             this.Text = "Configuracion";
             this.tabControl2.ResumeLayout(false);
-            this.tpUsuario.ResumeLayout(false);
-            this.tpUsuario.PerformLayout();
+            this.tpUsuarios.ResumeLayout(false);
+            this.tpUsuarios.PerformLayout();
+            this.panelUsuarios.ResumeLayout(false);
+            this.panelUsuarios.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
+            this.tpPerfil.ResumeLayout(false);
+            this.tpPerfil.PerformLayout();
             this.tpRubros.ResumeLayout(false);
             this.tpRubros.PerformLayout();
+            this.panelRubros.ResumeLayout(false);
+            this.panelRubros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRubros)).EndInit();
             this.tpBarrios.ResumeLayout(false);
             this.tpBarrios.PerformLayout();
+            this.panelBarrios.ResumeLayout(false);
+            this.panelBarrios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBarrios)).EndInit();
             this.tpConfPagos.ResumeLayout(false);
             this.tpConfPagos.PerformLayout();
@@ -734,15 +1121,13 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tpUsuario;
+        private System.Windows.Forms.TabPage tpPerfil;
         private System.Windows.Forms.TextBox txtRepetirNuevaPass;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtNuevaPass;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txtApellidos;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnEditarPass;
@@ -774,9 +1159,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnNuevoRubro;
+        private System.Windows.Forms.Button btnEliminarRubro;
+        private System.Windows.Forms.Button btnModificarRubros;
         private System.Windows.Forms.Button btnEditarValores;
         private System.Windows.Forms.Button btnCancelarValores;
         private System.Windows.Forms.Label lblErrorPass;
@@ -784,5 +1169,38 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblErroreses;
+        private System.Windows.Forms.TabPage tpUsuarios;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblUsuarioActual;
+        private System.Windows.Forms.DataGridView dgvUsuarios;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtCedula;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtObservacion;
+        private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label lblObservacionRubro;
+        private System.Windows.Forms.Label lblValorRubro;
+        private System.Windows.Forms.Label lblNombreRubro;
+        private System.Windows.Forms.Panel panelUsuarios;
+        private System.Windows.Forms.TextBox txtNewCedula;
+        private System.Windows.Forms.TextBox txtNewTelefono;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtNewNombre;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtNewClave;
+        private System.Windows.Forms.Button btnNuevoUsuario;
+        private System.Windows.Forms.Button btnEliminarUsuarios;
+        private System.Windows.Forms.Button btnModificarUsuarios;
+        private System.Windows.Forms.ComboBox cbNewRol;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panelRubros;
+        private System.Windows.Forms.Panel panelBarrios;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label16;
     }
 }

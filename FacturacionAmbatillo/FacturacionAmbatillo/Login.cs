@@ -40,6 +40,7 @@ namespace FacturacionAmbatillo
                     this.Hide();
                     Principal pr = new Principal(txtUsuario.Text.Trim(), myreader["nombres"].ToString());
                     //Principal pr = new Principal();
+                    pr.pass = txtClave.Text;
                     pr.ShowDialog();
                     this.Close();
                 }
@@ -47,6 +48,7 @@ namespace FacturacionAmbatillo
                 {
                     lblErrorPass.Visible = true;
                 }
+                cnn.Close();
             }
             catch (MySqlException ex)
             {

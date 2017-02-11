@@ -20,7 +20,7 @@ namespace FacturacionAmbatillo
         //          "pwd=Mysql007008%;database=tesisfid_agua;";
         // cadena de conexion local 
 
-        Conexion conn = new Conexion();
+        
         string myConnectionString;
         DataTable ddt;
         int id1;
@@ -28,14 +28,15 @@ namespace FacturacionAmbatillo
         public Lecturas()
         {
             InitializeComponent();
+            Conexion conn = new Conexion();
             myConnectionString = conn.MyConString;
-            label1.Text = "Fecha: "+DateTime.Now.ToLongDateString();
-            
+            label1.Text = "Fecha: " + DateTime.Now.ToLongDateString();
+
             dataGridView1.DataSource = selectAll();
             controlDatagridView();
             label2.Text = "Filas Insertadas: ";
             control();
-                  
+
         }
 
         private void openDialog()
@@ -62,16 +63,16 @@ namespace FacturacionAmbatillo
                     lblPath.Text = nuevo;
                     //usando el insert para la importacion de los datos 
                     insert(nuevo.Trim());
-                   
+
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error,no se puede leer el archivo" + ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Error,no se puede leer el archivo" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-       
+
         public bool insert(string path)
         {
             bool correcto = true;
@@ -95,10 +96,10 @@ namespace FacturacionAmbatillo
                 cmd.CommandText = sql;
                 cmd.Prepare();
 
-                 result=cmd.ExecuteNonQuery();
+                result = cmd.ExecuteNonQuery();
                 if (result > 0)
                 {
-                    MessageBox.Show("Las lecturas del  "+DateTime.Now.ToShortDateString() + " fueron insertas correctamente, filas insertadas: " + result, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Las lecturas del  " + DateTime.Now.ToShortDateString() + " fueron insertas correctamente, filas insertadas: " + result, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     correcto = true;
                     dataGridView1.DataSource = selectAll();
                     control();
@@ -109,16 +110,16 @@ namespace FacturacionAmbatillo
                 {
                     correcto = false;
                     MessageBox.Show("Las lecturas de este mes " +
-                        DateTime.Now.ToShortDateString() + " ya fueron insertadas, revise la tabla y verifique las fechas y los valores porfavor... ","Resultado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DateTime.Now.ToShortDateString() + " ya fueron insertadas, revise la tabla y verifique las fechas y los valores porfavor... ", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     dataGridView1.DataSource = selectAll();
                     label2.Text = "Filas Insertadas: " + result;
                 }
-              
+
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show("Error: " + ex.Message +" filas agregadas: "+ result, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message + " filas agregadas: " + result, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             finally
@@ -150,7 +151,7 @@ namespace FacturacionAmbatillo
                 string stm = "SELECT id_lect,id_med_p,lec_ant,lec_act,cant_total,nombre,estado,observ " +
 "from lecturas, categorias " +
 "where fecha like concat('%', Date_format(now(), '%Y-%m-%d'), '%') " +
-"and cod_cat = codigo "+
+"and cod_cat = codigo " +
 " and cant_total <=0 ; ";
                 MySqlCommand cmd = new MySqlCommand(stm, conn);
                 rdr = cmd.ExecuteReader();
@@ -178,7 +179,7 @@ namespace FacturacionAmbatillo
 
         public DataTable selectAll()
         {
-           
+
             MySqlConnection conn = null;
             DataTable dt = new DataTable();
             try
@@ -186,12 +187,12 @@ namespace FacturacionAmbatillo
                 conn = new MySqlConnection(myConnectionString);
                 conn.Open();
 
-                string stm = "SELECT id_lect,id_med_p,lec_ant,lec_act,cant_total,nombre,estado,observ "+
-"from lecturas, categorias "+
-"where fecha like concat('%', Date_format(now(), '%Y-%m-%d'), '%') "+
+                string stm = "SELECT id_lect,id_med_p,lec_ant,lec_act,cant_total,nombre,estado,observ " +
+"from lecturas, categorias " +
+"where fecha like concat('%', Date_format(now(), '%Y-%m-%d'), '%') " +
 "and cod_cat = codigo; ";
                 MySqlCommand cmd = new MySqlCommand(stm, conn);
-                
+
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 adapter.Fill(dt);
             }
@@ -206,7 +207,7 @@ namespace FacturacionAmbatillo
 
             }
             return dt;
-          
+
         }
 
         public DataTable selectErrores()
@@ -219,17 +220,17 @@ namespace FacturacionAmbatillo
             {
                 conn = new MySqlConnection(myConnectionString);
                 conn.Open();
-               
+
                 string stm = "SELECT id_lect,id_med_p,lec_ant,lec_act,cant_total,nombre,estado,observ " +
 "from lecturas, categorias " +
 "where fecha like concat('%', Date_format(now(), '%Y-%m-%d'), '%') " +
 "and cod_cat = codigo " +
 " and cant_total <=0 ; ";
                 MySqlCommand cmd = new MySqlCommand(stm, conn);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd); 
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 adapter.Fill(dt);
-               
-                
+
+
             }
             catch (MySqlException ex)
             {
@@ -256,10 +257,10 @@ namespace FacturacionAmbatillo
         private void control()
         {
             int filas = countProblems();
-            if (filas>0)
+            if (filas > 0)
             {
                 btnPloblem.Enabled = true;
-                btnPloblem.Text = "Problemas (" + filas+ ")";
+                btnPloblem.Text = "Problemas (" + filas + ")";
 
             }
             else
@@ -270,32 +271,32 @@ namespace FacturacionAmbatillo
         }
         private void btnPloblem_Click(object sender, EventArgs e)
         {
-            
-            dataGridView1.DataSource= selectErrores();
+
+            dataGridView1.DataSource = selectErrores();
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             Lectura lectura = new Lectura();
             string id;
-            id =  dataGridView1.Rows[e.RowIndex].Cells["id_lect"].Value.ToString();
+            id = dataGridView1.Rows[e.RowIndex].Cells["id_lect"].Value.ToString();
             if (id != "")
             {
-                
-                lectura.Id= Convert.ToInt32( dataGridView1.Rows[e.RowIndex].Cells["id_lect"].Value.ToString());
-                lectura.Lec_ant= Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["lec_ant"].Value.ToString());
+
+                lectura.Id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_lect"].Value.ToString());
+                lectura.Lec_ant = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["lec_ant"].Value.ToString());
                 lectura.Lec_act = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["lec_act"].Value.ToString());
                 int result = update(lectura);
-                
-                if (result>0)
+
+                if (result > 0)
                 {
                     lblmsj.ForeColor = Color.Green;
                     lblmsj.Text = "Se actualizo correctamente .!";
                     control();
-                    dataGridView1.DataSource= selectAll();
-                  
+                    dataGridView1.DataSource = selectAll();
+
                     int cantidad = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["cant_total"].Value.ToString());
-                    if (cantidad<= 0)
+                    if (cantidad <= 0)
                     {
                         DataGridViewCell cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
                         cell.ErrorText = "valor no valido";
@@ -316,12 +317,12 @@ namespace FacturacionAmbatillo
 
 
             }
-            
+
         }
 
         private int update(Lectura lectura)
         {
-            int resultado=0;
+            int resultado = 0;
             try
             {
                 MySqlConnection cnn = new MySqlConnection(myConnectionString);
@@ -340,13 +341,13 @@ namespace FacturacionAmbatillo
 
                 throw;
             }
-            
+
 
 
             return resultado;
         }
 
-        private void insertGrid(string medidor,string lectura)
+        private void insertGrid(string medidor, string lectura)
         {
             int resultado = 0;
             try
@@ -354,33 +355,33 @@ namespace FacturacionAmbatillo
                 MySqlConnection cnn = new MySqlConnection(myConnectionString);
                 cnn.Open();
 
-               
 
 
-                    string sql = "insert into lecturas(id_med_p,lec_act) values(@id_med_p,@lec_act); ";
-                    MySqlCommand cmd = new MySqlCommand(sql, cnn);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Parameters.AddWithValue("@id_med_p", medidor);
-                    cmd.Parameters.AddWithValue("@lec_act", Convert.ToInt32(lectura));
 
-                    resultado = cmd.ExecuteNonQuery();
-                    if (resultado > 0)
-                    {
+                string sql = "insert into lecturas(id_med_p,lec_act) values(@id_med_p,@lec_act); ";
+                MySqlCommand cmd = new MySqlCommand(sql, cnn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@id_med_p", medidor);
+                cmd.Parameters.AddWithValue("@lec_act", Convert.ToInt32(lectura));
 
-                        dataGridView1.DataSource = selectAll();
-                        control();
-                        lblmsj.ForeColor = Color.Green;
-                        lblmsj.Text = "Inserción correcta";
+                resultado = cmd.ExecuteNonQuery();
+                if (resultado > 0)
+                {
 
-                    }
-                    else
-                    {
+                    dataGridView1.DataSource = selectAll();
+                    control();
+                    lblmsj.ForeColor = Color.Green;
+                    lblmsj.Text = "Inserción correcta";
 
-                        dataGridView1.DataSource = selectAll();
-                        lblmsj.ForeColor = Color.Red;
-                        lblmsj.Text = "Inserción incorrecta ";
-                    }
-               
+                }
+                else
+                {
+
+                    dataGridView1.DataSource = selectAll();
+                    lblmsj.ForeColor = Color.Red;
+                    lblmsj.Text = "Inserción incorrecta ";
+                }
+
                 cnn.Close();
             }
             catch (Exception)
@@ -392,7 +393,7 @@ namespace FacturacionAmbatillo
 
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
 
         }
 
@@ -414,7 +415,7 @@ namespace FacturacionAmbatillo
                 cmd.Parameters.AddWithValue("@id_lect", Convert.ToInt32(id));
 
                 resultado = cmd.ExecuteNonQuery();
-                
+
 
                 if (resultado > 0)
                 {
@@ -438,13 +439,13 @@ namespace FacturacionAmbatillo
             catch (Exception e)
             {
 
-                MessageBox.Show("Mensaje: "+e.Message, "Error ",MessageBoxButtons.OK,MessageBoxIcon.Error );
+                MessageBox.Show("Mensaje: " + e.Message, "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
         }
-        
-            
+
+
         private void controlDatagridView()
         {
 
@@ -466,9 +467,9 @@ namespace FacturacionAmbatillo
 
         private void actualizarToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            
-            
-           
+
+
+
             dataGridView1.Columns["lec_ant"].ReadOnly = false;
             dataGridView1.Columns["lec_act"].ReadOnly = false;
             int currentRow = dataGridView1.CurrentCell.RowIndex;
@@ -478,9 +479,9 @@ namespace FacturacionAmbatillo
             dataGridView1.BeginEdit(true);
         }
 
-        
 
-      
+
+
         private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -503,9 +504,9 @@ namespace FacturacionAmbatillo
             catch (Exception ex)
             {
 
-                MessageBox.Show("Mensaje: "+ ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Mensaje: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void insertarToolStripMenuItem_Click(object sender, EventArgs e)

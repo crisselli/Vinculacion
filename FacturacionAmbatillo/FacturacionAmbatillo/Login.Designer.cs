@@ -56,7 +56,6 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(145, 22);
             this.txtUsuario.TabIndex = 1;
-            this.txtUsuario.Text = "1802314578";
             this.txtUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyUp);
             // 
             // txtClave
@@ -66,7 +65,6 @@
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(145, 22);
             this.txtClave.TabIndex = 3;
-            this.txtClave.Text = "123";
             this.txtClave.UseSystemPasswordChar = true;
             this.txtClave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyUp);
             // 
@@ -141,10 +139,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label lblErrorPass;
+        public System.Windows.Forms.TextBox txtClave;
     }
 }
