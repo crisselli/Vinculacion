@@ -51,29 +51,30 @@
             this.lblUsuarioActual = new System.Windows.Forms.Label();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.tpPerfil = new System.Windows.Forms.TabPage();
+            this.panelUsuario = new System.Windows.Forms.Panel();
+            this.txtNuevaPass = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtRepetirNuevaPass = new System.Windows.Forms.TextBox();
+            this.lblErrorPass = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lblErroreses = new System.Windows.Forms.Label();
-            this.lblErrorPass = new System.Windows.Forms.Label();
-            this.txtRepetirNuevaPass = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtNuevaPass = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtPass = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txtNombres = new System.Windows.Forms.TextBox();
+            this.txtNombrePerfil = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.btnEditarPass = new System.Windows.Forms.Button();
             this.btnCancelarPass = new System.Windows.Forms.Button();
             this.tpRubros = new System.Windows.Forms.TabPage();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblCodRubro = new System.Windows.Forms.Label();
             this.panelRubros = new System.Windows.Forms.Panel();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtNombreRubro = new System.Windows.Forms.TextBox();
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.lblNombreRubro = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
+            this.txtValorRubro = new System.Windows.Forms.TextBox();
             this.lblValorRubro = new System.Windows.Forms.Label();
             this.lblObservacionRubro = new System.Windows.Forms.Label();
             this.btnNuevoRubro = new System.Windows.Forms.Button();
@@ -82,12 +83,13 @@
             this.label23 = new System.Windows.Forms.Label();
             this.dgvRubros = new System.Windows.Forms.DataGridView();
             this.tpBarrios = new System.Windows.Forms.TabPage();
+            this.lblCodBarrio = new System.Windows.Forms.Label();
             this.panelBarrios = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtNombreBarrio = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnNuevoBarrio = new System.Windows.Forms.Button();
+            this.btnEliminarBarrio = new System.Windows.Forms.Button();
+            this.btnModificarBarrio = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.dgvBarrios = new System.Windows.Forms.DataGridView();
             this.tpConfPagos = new System.Windows.Forms.TabPage();
@@ -112,11 +114,31 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btnCancelarValores = new System.Windows.Forms.Button();
             this.btnEditarValores = new System.Windows.Forms.Button();
+            this.tpCategorias = new System.Windows.Forms.TabPage();
+            this.lblCodCategoria = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panelCategorias = new System.Windows.Forms.Panel();
+            this.lblErrorCateg = new System.Windows.Forms.Label();
+            this.txtHasta = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.txtValorCateg = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txtNombreCateg = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtDesde = new System.Windows.Forms.TextBox();
+            this.lblDesde = new System.Windows.Forms.Label();
+            this.btnNuevaCategoria = new System.Windows.Forms.Button();
+            this.btnEliminarCategoria = new System.Windows.Forms.Button();
+            this.btnModificarCategoria = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.dgvCategorias = new System.Windows.Forms.DataGridView();
+            this.lblTest = new System.Windows.Forms.Label();
             this.tabControl2.SuspendLayout();
             this.tpUsuarios.SuspendLayout();
             this.panelUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.tpPerfil.SuspendLayout();
+            this.panelUsuario.SuspendLayout();
             this.tpRubros.SuspendLayout();
             this.panelRubros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRubros)).BeginInit();
@@ -124,6 +146,9 @@
             this.panelBarrios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBarrios)).BeginInit();
             this.tpConfPagos.SuspendLayout();
+            this.tpCategorias.SuspendLayout();
+            this.panelCategorias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl2
@@ -133,6 +158,7 @@
             this.tabControl2.Controls.Add(this.tpRubros);
             this.tabControl2.Controls.Add(this.tpBarrios);
             this.tabControl2.Controls.Add(this.tpConfPagos);
+            this.tabControl2.Controls.Add(this.tpCategorias);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl2.ItemSize = new System.Drawing.Size(120, 40);
@@ -159,7 +185,6 @@
             this.tpUsuarios.TabIndex = 4;
             this.tpUsuarios.Text = "Usuarios";
             this.tpUsuarios.UseVisualStyleBackColor = true;
-            this.tpUsuarios.Click += new System.EventHandler(this.tpUsuarios_Click);
             // 
             // panelUsuarios
             // 
@@ -182,14 +207,14 @@
             // 
             // cbNewRol
             // 
+            this.cbNewRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNewRol.Items.AddRange(new object[] {
             "Administrador",
             "Recaudador"});
             this.cbNewRol.Location = new System.Drawing.Point(115, 137);
             this.cbNewRol.Name = "cbNewRol";
             this.cbNewRol.Size = new System.Drawing.Size(121, 26);
-            this.cbNewRol.TabIndex = 45;
-            this.cbNewRol.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbNewRol.TabIndex = 43;
             // 
             // label12
             // 
@@ -205,14 +230,14 @@
             this.txtNewCedula.Location = new System.Drawing.Point(115, 13);
             this.txtNewCedula.Name = "txtNewCedula";
             this.txtNewCedula.Size = new System.Drawing.Size(121, 24);
-            this.txtNewCedula.TabIndex = 41;
+            this.txtNewCedula.TabIndex = 39;
             // 
             // txtNewTelefono
             // 
             this.txtNewTelefono.Location = new System.Drawing.Point(115, 75);
             this.txtNewTelefono.Name = "txtNewTelefono";
             this.txtNewTelefono.Size = new System.Drawing.Size(121, 24);
-            this.txtNewTelefono.TabIndex = 43;
+            this.txtNewTelefono.TabIndex = 41;
             // 
             // label11
             // 
@@ -237,8 +262,7 @@
             this.txtNewNombre.Location = new System.Drawing.Point(115, 44);
             this.txtNewNombre.Name = "txtNewNombre";
             this.txtNewNombre.Size = new System.Drawing.Size(399, 24);
-            this.txtNewNombre.TabIndex = 37;
-            this.txtNewNombre.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txtNewNombre.TabIndex = 40;
             // 
             // label10
             // 
@@ -263,7 +287,7 @@
             this.txtNewClave.Location = new System.Drawing.Point(115, 106);
             this.txtNewClave.Name = "txtNewClave";
             this.txtNewClave.Size = new System.Drawing.Size(183, 24);
-            this.txtNewClave.TabIndex = 39;
+            this.txtNewClave.TabIndex = 42;
             this.txtNewClave.UseSystemPasswordChar = true;
             // 
             // btnNuevoUsuario
@@ -358,19 +382,11 @@
             // tpPerfil
             // 
             this.tpPerfil.BackColor = System.Drawing.Color.White;
-            this.tpPerfil.Controls.Add(this.txtTelefono);
-            this.tpPerfil.Controls.Add(this.label7);
+            this.tpPerfil.Controls.Add(this.panelUsuario);
             this.tpPerfil.Controls.Add(this.txtCedula);
             this.tpPerfil.Controls.Add(this.label6);
             this.tpPerfil.Controls.Add(this.lblErroreses);
-            this.tpPerfil.Controls.Add(this.lblErrorPass);
-            this.tpPerfil.Controls.Add(this.txtRepetirNuevaPass);
-            this.tpPerfil.Controls.Add(this.label22);
-            this.tpPerfil.Controls.Add(this.txtNuevaPass);
-            this.tpPerfil.Controls.Add(this.label21);
-            this.tpPerfil.Controls.Add(this.txtPass);
-            this.tpPerfil.Controls.Add(this.label20);
-            this.tpPerfil.Controls.Add(this.txtNombres);
+            this.tpPerfil.Controls.Add(this.txtNombrePerfil);
             this.tpPerfil.Controls.Add(this.label18);
             this.tpPerfil.Controls.Add(this.btnEditarPass);
             this.tpPerfil.Controls.Add(this.btnCancelarPass);
@@ -381,24 +397,104 @@
             this.tpPerfil.Size = new System.Drawing.Size(796, 455);
             this.tpPerfil.TabIndex = 0;
             this.tpPerfil.Text = "Perfil";
-            this.tpPerfil.Click += new System.EventHandler(this.tpPerfil_Click);
+            // 
+            // panelUsuario
+            // 
+            this.panelUsuario.Controls.Add(this.txtNuevaPass);
+            this.panelUsuario.Controls.Add(this.txtTelefono);
+            this.panelUsuario.Controls.Add(this.label20);
+            this.panelUsuario.Controls.Add(this.label7);
+            this.panelUsuario.Controls.Add(this.txtPass);
+            this.panelUsuario.Controls.Add(this.label21);
+            this.panelUsuario.Controls.Add(this.label22);
+            this.panelUsuario.Controls.Add(this.txtRepetirNuevaPass);
+            this.panelUsuario.Controls.Add(this.lblErrorPass);
+            this.panelUsuario.Location = new System.Drawing.Point(7, 92);
+            this.panelUsuario.Name = "panelUsuario";
+            this.panelUsuario.Size = new System.Drawing.Size(625, 143);
+            this.panelUsuario.TabIndex = 29;
+            this.panelUsuario.Visible = false;
+            // 
+            // txtNuevaPass
+            // 
+            this.txtNuevaPass.Location = new System.Drawing.Point(198, 75);
+            this.txtNuevaPass.Name = "txtNuevaPass";
+            this.txtNuevaPass.Size = new System.Drawing.Size(183, 24);
+            this.txtNuevaPass.TabIndex = 20;
+            this.txtNuevaPass.UseSystemPasswordChar = true;
+            this.txtNuevaPass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNuevaPass_KeyUp);
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Enabled = false;
-            this.txtTelefono.Location = new System.Drawing.Point(205, 97);
+            this.txtTelefono.Location = new System.Drawing.Point(198, 4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(111, 24);
             this.txtTelefono.TabIndex = 28;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(58, 41);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(129, 18);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Contraseña Actual";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(128, 100);
+            this.label7.Location = new System.Drawing.Point(121, 7);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 18);
             this.label7.TabIndex = 27;
             this.label7.Text = "Teléfono";
+            // 
+            // txtPass
+            // 
+            this.txtPass.Location = new System.Drawing.Point(198, 38);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(183, 24);
+            this.txtPass.TabIndex = 5;
+            this.txtPass.UseSystemPasswordChar = true;
+            this.txtPass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPass_KeyUp);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(56, 78);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(131, 18);
+            this.label21.TabIndex = 19;
+            this.label21.Text = "Nueva Contraseña";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(5, 115);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(182, 18);
+            this.label22.TabIndex = 21;
+            this.label22.Text = "Repetir Nueva Contraseña";
+            // 
+            // txtRepetirNuevaPass
+            // 
+            this.txtRepetirNuevaPass.Location = new System.Drawing.Point(198, 112);
+            this.txtRepetirNuevaPass.Name = "txtRepetirNuevaPass";
+            this.txtRepetirNuevaPass.Size = new System.Drawing.Size(183, 24);
+            this.txtRepetirNuevaPass.TabIndex = 22;
+            this.txtRepetirNuevaPass.UseSystemPasswordChar = true;
+            this.txtRepetirNuevaPass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRepetirNuevaPass_KeyUp);
+            // 
+            // lblErrorPass
+            // 
+            this.lblErrorPass.AutoSize = true;
+            this.lblErrorPass.ForeColor = System.Drawing.Color.IndianRed;
+            this.lblErrorPass.Location = new System.Drawing.Point(390, 40);
+            this.lblErrorPass.Name = "lblErrorPass";
+            this.lblErrorPass.Size = new System.Drawing.Size(200, 18);
+            this.lblErrorPass.TabIndex = 23;
+            this.lblErrorPass.Text = "*Su contraseña es incorrecta";
+            this.lblErrorPass.Visible = false;
             // 
             // txtCedula
             // 
@@ -425,87 +521,14 @@
             this.lblErroreses.Size = new System.Drawing.Size(0, 18);
             this.lblErroreses.TabIndex = 24;
             // 
-            // lblErrorPass
+            // txtNombrePerfil
             // 
-            this.lblErrorPass.AutoSize = true;
-            this.lblErrorPass.ForeColor = System.Drawing.Color.IndianRed;
-            this.lblErrorPass.Location = new System.Drawing.Point(400, 135);
-            this.lblErrorPass.Name = "lblErrorPass";
-            this.lblErrorPass.Size = new System.Drawing.Size(200, 18);
-            this.lblErrorPass.TabIndex = 23;
-            this.lblErrorPass.Text = "*Su contraseña es incorrecta";
-            this.lblErrorPass.Visible = false;
-            // 
-            // txtRepetirNuevaPass
-            // 
-            this.txtRepetirNuevaPass.Enabled = false;
-            this.txtRepetirNuevaPass.Location = new System.Drawing.Point(205, 205);
-            this.txtRepetirNuevaPass.Name = "txtRepetirNuevaPass";
-            this.txtRepetirNuevaPass.Size = new System.Drawing.Size(183, 24);
-            this.txtRepetirNuevaPass.TabIndex = 22;
-            this.txtRepetirNuevaPass.UseSystemPasswordChar = true;
-            this.txtRepetirNuevaPass.Visible = false;
-            this.txtRepetirNuevaPass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRepetirNuevaPass_KeyUp);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(12, 208);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(182, 18);
-            this.label22.TabIndex = 21;
-            this.label22.Text = "Repetir Nueva Contraseña";
-            this.label22.Visible = false;
-            // 
-            // txtNuevaPass
-            // 
-            this.txtNuevaPass.Enabled = false;
-            this.txtNuevaPass.Location = new System.Drawing.Point(205, 168);
-            this.txtNuevaPass.Name = "txtNuevaPass";
-            this.txtNuevaPass.Size = new System.Drawing.Size(183, 24);
-            this.txtNuevaPass.TabIndex = 20;
-            this.txtNuevaPass.UseSystemPasswordChar = true;
-            this.txtNuevaPass.Visible = false;
-            this.txtNuevaPass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNuevaPass_KeyUp);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(63, 171);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(131, 18);
-            this.label21.TabIndex = 19;
-            this.label21.Text = "Nueva Contraseña";
-            this.label21.Visible = false;
-            // 
-            // txtPass
-            // 
-            this.txtPass.Enabled = false;
-            this.txtPass.Location = new System.Drawing.Point(205, 131);
-            this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(183, 24);
-            this.txtPass.TabIndex = 5;
-            this.txtPass.UseSystemPasswordChar = true;
-            this.txtPass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPass_KeyUp);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(65, 134);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(129, 18);
-            this.label20.TabIndex = 4;
-            this.label20.Text = "Contraseña Actual";
-            // 
-            // txtNombres
-            // 
-            this.txtNombres.Enabled = false;
-            this.txtNombres.Location = new System.Drawing.Point(205, 64);
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(399, 24);
-            this.txtNombres.TabIndex = 1;
-            this.txtNombres.TextChanged += new System.EventHandler(this.txtNombres_TextChanged);
-            this.txtNombres.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNombreCompleto_KeyUp);
+            this.txtNombrePerfil.Enabled = false;
+            this.txtNombrePerfil.Location = new System.Drawing.Point(205, 64);
+            this.txtNombrePerfil.Name = "txtNombrePerfil";
+            this.txtNombrePerfil.Size = new System.Drawing.Size(399, 24);
+            this.txtNombrePerfil.TabIndex = 1;
+            this.txtNombrePerfil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNombreCompleto_KeyUp);
             // 
             // label18
             // 
@@ -549,7 +572,7 @@
             // 
             // tpRubros
             // 
-            this.tpRubros.Controls.Add(this.label16);
+            this.tpRubros.Controls.Add(this.lblCodRubro);
             this.tpRubros.Controls.Add(this.panelRubros);
             this.tpRubros.Controls.Add(this.btnNuevoRubro);
             this.tpRubros.Controls.Add(this.btnEliminarRubro);
@@ -565,36 +588,36 @@
             this.tpRubros.Text = "Rubros";
             this.tpRubros.UseVisualStyleBackColor = true;
             // 
-            // label16
+            // lblCodRubro
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(108, 31);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(0, 18);
-            this.label16.TabIndex = 31;
-            this.label16.Visible = false;
+            this.lblCodRubro.AutoSize = true;
+            this.lblCodRubro.Location = new System.Drawing.Point(108, 25);
+            this.lblCodRubro.Name = "lblCodRubro";
+            this.lblCodRubro.Size = new System.Drawing.Size(0, 18);
+            this.lblCodRubro.TabIndex = 31;
+            this.lblCodRubro.Visible = false;
             // 
             // panelRubros
             // 
             this.panelRubros.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panelRubros.Controls.Add(this.txtNombre);
+            this.panelRubros.Controls.Add(this.txtNombreRubro);
             this.panelRubros.Controls.Add(this.txtObservacion);
             this.panelRubros.Controls.Add(this.lblNombreRubro);
-            this.panelRubros.Controls.Add(this.txtValor);
+            this.panelRubros.Controls.Add(this.txtValorRubro);
             this.panelRubros.Controls.Add(this.lblValorRubro);
             this.panelRubros.Controls.Add(this.lblObservacionRubro);
-            this.panelRubros.Location = new System.Drawing.Point(31, 315);
+            this.panelRubros.Location = new System.Drawing.Point(31, 309);
             this.panelRubros.Name = "panelRubros";
             this.panelRubros.Size = new System.Drawing.Size(404, 137);
             this.panelRubros.TabIndex = 30;
+            this.panelRubros.Visible = false;
             // 
-            // txtNombre
+            // txtNombreRubro
             // 
-            this.txtNombre.Location = new System.Drawing.Point(111, 14);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(270, 24);
-            this.txtNombre.TabIndex = 27;
-            this.txtNombre.Visible = false;
+            this.txtNombreRubro.Location = new System.Drawing.Point(111, 14);
+            this.txtNombreRubro.Name = "txtNombreRubro";
+            this.txtNombreRubro.Size = new System.Drawing.Size(270, 24);
+            this.txtNombreRubro.TabIndex = 27;
             // 
             // txtObservacion
             // 
@@ -603,7 +626,6 @@
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(268, 49);
             this.txtObservacion.TabIndex = 29;
-            this.txtObservacion.Visible = false;
             // 
             // lblNombreRubro
             // 
@@ -613,15 +635,13 @@
             this.lblNombreRubro.Size = new System.Drawing.Size(62, 18);
             this.lblNombreRubro.TabIndex = 24;
             this.lblNombreRubro.Text = "Nombre";
-            this.lblNombreRubro.Visible = false;
             // 
-            // txtValor
+            // txtValorRubro
             // 
-            this.txtValor.Location = new System.Drawing.Point(111, 45);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(100, 24);
-            this.txtValor.TabIndex = 28;
-            this.txtValor.Visible = false;
+            this.txtValorRubro.Location = new System.Drawing.Point(111, 45);
+            this.txtValorRubro.Name = "txtValorRubro";
+            this.txtValorRubro.Size = new System.Drawing.Size(100, 24);
+            this.txtValorRubro.TabIndex = 28;
             // 
             // lblValorRubro
             // 
@@ -631,7 +651,6 @@
             this.lblValorRubro.Size = new System.Drawing.Size(42, 18);
             this.lblValorRubro.TabIndex = 25;
             this.lblValorRubro.Text = "Valor";
-            this.lblValorRubro.Visible = false;
             // 
             // lblObservacionRubro
             // 
@@ -641,7 +660,6 @@
             this.lblObservacionRubro.Size = new System.Drawing.Size(92, 18);
             this.lblObservacionRubro.TabIndex = 26;
             this.lblObservacionRubro.Text = "Observación";
-            this.lblObservacionRubro.Visible = false;
             // 
             // btnNuevoRubro
             // 
@@ -649,7 +667,7 @@
             this.btnNuevoRubro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevoRubro.ImageIndex = 1;
             this.btnNuevoRubro.ImageList = this.imageList1;
-            this.btnNuevoRubro.Location = new System.Drawing.Point(31, 267);
+            this.btnNuevoRubro.Location = new System.Drawing.Point(31, 261);
             this.btnNuevoRubro.Name = "btnNuevoRubro";
             this.btnNuevoRubro.Size = new System.Drawing.Size(103, 36);
             this.btnNuevoRubro.TabIndex = 21;
@@ -663,7 +681,7 @@
             this.btnEliminarRubro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminarRubro.ImageIndex = 3;
             this.btnEliminarRubro.ImageList = this.imageList1;
-            this.btnEliminarRubro.Location = new System.Drawing.Point(244, 267);
+            this.btnEliminarRubro.Location = new System.Drawing.Point(244, 261);
             this.btnEliminarRubro.Name = "btnEliminarRubro";
             this.btnEliminarRubro.Size = new System.Drawing.Size(98, 36);
             this.btnEliminarRubro.TabIndex = 23;
@@ -678,7 +696,7 @@
             this.btnModificarRubros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificarRubros.ImageIndex = 2;
             this.btnModificarRubros.ImageList = this.imageList1;
-            this.btnModificarRubros.Location = new System.Drawing.Point(140, 267);
+            this.btnModificarRubros.Location = new System.Drawing.Point(140, 261);
             this.btnModificarRubros.Name = "btnModificarRubros";
             this.btnModificarRubros.Size = new System.Drawing.Size(98, 36);
             this.btnModificarRubros.TabIndex = 22;
@@ -690,7 +708,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(28, 27);
+            this.label23.Location = new System.Drawing.Point(28, 21);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(73, 18);
             this.label23.TabIndex = 1;
@@ -704,7 +722,7 @@
             this.dgvRubros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRubros.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvRubros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRubros.Location = new System.Drawing.Point(31, 59);
+            this.dgvRubros.Location = new System.Drawing.Point(31, 53);
             this.dgvRubros.MultiSelect = false;
             this.dgvRubros.Name = "dgvRubros";
             this.dgvRubros.ReadOnly = true;
@@ -716,10 +734,11 @@
             // 
             // tpBarrios
             // 
+            this.tpBarrios.Controls.Add(this.lblCodBarrio);
             this.tpBarrios.Controls.Add(this.panelBarrios);
-            this.tpBarrios.Controls.Add(this.button4);
-            this.tpBarrios.Controls.Add(this.button5);
-            this.tpBarrios.Controls.Add(this.button6);
+            this.tpBarrios.Controls.Add(this.btnNuevoBarrio);
+            this.tpBarrios.Controls.Add(this.btnEliminarBarrio);
+            this.tpBarrios.Controls.Add(this.btnModificarBarrio);
             this.tpBarrios.Controls.Add(this.label24);
             this.tpBarrios.Controls.Add(this.dgvBarrios);
             this.tpBarrios.ImageIndex = 2;
@@ -730,23 +749,32 @@
             this.tpBarrios.Text = "Barrios";
             this.tpBarrios.UseVisualStyleBackColor = true;
             // 
+            // lblCodBarrio
+            // 
+            this.lblCodBarrio.AutoSize = true;
+            this.lblCodBarrio.Location = new System.Drawing.Point(105, 29);
+            this.lblCodBarrio.Name = "lblCodBarrio";
+            this.lblCodBarrio.Size = new System.Drawing.Size(0, 18);
+            this.lblCodBarrio.TabIndex = 32;
+            this.lblCodBarrio.Visible = false;
+            // 
             // panelBarrios
             // 
             this.panelBarrios.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panelBarrios.Controls.Add(this.textBox5);
+            this.panelBarrios.Controls.Add(this.txtNombreBarrio);
             this.panelBarrios.Controls.Add(this.label13);
             this.panelBarrios.Location = new System.Drawing.Point(28, 322);
             this.panelBarrios.Name = "panelBarrios";
             this.panelBarrios.Size = new System.Drawing.Size(386, 58);
             this.panelBarrios.TabIndex = 31;
+            this.panelBarrios.Visible = false;
             // 
-            // textBox5
+            // txtNombreBarrio
             // 
-            this.textBox5.Location = new System.Drawing.Point(91, 16);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(270, 24);
-            this.textBox5.TabIndex = 27;
-            this.textBox5.Visible = false;
+            this.txtNombreBarrio.Location = new System.Drawing.Point(91, 16);
+            this.txtNombreBarrio.Name = "txtNombreBarrio";
+            this.txtNombreBarrio.Size = new System.Drawing.Size(270, 24);
+            this.txtNombreBarrio.TabIndex = 27;
             // 
             // label13
             // 
@@ -756,51 +784,50 @@
             this.label13.Size = new System.Drawing.Size(62, 18);
             this.label13.TabIndex = 24;
             this.label13.Text = "Nombre";
-            this.label13.Visible = false;
             // 
-            // button4
+            // btnNuevoBarrio
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.ImageIndex = 1;
-            this.button4.ImageList = this.imageList1;
-            this.button4.Location = new System.Drawing.Point(28, 273);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(85, 36);
-            this.button4.TabIndex = 26;
-            this.button4.Text = "Nuevo";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnNuevoBarrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoBarrio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoBarrio.ImageIndex = 1;
+            this.btnNuevoBarrio.ImageList = this.imageList1;
+            this.btnNuevoBarrio.Location = new System.Drawing.Point(28, 273);
+            this.btnNuevoBarrio.Name = "btnNuevoBarrio";
+            this.btnNuevoBarrio.Size = new System.Drawing.Size(98, 36);
+            this.btnNuevoBarrio.TabIndex = 26;
+            this.btnNuevoBarrio.Text = "         Nuevo";
+            this.btnNuevoBarrio.UseVisualStyleBackColor = true;
+            this.btnNuevoBarrio.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // btnEliminarBarrio
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.ImageIndex = 3;
-            this.button5.ImageList = this.imageList1;
-            this.button5.Location = new System.Drawing.Point(232, 273);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(98, 36);
-            this.button5.TabIndex = 28;
-            this.button5.Text = "Eliminar";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Visible = false;
+            this.btnEliminarBarrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarBarrio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarBarrio.ImageIndex = 3;
+            this.btnEliminarBarrio.ImageList = this.imageList1;
+            this.btnEliminarBarrio.Location = new System.Drawing.Point(242, 273);
+            this.btnEliminarBarrio.Name = "btnEliminarBarrio";
+            this.btnEliminarBarrio.Size = new System.Drawing.Size(98, 36);
+            this.btnEliminarBarrio.TabIndex = 28;
+            this.btnEliminarBarrio.Text = "Eliminar";
+            this.btnEliminarBarrio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarBarrio.UseVisualStyleBackColor = true;
+            this.btnEliminarBarrio.Click += new System.EventHandler(this.btnEliminarBarrio_Click);
             // 
-            // button6
+            // btnModificarBarrio
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.ImageIndex = 2;
-            this.button6.ImageList = this.imageList1;
-            this.button6.Location = new System.Drawing.Point(123, 273);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(98, 36);
-            this.button6.TabIndex = 27;
-            this.button6.Text = "Modificar";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnModificarBarrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarBarrio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificarBarrio.ImageIndex = 2;
+            this.btnModificarBarrio.ImageList = this.imageList1;
+            this.btnModificarBarrio.Location = new System.Drawing.Point(135, 273);
+            this.btnModificarBarrio.Name = "btnModificarBarrio";
+            this.btnModificarBarrio.Size = new System.Drawing.Size(98, 36);
+            this.btnModificarBarrio.TabIndex = 27;
+            this.btnModificarBarrio.Text = "Modificar";
+            this.btnModificarBarrio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificarBarrio.UseVisualStyleBackColor = true;
+            this.btnModificarBarrio.Click += new System.EventHandler(this.btnModificarBarrio_Click);
             // 
             // label24
             // 
@@ -824,8 +851,9 @@
             this.dgvBarrios.ReadOnly = true;
             this.dgvBarrios.RowHeadersVisible = false;
             this.dgvBarrios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBarrios.Size = new System.Drawing.Size(302, 199);
+            this.dgvBarrios.Size = new System.Drawing.Size(312, 199);
             this.dgvBarrios.TabIndex = 24;
+            this.dgvBarrios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBarrios_CellClick);
             // 
             // tpConfPagos
             // 
@@ -882,7 +910,7 @@
             // 
             this.lblErrorValores.AutoSize = true;
             this.lblErrorValores.ForeColor = System.Drawing.Color.IndianRed;
-            this.lblErrorValores.Location = new System.Drawing.Point(235, 403);
+            this.lblErrorValores.Location = new System.Drawing.Point(253, 403);
             this.lblErrorValores.Name = "lblErrorValores";
             this.lblErrorValores.Size = new System.Drawing.Size(193, 18);
             this.lblErrorValores.TabIndex = 37;
@@ -1061,9 +1089,9 @@
             this.btnCancelarValores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelarValores.ImageIndex = 4;
             this.btnCancelarValores.ImageList = this.imageList1;
-            this.btnCancelarValores.Location = new System.Drawing.Point(135, 396);
+            this.btnCancelarValores.Location = new System.Drawing.Point(150, 396);
             this.btnCancelarValores.Name = "btnCancelarValores";
-            this.btnCancelarValores.Size = new System.Drawing.Size(90, 33);
+            this.btnCancelarValores.Size = new System.Drawing.Size(94, 33);
             this.btnCancelarValores.TabIndex = 36;
             this.btnCancelarValores.Text = "Cancelar";
             this.btnCancelarValores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1079,12 +1107,224 @@
             this.btnEditarValores.ImageList = this.imageList1;
             this.btnEditarValores.Location = new System.Drawing.Point(38, 396);
             this.btnEditarValores.Name = "btnEditarValores";
-            this.btnEditarValores.Size = new System.Drawing.Size(91, 33);
+            this.btnEditarValores.Size = new System.Drawing.Size(101, 33);
             this.btnEditarValores.TabIndex = 35;
-            this.btnEditarValores.Text = "Editar";
+            this.btnEditarValores.Text = "Modificar";
             this.btnEditarValores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarValores.UseVisualStyleBackColor = true;
             this.btnEditarValores.Click += new System.EventHandler(this.btnEditarValores_Click_1);
+            // 
+            // tpCategorias
+            // 
+            this.tpCategorias.Controls.Add(this.lblTest);
+            this.tpCategorias.Controls.Add(this.lblCodCategoria);
+            this.tpCategorias.Controls.Add(this.label17);
+            this.tpCategorias.Controls.Add(this.panelCategorias);
+            this.tpCategorias.Controls.Add(this.btnNuevaCategoria);
+            this.tpCategorias.Controls.Add(this.btnEliminarCategoria);
+            this.tpCategorias.Controls.Add(this.btnModificarCategoria);
+            this.tpCategorias.Controls.Add(this.label31);
+            this.tpCategorias.Controls.Add(this.dgvCategorias);
+            this.tpCategorias.Location = new System.Drawing.Point(4, 44);
+            this.tpCategorias.Name = "tpCategorias";
+            this.tpCategorias.Size = new System.Drawing.Size(796, 455);
+            this.tpCategorias.TabIndex = 5;
+            this.tpCategorias.Text = "Categorías";
+            this.tpCategorias.UseVisualStyleBackColor = true;
+            // 
+            // lblCodCategoria
+            // 
+            this.lblCodCategoria.AutoSize = true;
+            this.lblCodCategoria.Location = new System.Drawing.Point(139, 21);
+            this.lblCodCategoria.Name = "lblCodCategoria";
+            this.lblCodCategoria.Size = new System.Drawing.Size(0, 18);
+            this.lblCodCategoria.TabIndex = 39;
+            this.lblCodCategoria.Visible = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(108, 25);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(0, 18);
+            this.label17.TabIndex = 38;
+            this.label17.Visible = false;
+            // 
+            // panelCategorias
+            // 
+            this.panelCategorias.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelCategorias.Controls.Add(this.lblErrorCateg);
+            this.panelCategorias.Controls.Add(this.txtHasta);
+            this.panelCategorias.Controls.Add(this.label32);
+            this.panelCategorias.Controls.Add(this.txtValorCateg);
+            this.panelCategorias.Controls.Add(this.label30);
+            this.panelCategorias.Controls.Add(this.txtNombreCateg);
+            this.panelCategorias.Controls.Add(this.label19);
+            this.panelCategorias.Controls.Add(this.txtDesde);
+            this.panelCategorias.Controls.Add(this.lblDesde);
+            this.panelCategorias.Location = new System.Drawing.Point(31, 309);
+            this.panelCategorias.Name = "panelCategorias";
+            this.panelCategorias.Size = new System.Drawing.Size(422, 137);
+            this.panelCategorias.TabIndex = 37;
+            this.panelCategorias.Visible = false;
+            // 
+            // lblErrorCateg
+            // 
+            this.lblErrorCateg.AutoSize = true;
+            this.lblErrorCateg.ForeColor = System.Drawing.Color.IndianRed;
+            this.lblErrorCateg.Location = new System.Drawing.Point(217, 77);
+            this.lblErrorCateg.Name = "lblErrorCateg";
+            this.lblErrorCateg.Size = new System.Drawing.Size(193, 18);
+            this.lblErrorCateg.TabIndex = 38;
+            this.lblErrorCateg.Text = "*Rango de valores no válido";
+            this.lblErrorCateg.Visible = false;
+            // 
+            // txtHasta
+            // 
+            this.txtHasta.Location = new System.Drawing.Point(111, 74);
+            this.txtHasta.Name = "txtHasta";
+            this.txtHasta.Size = new System.Drawing.Size(100, 24);
+            this.txtHasta.TabIndex = 32;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(58, 77);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(47, 18);
+            this.label32.TabIndex = 31;
+            this.label32.Text = "Hasta";
+            // 
+            // txtValorCateg
+            // 
+            this.txtValorCateg.Location = new System.Drawing.Point(111, 104);
+            this.txtValorCateg.Name = "txtValorCateg";
+            this.txtValorCateg.Size = new System.Drawing.Size(100, 24);
+            this.txtValorCateg.TabIndex = 30;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(63, 107);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(42, 18);
+            this.label30.TabIndex = 29;
+            this.label30.Text = "Valor";
+            // 
+            // txtNombreCateg
+            // 
+            this.txtNombreCateg.Location = new System.Drawing.Point(111, 14);
+            this.txtNombreCateg.Name = "txtNombreCateg";
+            this.txtNombreCateg.Size = new System.Drawing.Size(299, 24);
+            this.txtNombreCateg.TabIndex = 27;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(43, 17);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(62, 18);
+            this.label19.TabIndex = 24;
+            this.label19.Text = "Nombre";
+            // 
+            // txtDesde
+            // 
+            this.txtDesde.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtDesde.Location = new System.Drawing.Point(111, 44);
+            this.txtDesde.Name = "txtDesde";
+            this.txtDesde.ReadOnly = true;
+            this.txtDesde.Size = new System.Drawing.Size(100, 24);
+            this.txtDesde.TabIndex = 28;
+            // 
+            // lblDesde
+            // 
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Location = new System.Drawing.Point(54, 47);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(51, 18);
+            this.lblDesde.TabIndex = 25;
+            this.lblDesde.Text = "Desde";
+            // 
+            // btnNuevaCategoria
+            // 
+            this.btnNuevaCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevaCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevaCategoria.ImageIndex = 1;
+            this.btnNuevaCategoria.ImageList = this.imageList1;
+            this.btnNuevaCategoria.Location = new System.Drawing.Point(31, 261);
+            this.btnNuevaCategoria.Name = "btnNuevaCategoria";
+            this.btnNuevaCategoria.Size = new System.Drawing.Size(103, 36);
+            this.btnNuevaCategoria.TabIndex = 34;
+            this.btnNuevaCategoria.Text = "         Nuevo";
+            this.btnNuevaCategoria.UseVisualStyleBackColor = true;
+            this.btnNuevaCategoria.Click += new System.EventHandler(this.btnNuevaCategoria_Click);
+            // 
+            // btnEliminarCategoria
+            // 
+            this.btnEliminarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarCategoria.ImageIndex = 3;
+            this.btnEliminarCategoria.ImageList = this.imageList1;
+            this.btnEliminarCategoria.Location = new System.Drawing.Point(244, 261);
+            this.btnEliminarCategoria.Name = "btnEliminarCategoria";
+            this.btnEliminarCategoria.Size = new System.Drawing.Size(98, 36);
+            this.btnEliminarCategoria.TabIndex = 36;
+            this.btnEliminarCategoria.Text = "Eliminar";
+            this.btnEliminarCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarCategoria.UseVisualStyleBackColor = true;
+            this.btnEliminarCategoria.Click += new System.EventHandler(this.btnEliminarCategoria_Click);
+            // 
+            // btnModificarCategoria
+            // 
+            this.btnModificarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificarCategoria.ImageIndex = 2;
+            this.btnModificarCategoria.ImageList = this.imageList1;
+            this.btnModificarCategoria.Location = new System.Drawing.Point(140, 261);
+            this.btnModificarCategoria.Name = "btnModificarCategoria";
+            this.btnModificarCategoria.Size = new System.Drawing.Size(98, 36);
+            this.btnModificarCategoria.TabIndex = 35;
+            this.btnModificarCategoria.Text = "Modificar";
+            this.btnModificarCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificarCategoria.UseVisualStyleBackColor = true;
+            this.btnModificarCategoria.Click += new System.EventHandler(this.btnModificarCategoria_Click);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(28, 21);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(104, 18);
+            this.label31.TabIndex = 33;
+            this.label31.Text = "CATEGORÍAS";
+            // 
+            // dgvCategorias
+            // 
+            this.dgvCategorias.AllowUserToAddRows = false;
+            this.dgvCategorias.AllowUserToDeleteRows = false;
+            this.dgvCategorias.AllowUserToResizeRows = false;
+            this.dgvCategorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCategorias.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategorias.Location = new System.Drawing.Point(31, 53);
+            this.dgvCategorias.MultiSelect = false;
+            this.dgvCategorias.Name = "dgvCategorias";
+            this.dgvCategorias.ReadOnly = true;
+            this.dgvCategorias.RowHeadersVisible = false;
+            this.dgvCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCategorias.Size = new System.Drawing.Size(575, 199);
+            this.dgvCategorias.TabIndex = 32;
+            this.dgvCategorias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategorias_CellClick);
+            // 
+            // lblTest
+            // 
+            this.lblTest.AutoSize = true;
+            this.lblTest.Location = new System.Drawing.Point(502, 309);
+            this.lblTest.Name = "lblTest";
+            this.lblTest.Size = new System.Drawing.Size(62, 18);
+            this.lblTest.TabIndex = 40;
+            this.lblTest.Text = "Valores:";
+            this.lblTest.Visible = false;
             // 
             // Configuracion
             // 
@@ -1102,6 +1342,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.tpPerfil.ResumeLayout(false);
             this.tpPerfil.PerformLayout();
+            this.panelUsuario.ResumeLayout(false);
+            this.panelUsuario.PerformLayout();
             this.tpRubros.ResumeLayout(false);
             this.tpRubros.PerformLayout();
             this.panelRubros.ResumeLayout(false);
@@ -1114,6 +1356,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBarrios)).EndInit();
             this.tpConfPagos.ResumeLayout(false);
             this.tpConfPagos.PerformLayout();
+            this.tpCategorias.ResumeLayout(false);
+            this.tpCategorias.PerformLayout();
+            this.panelCategorias.ResumeLayout(false);
+            this.panelCategorias.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1128,7 +1375,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txtNombres;
+        private System.Windows.Forms.TextBox txtNombrePerfil;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnEditarPass;
         private System.Windows.Forms.Button btnCancelarPass;
@@ -1136,9 +1383,9 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.DataGridView dgvRubros;
         private System.Windows.Forms.TabPage tpBarrios;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnNuevoBarrio;
+        private System.Windows.Forms.Button btnEliminarBarrio;
+        private System.Windows.Forms.Button btnModificarBarrio;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.DataGridView dgvBarrios;
         private System.Windows.Forms.TabPage tpConfPagos;
@@ -1178,8 +1425,8 @@
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtObservacion;
-        private System.Windows.Forms.TextBox txtValor;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtValorRubro;
+        private System.Windows.Forms.TextBox txtNombreRubro;
         private System.Windows.Forms.Label lblObservacionRubro;
         private System.Windows.Forms.Label lblValorRubro;
         private System.Windows.Forms.Label lblNombreRubro;
@@ -1199,8 +1446,29 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panelRubros;
         private System.Windows.Forms.Panel panelBarrios;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtNombreBarrio;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblCodRubro;
+        private System.Windows.Forms.TabPage tpCategorias;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panelCategorias;
+        private System.Windows.Forms.TextBox txtHasta;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox txtValorCateg;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox txtNombreCateg;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtDesde;
+        private System.Windows.Forms.Label lblDesde;
+        private System.Windows.Forms.Button btnNuevaCategoria;
+        private System.Windows.Forms.Button btnEliminarCategoria;
+        private System.Windows.Forms.Button btnModificarCategoria;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.DataGridView dgvCategorias;
+        private System.Windows.Forms.Panel panelUsuario;
+        private System.Windows.Forms.Label lblCodBarrio;
+        private System.Windows.Forms.Label lblCodCategoria;
+        private System.Windows.Forms.Label lblErrorCateg;
+        private System.Windows.Forms.Label lblTest;
     }
 }

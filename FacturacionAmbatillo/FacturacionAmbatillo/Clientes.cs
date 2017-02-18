@@ -455,7 +455,7 @@ namespace FacturacionAmbatillo
 
                         }
 
-                        MessageBox.Show(codLect.ToString());
+                        //MessageBox.Show(codLect.ToString());
                         codigoDePago = 0;
                         MySqlConnection cnn = new MySqlConnection(conexion.MyConString);
                         MySqlCommand cmd = new MySqlCommand("SpTotalAbonos", cnn);
@@ -1120,7 +1120,7 @@ namespace FacturacionAmbatillo
                     cmd = new MySqlCommand(sql, cnn);
                     cnn.Open();
                     resultado = cmd.ExecuteNonQuery();
-                    MessageBox.Show(row.Cells["idLect"].Value.ToString());
+                    //MessageBox.Show(row.Cells["idLect"].Value.ToString());
                     cnn.Close();
                 }
             }

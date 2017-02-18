@@ -10,8 +10,8 @@ namespace FacturacionAmbatillo
     {
         //public string MyConString = "server =tesisfids.com;user id = tesisfid_aguas; persistsecurityinfo=True;database=tesisfid_agua; pwd=Mysql007008%";
         //public string MyConString = "Server=MYSQL5012.myASP.NET;Database=db_a146be_h2o;Uid=a146be_h2o;Pwd=uta007008";
-        public string MyConString = "SERVER=localhost; DATABASE=aguasantarosa; UID=root; PASSWORD=root;";
-        //public string MyConString = "SERVER=localhost; DATABASE=aguas; UID=root; PASSWORD=root;";
+        //public string MyConString = "SERVER=localhost; DATABASE=aguasantarosa; UID=root; PASSWORD=root;";
+        public string MyConString = "SERVER=localhost; DATABASE=aguas; UID=root; PASSWORD=root;";
 
     }
 }

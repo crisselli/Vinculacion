@@ -38,9 +38,12 @@ namespace FacturacionAmbatillo
                 if (myreader.HasRows)
                 {
                     this.Hide();
-                    Principal pr = new Principal(txtUsuario.Text.Trim(), myreader["nombres"].ToString());
+                    Principal pr = new Principal(ced, myreader["nombres"].ToString(), pass);
                     //Principal pr = new Principal();
-                    pr.pass = txtClave.Text;
+                    //pr.pass = txtClave.Text;
+                    ConfigUsuarios cu = new ConfigUsuarios();
+                    cu.Ced = ced;
+                    cu.Clave = pass; // txtClave.Text;
                     pr.ShowDialog();
                     this.Close();
                 }
@@ -56,20 +59,18 @@ namespace FacturacionAmbatillo
                 MessageBox.Show(ex.Message);
             }
             
-
-            //return user;
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            validarUser(txtUsuario.Text,txtClave.Text);
+            validarUser(txtUsuario.Text.Trim(), txtClave.Text);
         }
 
         private void txtUsuario_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                validarUser(txtUsuario.Text, txtClave.Text);
+                validarUser(txtUsuario.Text.Trim(), txtClave.Text);
                 
             }
         }
@@ -78,7 +79,7 @@ namespace FacturacionAmbatillo
         {
             if (e.KeyCode == Keys.Enter)
             {
-                validarUser(txtUsuario.Text, txtClave.Text);
+                validarUser(txtUsuario.Text.Trim(), txtClave.Text);
             }
         }
 

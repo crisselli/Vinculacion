@@ -56,6 +56,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(145, 22);
             this.txtUsuario.TabIndex = 1;
+            this.txtUsuario.Text = "1804450730";
             this.txtUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyUp);
             // 
             // txtClave
@@ -65,6 +66,7 @@
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(145, 22);
             this.txtClave.TabIndex = 3;
+            this.txtClave.Text = "123";
             this.txtClave.UseSystemPasswordChar = true;
             this.txtClave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyUp);
             // 

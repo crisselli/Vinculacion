@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -39,6 +40,8 @@
             this.lblLecturas = new System.Windows.Forms.Label();
             this.lblPagos = new System.Windows.Forms.Label();
             this.lblClientes = new System.Windows.Forms.Label();
+            this.menuSalir = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -48,6 +51,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.menuSalir.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -108,7 +112,7 @@
             this.pbConfiguracion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbConfiguracion.TabIndex = 2;
             this.pbConfiguracion.TabStop = false;
-            this.pbConfiguracion.Click += new System.EventHandler(this.pbConfiguracion_Click);
+            this.pbConfiguracion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbConfiguracion_MouseClick);
             // 
             // pictureBox1
             // 
@@ -119,6 +123,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // splitContainer2
             // 
@@ -205,6 +210,20 @@
             this.lblClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblClientes.Click += new System.EventHandler(this.lblClientes_Click);
             // 
+            // menuSalir
+            // 
+            this.menuSalir.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cerrarSesiónToolStripMenuItem});
+            this.menuSalir.Name = "menuSalir";
+            this.menuSalir.Size = new System.Drawing.Size(144, 26);
+            // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,6 +246,7 @@
             this.splitContainer2.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.menuSalir.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -242,6 +262,8 @@
         private System.Windows.Forms.Label lblReportes;
         private System.Windows.Forms.Label lblLecturas;
         private System.Windows.Forms.Label lblClientes;
-        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.ContextMenuStrip menuSalir;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        public System.Windows.Forms.Label lblUsuario;
     }
 }

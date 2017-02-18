@@ -148,7 +148,7 @@ namespace FacturacionAmbatillo
                 conn = new MySqlConnection(myConnectionString);
                 conn.Open();
 
-                string stm = "SELECT id_lect,id_med_p,lec_ant,lec_act,cant_total,nombre,estado,observ " +
+                string stm = "SELECT id_lect as 'ID',id_med_p as 'Medidor',lec_ant as 'L. Anterior' ,lec_act as 'L. Actual',cant_total as 'Cantidad',Nombre,Estado,observ as 'Observación' " +
 "from lecturas, categorias " +
 "where fecha like concat('%', Date_format(now(), '%Y-%m-%d'), '%') " +
 "and cod_cat = codigo " +
@@ -187,7 +187,7 @@ namespace FacturacionAmbatillo
                 conn = new MySqlConnection(myConnectionString);
                 conn.Open();
 
-                string stm = "SELECT id_lect,id_med_p,lec_ant,lec_act,cant_total,nombre,estado,observ " +
+                string stm = "SELECT id_lect as 'ID',id_med_p as 'Medidor',lec_ant as 'L. Anterior' ,lec_act as 'L. Actual',cant_total as 'Cantidad',Nombre,Estado,observ as 'Observación'  " +
 "from lecturas, categorias " +
 "where fecha like concat('%', Date_format(now(), '%Y-%m-%d'), '%') " +
 "and cod_cat = codigo; ";
@@ -221,7 +221,7 @@ namespace FacturacionAmbatillo
                 conn = new MySqlConnection(myConnectionString);
                 conn.Open();
 
-                string stm = "SELECT id_lect,id_med_p,lec_ant,lec_act,cant_total,nombre,estado,observ " +
+                string stm = "SELECT id_lect as 'ID',id_med_p as 'Medidor',lec_ant as 'L. Anterior' ,lec_act as 'L. Actual',cant_total as 'Cantidad',Nombre,Estado,observ as 'Observación' " +
 "from lecturas, categorias " +
 "where fecha like concat('%', Date_format(now(), '%Y-%m-%d'), '%') " +
 "and cod_cat = codigo " +
@@ -229,7 +229,6 @@ namespace FacturacionAmbatillo
                 MySqlCommand cmd = new MySqlCommand(stm, conn);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 adapter.Fill(dt);
-
 
             }
             catch (MySqlException ex)
@@ -279,13 +278,13 @@ namespace FacturacionAmbatillo
         {
             Lectura lectura = new Lectura();
             string id;
-            id = dataGridView1.Rows[e.RowIndex].Cells["id_lect"].Value.ToString();
+            id = dataGridView1.Rows[e.RowIndex].Cells["ID"].Value.ToString();
             if (id != "")
             {
 
-                lectura.Id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_lect"].Value.ToString());
-                lectura.Lec_ant = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["lec_ant"].Value.ToString());
-                lectura.Lec_act = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["lec_act"].Value.ToString());
+                lectura.Id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+                lectura.Lec_ant = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["L. Anterior"].Value.ToString());
+                lectura.Lec_act = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["L. Actual"].Value.ToString());
                 int result = update(lectura);
 
                 if (result > 0)
@@ -295,7 +294,7 @@ namespace FacturacionAmbatillo
                     control();
                     dataGridView1.DataSource = selectAll();
 
-                    int cantidad = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["cant_total"].Value.ToString());
+                    int cantidad = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Cantidad"].Value.ToString());
                     if (cantidad <= 0)
                     {
                         DataGridViewCell cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
@@ -449,14 +448,14 @@ namespace FacturacionAmbatillo
         private void controlDatagridView()
         {
 
-            dataGridView1.Columns["id_lect"].ReadOnly = true;
-            dataGridView1.Columns["id_med_p"].ReadOnly = false;
-            dataGridView1.Columns["lec_ant"].ReadOnly = true;
-            dataGridView1.Columns["lec_act"].ReadOnly = false;
-            dataGridView1.Columns["cant_total"].ReadOnly = true;
-            dataGridView1.Columns["nombre"].ReadOnly = true;
-            dataGridView1.Columns["estado"].ReadOnly = true;
-            dataGridView1.Columns["observ"].ReadOnly = true;
+            dataGridView1.Columns[0].ReadOnly = true; //id_lect
+            dataGridView1.Columns[1].ReadOnly = false; //id_med_p
+            dataGridView1.Columns[2].ReadOnly = true; //lec_ant
+            dataGridView1.Columns[3].ReadOnly = false; //lec_act
+            dataGridView1.Columns[4].ReadOnly = true; //cant_total
+            dataGridView1.Columns[5].ReadOnly = true; //nombre
+            dataGridView1.Columns[6].ReadOnly = true; //estado
+            dataGridView1.Columns[7].ReadOnly = true; //observ
 
         }
 
@@ -488,7 +487,7 @@ namespace FacturacionAmbatillo
             {
                 int currentRow = dataGridView1.CurrentCell.RowIndex;
                 dataGridView1.Rows[currentRow].Selected = true;
-                string id = dataGridView1.Rows[currentRow].Cells["id_lect"].Value.ToString();
+                string id = dataGridView1.Rows[currentRow].Cells["ID"].Value.ToString();
 
 
                 if (e.KeyData == Keys.Back || e.KeyCode == Keys.Delete)
@@ -516,8 +515,8 @@ namespace FacturacionAmbatillo
             dataGridView1.Rows[currentRow].Selected = true;
             try
             {
-                string medidor = dataGridView1.Rows[currentRow].Cells["id_med_p"].Value.ToString();
-                string lecturas = dataGridView1.Rows[currentRow].Cells["lec_act"].Value.ToString();
+                string medidor = dataGridView1.Rows[currentRow].Cells["Medidor"].Value.ToString();
+                string lecturas = dataGridView1.Rows[currentRow].Cells["L. Actual"].Value.ToString();
                 if (medidor != "" && lecturas != "")
                 {
                     insertGrid(medidor, lecturas);

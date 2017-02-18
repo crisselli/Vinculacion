@@ -19,13 +19,13 @@ namespace FacturacionAmbatillo
         Lecturas lc=new Lecturas();
         Reportes re = new Reportes();
         Configuracion co;
-        public string pass;
-        public Principal(string userID, string userName)
+        public string clave;
+        public Principal(string userID, string userName, string pass)
         {
             InitializeComponent();
 
             cl = new Clientes(userID);
-            co = new Configuracion(userID);
+            co = new Configuracion(userID, pass);
 
             //Cargar la pagina clientes como vista principal
             lblClientes_Click(new object(), new EventArgs());
@@ -34,8 +34,9 @@ namespace FacturacionAmbatillo
             //Cargar nombre de usuario
             //cargarUsuario(userID);
             lblUsuario.Text = userName.Substring(0, userName.IndexOf(" "));
+            clave = pass;
         }
-
+        
         public Principal()
         {
            
@@ -44,14 +45,6 @@ namespace FacturacionAmbatillo
         MetodosGenerales metodo = new MetodosGenerales();
         DataTable dtt;
         Conexion conexion = new Conexion();
-
-        //private void cargarUsuario(string user) {
-        //    string sql = "SELECT substring_index(" +
-        //                    "(SELECT nombres FROM usuarios " +
-        //                    "where ced = '" + user + "'),' ',1);";
-        //    dtt = metodo.consultarDatos(sql);
-        //    lblUsuario.Text = dtt.Rows[0][0].ToString();
-        //}
 
         //Agregar Form en panel
         public void AddFormInPanel(Form fh){        
@@ -162,15 +155,33 @@ namespace FacturacionAmbatillo
                 lblReportes.BackColor = Color.FromArgb(38, 38, 38);
                 lblTitulo.Text = "REPORTES";
         }
-
-        private void pbConfiguracion_Click(object sender, EventArgs e)
+        
+        private void pbConfiguracion_MouseClick(object sender, MouseEventArgs e)
         {
-            cambiarFormulario(4);
-            limpiaLabels();
-            lblTitulo.Text = "CONFIGURACIÓN";
+            if (e.Button == MouseButtons.Right)
+            {
+                //Application.Restart();
+                pbConfiguracion.ContextMenuStrip = menuSalir;
+            }
+            else
+            {
+                cambiarFormulario(4);
+                limpiaLabels();
+                lblTitulo.Text = "CONFIGURACIÓN";
+            }
         }
 
         #endregion
-        
+
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(lblUsuario.Text + " " + clave);
+        }
     }
 }
